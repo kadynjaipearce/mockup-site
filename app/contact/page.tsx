@@ -74,7 +74,7 @@ function ContactForm() {
           animate={{ opacity: 1 }}
           className="text-emerald-600 text-center mt-2"
         >
-          Thank you! We'll be in touch soon.
+          Thank you! We&apos;ll be in touch soon.
         </motion.p>
       )}
     </form>
