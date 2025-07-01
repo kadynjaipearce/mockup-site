@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -80,7 +79,7 @@ export default function GalleryPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/85 to-white/95 z-10" />
         <div className="relative z-20 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-[#091e19] mb-4 font-handwriting">
             Our Gallery
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -150,7 +149,7 @@ export default function GalleryPage() {
           transition={{ duration: 0.7 }}
           className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-200"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#091e19] mb-4 font-handwriting">
             Experience Our Space in Person
           </h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   RiMapPinLine,
   RiPhoneLine,
@@ -90,7 +89,7 @@ export default function ContactPage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12 text-gray-800"
+        className="text-4xl md:text-6xl font-bold text-center mb-8 md:mb-12 text-[#091e19] font-handwriting"
       >
         Contact Us
       </motion.h1>
@@ -147,7 +146,7 @@ export default function ContactPage() {
           transition={{ duration: 0.7 }}
           className="bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-8 flex flex-col gap-6 border border-gray-200"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center text-[#091e19] font-handwriting">
             Send a Message
           </h2>
           <ContactForm />

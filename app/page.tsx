@@ -59,7 +59,7 @@ export default function HomePage() {
           transition={{ delay: 0.3, duration: 0.7 }}
           className="flex flex-col gap-6 md:gap-8 bg-gray-50 rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12"
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-2 text-gray-800">
+          <h2 className="text-3xl md:text-5xl font-bold mb-2 text-[#091e19] font-handwriting">
             Our Story
           </h2>
           <p className="text-base md:text-lg mb-2 text-gray-600">
@@ -69,7 +69,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/about"
-            className="text-emerald-600 underline underline-offset-2 hover:text-emerald-700 font-semibold w-fit"
+            className="text-[#091e19] underline underline-offset-2 hover:text-[#3f5855] font-semibold w-fit"
           >
             Learn more →
           </Link>
@@ -88,7 +88,7 @@ export default function HomePage() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.7 }}
-          className="text-2xl md:text-4xl font-bold mb-12 text-center text-gray-800"
+          className="text-3xl md:text-5xl font-bold mb-12 text-center text-[#091e19] font-handwriting"
         >
           Our Services
         </motion.h2>
@@ -118,7 +118,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * i, duration: 0.7 }}
-              className="bg-gray-50 rounded-2xl shadow-xl border border-gray-200 p-8 flex flex-col items-center min-w-0"
+              className="bg-[#3f5855] rounded-2xl shadow-xl border border-[#3f5855] p-8 flex flex-col items-center min-w-0"
             >
               <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
                 <Image
@@ -129,15 +129,15 @@ export default function HomePage() {
                   className="w-12 h-12 object-cover rounded-full"
                 />
               </div>
-              <h3 className="font-semibold text-lg md:text-xl mb-2 text-gray-800 text-center">
+              <h3 className="font-semibold text-lg md:text-xl mb-2 text-white text-center">
                 {svc.title}
               </h3>
-              <p className="text-sm md:text-base mb-2 text-gray-600 text-center">
+              <p className="text-sm md:text-base mb-2 text-gray-100 text-center">
                 {svc.desc}
               </p>
               <Link
                 href="/services"
-                className="text-emerald-600 underline underline-offset-2 hover:text-emerald-700 font-semibold"
+                className="text-white underline underline-offset-2 hover:text-gray-200 font-semibold"
               >
                 Learn more
               </Link>
@@ -145,12 +145,8 @@ export default function HomePage() {
           ))}
         </div>
       </motion.section>
-      {/* Testimonials Marquee - now full width, with background, and between Services and Specials */}
-      <section className="w-full bg-gradient-to-r from-emerald-50 to-green-50 py-16 md:py-24 flex items-center justify-center border-y border-gray-200">
-        <div className="w-full max-w-[1920px]">
-          <TestimonialMarquee />
-        </div>
-      </section>
+      {/* Testimonials Marquee - full screen with dark green background */}
+      <TestimonialMarquee />
       {/* Specials Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
@@ -164,7 +160,7 @@ export default function HomePage() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.7 }}
-          className="text-2xl md:text-4xl font-bold mb-4 text-center text-gray-800"
+          className="text-3xl md:text-5xl font-bold mb-4 text-center text-[#091e19] font-handwriting"
         >
           Weekly & Monthly Specials
         </motion.h2>
@@ -217,14 +213,14 @@ export default function HomePage() {
           transition={{ delay: 0.2, duration: 0.7 }}
           className="relative z-10 flex flex-col items-center gap-6"
         >
-          <h2 className="text-xl md:text-3xl font-bold mb-2 text-center text-gray-800">
+          <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center text-[#091e19] font-handwriting">
             Start your healing journey today.
           </h2>
           <motion.a
             href="https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?fbclid=IwY2xjawLQHwhleHRuA2FlbQIxMABicmlkETFGWm5COXpTZnBWTDRRWXd1AR6D56Gac76XjpZheWQiNuBZpE_oNC8mLe7YkRnPgbLjaQBGnio1rQsrAOouag_aem_wheIqeqYpLSoqQOOP_uNvg#service"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+            className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-[#091e19] to-[#3f5855] text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
             whileHover={{
               scale: 1.05,
               transition: { duration: 0.2 },

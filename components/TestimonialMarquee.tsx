@@ -41,7 +41,7 @@ const testimonials = [
 
 export default function TestimonialMarquee() {
   return (
-    <div className="w-full overflow-x-hidden py-12 bg-gradient-to-r from-emerald-50 to-green-50">
+    <div className="w-full overflow-x-hidden py-16 md:py-24 bg-[#3f5855]">
       <motion.div
         className="flex gap-8"
         initial={{ x: 0 }}
@@ -57,14 +57,14 @@ export default function TestimonialMarquee() {
         {[...testimonials, ...testimonials].map((t, i) => (
           <div
             key={i}
-            className="min-w-[320px] max-w-xs bg-white/80 backdrop-blur-md border border-emerald-200 rounded-2xl shadow-lg p-6 flex flex-col items-center mx-2"
+            className="min-w-[320px] max-w-xs bg-white/95 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 flex flex-col items-center mx-2"
           >
             <Image
               src={t.avatar}
               alt={t.name}
               width={64}
               height={64}
-              className="w-16 h-16 rounded-full object-cover mb-3 border-2 border-emerald-300"
+              className="w-16 h-16 rounded-full object-cover mb-3 border-2 border-[#091e19]"
             />
             <div className="flex items-center gap-1 mb-3">
               {[...Array(t.rating)].map((_, starIndex) => (
@@ -75,10 +75,10 @@ export default function TestimonialMarquee() {
                 />
               ))}
             </div>
-            <p className="text-base italic text-gray-700 mb-2 text-center">
-              "{t.quote}"
+            <p className="text-base italic text-gray-800 mb-2 text-center">
+              &quot;{t.quote}&quot;
             </p>
-            <span className="font-semibold text-emerald-700">{t.name}</span>
+            <span className="font-semibold text-[#091e19]">{t.name}</span>
           </div>
         ))}
       </motion.div>

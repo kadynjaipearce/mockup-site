@@ -9,35 +9,37 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div className="flex items-center gap-2 text-gray-800 font-bold text-lg">
-          <RiLeafLine size={24} className="text-emerald-600" />
-          Bunbury Wellness
+          <RiLeafLine size={24} className="text-[#091e19]" />
+          <span className="font-handwriting text-[#091e19] text-xl">
+            Bunbury Wellness
+          </span>
         </div>
         {/* Nav Links */}
         <nav className="flex flex-wrap gap-6 text-gray-600 text-sm font-medium">
-          <Link href="/" className="hover:text-emerald-600 transition-colors">
+          <Link href="/" className="hover:text-[#091e19] transition-colors">
             Home
           </Link>
           <Link
             href="/about"
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-[#091e19] transition-colors"
           >
             About
           </Link>
           <Link
             href="/services"
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-[#091e19] transition-colors"
           >
             Services
           </Link>
           <Link
             href="/contact"
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-[#091e19] transition-colors"
           >
             Contact
           </Link>
           <Link
             href="/tos"
-            className="underline underline-offset-2 hover:text-emerald-600 transition-colors"
+            className="underline underline-offset-2 hover:text-[#091e19] transition-colors"
           >
             Terms of Service
           </Link>

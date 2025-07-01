@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
@@ -13,29 +12,29 @@ export default function Hero() {
         className="absolute inset-0 object-cover object-center z-0"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white/80 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/90 z-10" />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
         className="relative z-20 flex flex-col items-center text-center gap-6"
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2 text-gray-800">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-2 text-[#091e19] font-handwriting">
           Bunbury Wellness Remedial Massage
         </h1>
-        <p className="text-xl md:text-2xl font-medium mb-4 text-gray-600">
+        <p className="text-2xl md:text-3xl font-medium mb-4 text-[#3f5855] font-handwriting">
           Breathe . Boost . Bond
         </p>
         <motion.a
           href="https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?fbclid=IwY2xjawLQHwhleHRuA2FlbQIxMABicmlkETFGWm5COXpTZnBWTDRRWXd1AR6D56Gac76XjpZheWQiNuBZpE_oNC8mLe7YkRnPgbLjaQBGnio1rQsrAOouag_aem_wheIqeqYpLSoqQOOP_uNvg#service"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+          className="inline-block px-10 py-3 bg-[#3f5855] text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-[#091e19] hover:bg-[#091e19] rounded-lg"
           whileHover={{
-            scale: 1.05,
-            transition: { duration: 0.2 },
+            scale: 1.02,
+            transition: { duration: 0.3 },
           }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: 0.98 }}
         >
           Book Now
         </motion.a>
