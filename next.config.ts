@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
       },
     ],
     domains: ["randomuser.me"],
-    unoptimized: false,
+    unoptimized: true,
   },
 };
 
