@@ -6,34 +6,34 @@ import { RiStarFill } from "@remixicon/react";
 const testimonials = [
   {
     name: "Sophie L.",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+    avatar: "/fuko.jpg",
     rating: 5,
     quote:
       "Absolutely the best massage experience I've ever had. The space is beautiful and calming!",
   },
   {
     name: "James R.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: "/fuko.jpg",
     rating: 5,
     quote:
       "Professional, friendly, and truly effective. My back pain is gone! Highly recommend.",
   },
   {
     name: "Emily W.",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    avatar: "/fuko.jpg",
     rating: 5,
     quote:
       "The pregnancy massage was so gentle and relaxing. I felt so cared for.",
   },
   {
     name: "Michael T.",
-    avatar: "https://randomuser.me/api/portraits/men/65.jpg",
+    avatar: "/fuko.jpg",
     rating: 5,
     quote: "A premium experience from start to finish. The team is amazing!",
   },
   {
     name: "Priya S.",
-    avatar: "https://randomuser.me/api/portraits/women/12.jpg",
+    avatar: "/fuko.jpg",
     rating: 5,
     quote: "The atmosphere is so calming and the therapists are very skilled.",
   },
