@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "randomuser.me",
         port: "",
-        pathname: "/api/portraits/**",
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
       },
     ],
     domains: ["randomuser.me"],
+    unoptimized: false,
   },
 };
 
