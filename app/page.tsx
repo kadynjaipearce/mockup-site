@@ -68,7 +68,7 @@ export default function HomePage() {
             passion for healing.
           </p>
           <Link
-            href="/about"
+            href="/"
             className="text-[#091e19] underline underline-offset-2 hover:text-[#3f5855] font-semibold w-fit"
           >
             Learn more →
@@ -136,7 +136,7 @@ export default function HomePage() {
                 {svc.desc}
               </p>
               <Link
-                href="/services"
+                href="/"
                 className="text-white underline underline-offset-2 hover:text-gray-200 font-semibold"
               >
                 Learn more
