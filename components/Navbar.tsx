@@ -61,7 +61,6 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#091e19]"
-          onClick={() => setMobileOpen((v) => !v)}
           aria-label="Open menu"
         >
           {mobileOpen ? <RiCloseLine size={28} /> : <RiMenu3Line size={28} />}
