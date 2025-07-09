@@ -56,7 +56,7 @@ const Testimonials = () => {
       );
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <section id="testimonials" className="py-20 bg-spa-secondary">

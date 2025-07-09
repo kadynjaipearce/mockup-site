@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { Gift, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const amounts = [50, 75, 100, 150, 200];
 
