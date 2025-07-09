@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       cancel_url: "https://mockup-site.vercel.app/",
     });
     return Response.json({ url: session.url });
-  } catch (err) {
+  } catch {
     return new Response(JSON.stringify({ error: "Stripe error" }), {
       status: 500,
     });
