@@ -23,21 +23,21 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200"
+                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer"
                 aria-label="Follow us on Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200"
+                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer"
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200"
+                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer"
                 aria-label="Follow us on Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -50,27 +50,27 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
                   Our Services
                 </button>
               </li>
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
                   About Us
                 </button>
               </li>
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
                   Current Specials
                 </button>
               </li>
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
                   Testimonials
                 </button>
               </li>
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
                   Contact & Booking
                 </button>
               </li>
@@ -93,7 +93,7 @@ const Footer = () => {
                 <div className="font-medium text-white mb-1">Phone</div>
                 <a
                   href="tel:+61897210000"
-                  className="text-sm hover:text-spa-accent transition-colors"
+                  className="text-sm hover:text-spa-accent transition-colors cursor-pointer"
                 >
                   (08) 9721 0000
                 </a>
@@ -102,7 +102,7 @@ const Footer = () => {
                 <div className="font-medium text-white mb-1">Email</div>
                 <a
                   href="mailto:hello@bunburywellness.com.au"
-                  className="text-sm hover:text-spa-accent transition-colors"
+                  className="text-sm hover:text-spa-accent transition-colors cursor-pointer"
                 >
                   hello@bunburywellness.com.au
                 </a>
@@ -114,18 +114,21 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 Bunbury Wellness Remedial Massage. All rights reserved.
+            © 2025 Bunbury Wellness Remedial Massage. All rights reserved.
+            <span className="block md:inline text-xs text-gray-500 mt-1 md:mt-0 md:ml-4">
+              Developed by Aperia Solutions
+            </span>
           </div>
           <div className="flex space-x-6 text-sm">
             <a
               href="#"
-              className="text-gray-400 hover:text-spa-accent transition-colors"
+              className="text-gray-400 hover:text-spa-accent transition-colors cursor-pointer"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-gray-400 hover:text-spa-accent transition-colors"
+              className="text-gray-400 hover:text-spa-accent transition-colors cursor-pointer"
             >
               Terms of Service
             </a>
