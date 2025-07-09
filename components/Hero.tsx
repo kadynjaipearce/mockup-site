@@ -1,16 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { RiLeafLine, RiCalendar2Line } from "@remixicon/react";
+import { RiCalendar2Line } from "@remixicon/react";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       {/* Background Image */}

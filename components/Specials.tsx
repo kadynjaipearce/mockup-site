@@ -1,73 +1,91 @@
-const Specials = () => {
-  const specials = [
-    {
-      type: "Monthly Special",
-      title: "Winter Wellness Special",
-      description:
-        "15% off all Remedial Massages this month. Stay warm and healthy!",
-      cta: "Book Now",
-    },
-    {
-      type: "Weekly Special",
-      title: "Midweek Relaxation",
-      description:
-        "Book a Relaxation Massage on Wednesdays and get a free aromatherapy upgrade",
-      cta: "Book Wednesday",
-    },
-    {
-      type: "Weekly Special",
-      title: "Mum-to-Be Mondays",
-      description: "Pregnancy Massage 10% off every Monday for expectant mums",
-      cta: "Book Monday",
-    },
-  ];
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const specials = [
+  {
+    image: "/front.jpg",
+    title: "Relax and renew",
+    subtitle: "Book in your body treatment today",
+    cta: "Learn More",
+  },
+  {
+    image: "/back.jpg",
+    title: "Deep Tissue Relief",
+    subtitle: "Experience our signature back massage",
+    cta: "Learn More",
+  },
+  {
+    image: "/preg.jpg",
+    title: "Pregnancy Massage",
+    subtitle: "Gentle care for mums-to-be",
+    cta: "Learn More",
+  },
+  {
+    image: "/fuko.jpg",
+    title: "Remedial Therapy",
+    subtitle: "Restore balance and wellness",
+    cta: "Learn More",
+  },
+];
+
+export default function Specials() {
+  const [current, setCurrent] = useState(0);
+  const total = specials.length;
+
+  const prev = () => setCurrent((c) => (c === 0 ? total - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === total - 1 ? 0 : c + 1));
 
   return (
-    <section id="specials" className="py-20 bg-spa-neutral">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
-            Weekly & Monthly Specials
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Take advantage of our exclusive offers designed to make wellness
-            more accessible
-          </p>
+    <section
+      id="specials"
+      className="relative w-full min-h-[66vh] flex items-center justify-center overflow-hidden bg-black"
+    >
+      {/* Slides */}
+      {specials.map((special, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            i === current ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
+          <Image
+            src={special.image}
+            alt={special.title}
+            fill
+            className="object-cover object-center w-full h-full"
+            priority={i === 0}
+          />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h3 className="text-white text-lg md:text-xl font-light mb-2 drop-shadow-lg">
+              {special.title}
+            </h3>
+            <h2 className="text-white text-3xl md:text-5xl font-light mb-8 drop-shadow-lg">
+              {special.subtitle}
+            </h2>
+            <button className="btn-spa-service text-base md:text-lg px-8 py-3">
+              <span>{special.cta}</span>
+            </button>
+          </div>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specials.map((special, index) => (
-            <div
-              key={index}
-              className="bg-spa-primary text-white p-8 rounded-sm card-hover"
-            >
-              <div className="text-spa-accent text-sm font-medium uppercase tracking-wide mb-2">
-                {special.type}
-              </div>
-              <h3 className="text-xl font-semibold mb-4">{special.title}</h3>
-              <p className="text-white/90 mb-8 leading-relaxed">
-                {special.description}
-              </p>
-              <button
-                className="bg-transparent border-2 border-spa-accent text-spa-accent px-6 py-3 font-medium tracking-wide transition-all duration-300 ease-in-out relative overflow-hidden hover:text-spa-secondary"
-                style={{
-                  position: "relative",
-                }}
-              >
-                <span
-                  className="absolute inset-0 bg-spa-accent transition-transform duration-300 ease-in-out"
-                  style={{
-                    transform: "var(--before-transform, translateX(-100%))",
-                  }}
-                ></span>
-                <span className="relative z-10">{special.cta}</span>
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
+      {/* Navigation Arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 cursor-pointer z-20"
+        aria-label="Previous special"
+      >
+        <ChevronLeft className="h-6 w-6 relative z-10" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 cursor-pointer z-20"
+        aria-label="Next special"
+      >
+        <ChevronRight className="h-6 w-6 relative z-10" />
+      </button>
     </section>
   );
-};
-
-export default Specials;
+}

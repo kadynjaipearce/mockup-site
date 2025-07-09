@@ -234,8 +234,8 @@
   color: hsl(var(--spa-accent));
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   transition-property: all;

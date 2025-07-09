@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { RiLeafLine, RiCalendar2Line } from "@remixicon/react";
+import { RiLeafLine } from "@remixicon/react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

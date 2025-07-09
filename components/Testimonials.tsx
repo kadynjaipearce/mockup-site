@@ -50,7 +50,11 @@ const Testimonials = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -78,7 +82,7 @@ const Testimonials = () => {
             </div>
 
             <blockquote className="text-xl md:text-2xl text-white font-light mb-6 leading-relaxed">
-              "{testimonials[currentIndex].quote}"
+              &quot;{testimonials[currentIndex].quote}&quot;
             </blockquote>
 
             <cite className="text-spa-accent font-medium text-lg">
