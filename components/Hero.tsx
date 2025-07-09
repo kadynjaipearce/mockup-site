@@ -32,7 +32,7 @@ const Hero = () => {
 
         <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
           Experience the difference of care, expertise, and a passion for
-          healing in Bunbury's premier wellness destination
+          healing in Bunbury&apos;s premier wellness destination
         </p>
 
         <a

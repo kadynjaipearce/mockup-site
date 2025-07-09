@@ -168,7 +168,7 @@ const Contact = () => {
                 Get In Touch
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                We're here to help you on your wellness journey. Contact us
+                We&apos;re here to help you on your wellness journey. Contact us
                 today to discuss your needs and book your personalized
                 treatment.
               </p>
