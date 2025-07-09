@@ -1,54 +1,139 @@
-import Link from "next/link";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import { RiLeafLine } from "@remixicon/react";
 
-const year = new Date().getFullYear();
-
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="w-full bg-white border-t border-gray-200 py-8 px-4 md:px-0 mt-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Brand */}
-        <div className="flex items-center gap-2 text-gray-800 font-bold text-lg">
-          <RiLeafLine size={24} className="text-[#091e19]" />
-          <span className="font-handwriting text-[#091e19] text-xl">
-            Bunbury Wellness
-          </span>
+    <footer className="bg-spa-secondary text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-3 mb-6">
+              <RiLeafLine className="h-10 w-10 text-spa-accent" />
+              <div>
+                <div className="font-semibold text-xl">Bunbury Wellness</div>
+                <div className="text-sm opacity-80">Remedial Massage</div>
+              </div>
+            </div>
+            <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
+              Your premier destination for therapeutic and wellness massage
+              treatments in Bunbury, WA. Experience the healing power of
+              professional, caring touch.
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="#"
+                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200"
+                aria-label="Follow us on Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200"
+                aria-label="Follow us on Twitter"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-semibold text-lg mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                  Our Services
+                </button>
+              </li>
+              <li>
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                  Current Specials
+                </button>
+              </li>
+              <li>
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                  Testimonials
+                </button>
+              </li>
+              <li>
+                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200">
+                  Contact & Booking
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="font-semibold text-lg mb-6">Contact Info</h3>
+            <div className="space-y-3 text-gray-300">
+              <div>
+                <div className="font-medium text-white mb-1">Address</div>
+                <div className="text-sm">
+                  123 Wellness Street
+                  <br />
+                  Bunbury, WA 6230
+                </div>
+              </div>
+              <div>
+                <div className="font-medium text-white mb-1">Phone</div>
+                <a
+                  href="tel:+61897210000"
+                  className="text-sm hover:text-spa-accent transition-colors"
+                >
+                  (08) 9721 0000
+                </a>
+              </div>
+              <div>
+                <div className="font-medium text-white mb-1">Email</div>
+                <a
+                  href="mailto:hello@bunburywellness.com.au"
+                  className="text-sm hover:text-spa-accent transition-colors"
+                >
+                  hello@bunburywellness.com.au
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        {/* Nav Links */}
-        <nav className="flex flex-wrap gap-6 text-gray-600 text-sm font-medium">
-          <Link href="/" className="hover:text-[#091e19] transition-colors">
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="hover:text-[#091e19] transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="/services"
-            className="hover:text-[#091e19] transition-colors"
-          >
-            Services
-          </Link>
-          <Link
-            href="/contact"
-            className="hover:text-[#091e19] transition-colors"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/tos"
-            className="underline underline-offset-2 hover:text-[#091e19] transition-colors"
-          >
-            Terms of Service
-          </Link>
-        </nav>
-        {/* Copyright */}
-        <div className="text-gray-500 text-xs md:text-sm text-center md:text-right">
-          &copy; {year} Bunbury Wellness Remedial Massage. All rights reserved.
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2024 Bunbury Wellness Remedial Massage. All rights reserved.
+          </div>
+          <div className="flex space-x-6 text-sm">
+            <a
+              href="#"
+              className="text-gray-400 hover:text-spa-accent transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-spa-accent transition-colors"
+            >
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
