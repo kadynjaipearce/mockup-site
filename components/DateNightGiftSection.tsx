@@ -123,7 +123,20 @@ export default function DateNightGiftSection() {
                       }`}
                     />
                   </div>
-                  <button className="btn-spa-accent text-base px-8 py-3 w-full flex items-center justify-center gap-2 group mt-4 mx-auto">
+                  <button
+                    className="btn-spa-accent text-base px-8 py-3 w-full flex items-center justify-center gap-2 group mt-4 mx-auto"
+                    onClick={async () => {
+                      const amt = custom ? Number(custom) : selected;
+                      if (!amt || amt < 1) return;
+                      const res = await fetch("/api/create-checkout-session", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ amount: amt }),
+                      });
+                      const data = await res.json();
+                      if (data.url) window.location.href = data.url;
+                    }}
+                  >
                     <span>Purchase Voucher</span>
                     <CreditCard className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
                   </button>
