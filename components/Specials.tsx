@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const specials = [
   {
@@ -65,8 +65,9 @@ export default function Specials() {
             <h2 className="text-white text-3xl md:text-5xl font-light mb-8 drop-shadow-lg">
               {special.subtitle}
             </h2>
-            <button className="btn-spa-service text-base md:text-lg px-8 py-3">
+            <button className="btn-spa-service text-base md:text-lg px-8 py-3 inline-flex items-center gap-2 group">
               <span>{special.cta}</span>
+              <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
             </button>
           </div>
         </div>

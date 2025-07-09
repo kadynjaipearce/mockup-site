@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -68,9 +69,10 @@ const Services = () => {
                   </p>
                   <button
                     onClick={() => scrollToSection(service.link)}
-                    className="btn-spa-service self-start"
+                    className="btn-spa-service self-start inline-flex items-center gap-2 group"
                   >
                     <span>Learn More</span>
+                    <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
                   </button>
                 </div>
               </div>

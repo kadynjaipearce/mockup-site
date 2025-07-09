@@ -1,6 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { RiCalendar2Line } from "@remixicon/react";
 
 const Hero = () => {

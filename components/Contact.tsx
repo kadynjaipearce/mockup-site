@@ -43,7 +43,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
-            Book Your Session
+            Find Us in Bunbury
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Ready to experience the healing touch? Get in touch to schedule your
@@ -51,115 +51,23 @@ const Contact = () => {
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-gray-50 p-8 rounded-sm">
-            <h3 className="text-2xl font-semibold text-spa-secondary mb-6">
-              Book an Appointment
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="spa-input w-full"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="spa-input w-full"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="spa-input w-full"
-                  placeholder="0400 000 000"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="service"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Preferred Service *
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  required
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  className="spa-input w-full"
-                >
-                  <option value="">Select a service</option>
-                  <option value="remedial">Remedial Massage</option>
-                  <option value="relaxation">Relaxation Massage</option>
-                  <option value="pregnancy">Pregnancy Massage</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Additional Notes
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="spa-input w-full resize-none"
-                  placeholder="Any specific requirements or questions..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="btn-spa-primary w-full justify-center h-12"
-              >
-                <RiCalendar2Line
-                  className="inline-block mr-2 align-middle"
-                  size={20}
-                />
-                <span>Send Booking Request</span>
-              </button>
-            </form>
+          {/* Google Maps Only, fills left space or full width on mobile */}
+          <div className="bg-gray-50 p-0 rounded-sm flex items-center justify-center min-h-[400px] h-full w-full">
+            <iframe
+              title="Bunbury WA Map"
+              src="https://www.google.com/maps?q=Bunbury+WA,+Australia&output=embed"
+              width="100%"
+              height="100%"
+              style={{
+                border: 0,
+                borderRadius: "0.375rem",
+                minHeight: "400px",
+                minWidth: "100%",
+              }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
           {/* Contact Information */}
           <div className="space-y-8">
