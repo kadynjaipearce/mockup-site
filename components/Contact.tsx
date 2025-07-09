@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
