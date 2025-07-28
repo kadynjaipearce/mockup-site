@@ -28,15 +28,25 @@ export const metadata: Metadata = {
     "Professional remedial massage, deep tissue therapy, and relaxation massage in Bunbury, WA. Expert massage therapists for pain relief and wellness. Book your session today.",
   keywords: [
     "remedial massage Bunbury",
+    "pregnancy massage Bunbury",
     "massage therapist near me",
+    "remedial massage therapy Bunbury WA",
+    "prenatal massage Bunbury",
     "deep tissue massage Bunbury WA",
-    "Bunbury massage for pain relief",
-    "remedial massage therapy",
-    "myotherapy Bunbury",
-    "relaxation massage Bunbury",
+    "massage for pregnant women Bunbury",
+    "therapeutic massage Bunbury",
+    "pregnancy massage therapy Bunbury",
+    "remedial massage for pain relief Bunbury",
     "massage Bunbury WA",
-    "therapeutic massage",
-    "sports massage Bunbury",
+    "prenatal massage therapy Bunbury",
+    "massage for back pain Bunbury",
+    "pregnancy massage for stress relief Bunbury",
+    "professional remedial massage Bunbury",
+    "massage appointment Bunbury",
+    "best remedial massage Bunbury",
+    "pregnancy massage near me",
+    "remedial massage therapist Bunbury",
+    "massage for pregnancy pain Bunbury",
   ],
   authors: [{ name: "Bunbury Wellness" }],
   creator: "Bunbury Wellness",
@@ -180,25 +190,7 @@ export default function RootLayout({
                       "@type": "Service",
                       name: "Remedial Massage",
                       description:
-                        "Targeted therapy for pain relief and mobility improvement",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Deep Tissue Massage",
-                      description:
-                        "Intensive therapy for chronic muscle tension and pain",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Relaxation Massage",
-                      description:
-                        "Gentle therapy for stress relief and relaxation",
+                        "Targeted therapy for pain relief and mobility improvement. Professional remedial massage therapy in Bunbury, WA.",
                     },
                   },
                   {
@@ -207,7 +199,7 @@ export default function RootLayout({
                       "@type": "Service",
                       name: "Pregnancy Massage",
                       description:
-                        "Safe and gentle massage therapy for expectant mothers",
+                        "Safe and gentle massage therapy for expectant mothers. Prenatal massage therapy in Bunbury, WA.",
                     },
                   },
                 ],
