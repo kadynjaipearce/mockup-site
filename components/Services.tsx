@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const Services = () => {
   const services = [
@@ -9,28 +10,27 @@ const Services = () => {
       title: "REMEDIAL MASSAGE",
       description: "Targeted therapy for pain relief and mobility",
       image: "/front.jpg",
-      link: "#contact",
+      link: "/services/remedial-massage",
     },
     {
-      title: "RELAXATION MASSAGE",
-      description: "Unwind and de-stress in a tranquil setting",
+      title: "SPORTS MASSAGE",
+      description: "Performance enhancement and injury recovery",
       image: "/back.jpg",
-      link: "#contact",
+      link: "/services/sports-massage",
     },
     {
       title: "PREGNANCY MASSAGE",
       description: "Gentle, safe, and nurturing for mums-to-be",
       image: "/preg.jpg",
-      link: "#contact",
+      link: "/services/pregnancy-massage",
+    },
+    {
+      title: "DRY NEEDLING",
+      description: "Advanced therapy for muscle pain and trigger points",
+      image: "/fuko.jpg",
+      link: "/services/dry-needling",
     },
   ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section id="services" className="py-20 bg-white">
@@ -45,7 +45,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -67,13 +67,13 @@ const Services = () => {
                   <p className="text-white/90 mb-4 text-sm leading-relaxed">
                     {service.description}
                   </p>
-                  <button
-                    onClick={() => scrollToSection(service.link)}
-                    className="btn-spa-service self-start inline-flex items-center gap-2 group"
+                  <Link
+                    href={service.link}
+                    className="btn-spa-service self-start inline-flex items-center gap-2 group cursor-pointer"
                   >
                     <span>Learn More</span>
                     <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
