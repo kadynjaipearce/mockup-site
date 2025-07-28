@@ -31,9 +31,9 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // Always use solid green background if menu is open, else use scroll logic
+  // Always use solid secondary background if menu is open, else use scroll logic
   const headerBg =
-    isMenuOpen || scrolled ? "bg-[#092519] shadow-lg" : "bg-transparent";
+    isMenuOpen || scrolled ? "bg-spa-secondary shadow-lg" : "bg-transparent";
 
   return (
     <header

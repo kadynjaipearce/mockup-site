@@ -7,10 +7,12 @@ import Specials from "@/components/Specials";
 import DateNightGiftSection from "@/components/DateNightGiftSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import TestimonialsSchema from "@/components/TestimonialsSchema";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <TestimonialsSchema />
       <Header />
       <Hero />
       <About />

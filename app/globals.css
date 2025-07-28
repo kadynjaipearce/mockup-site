@@ -87,8 +87,8 @@
   --sidebar-ring: 217.2 91.2% 59.8%;
 
   /* Spa-specific colors */
-  --spa-primary: 158 23% 28%; /* #3F5855 */
-  --spa-secondary: 152 61% 9%; /* #091E19 */
+  --spa-primary: 168 15% 50%; /* #69918C */
+  --spa-secondary: 160 61% 8%; /* #091E19 */
   --spa-accent: 43 74% 66%; /* Gold/amber */
   --spa-neutral: 0 0% 98%; /* Warm white */
 }
