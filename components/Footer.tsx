@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import { RiLeafLine } from "@remixicon/react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -120,18 +121,18 @@ const Footer = () => {
             </span>
           </div>
           <div className="flex space-x-6 text-sm">
-            <a
-              href="#"
+            <Link
+              href="/privacy"
               className="text-gray-400 hover:text-spa-accent transition-colors cursor-pointer"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/terms"
               className="text-gray-400 hover:text-spa-accent transition-colors cursor-pointer"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

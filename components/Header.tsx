@@ -19,7 +19,7 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: "Services", href: "#services", isLink: false },
+    { name: "Services", href: "/services", isLink: true },
     { name: "About", href: "/about", isLink: true },
     { name: "Specials", href: "/specials", isLink: true },
     { name: "Testimonials", href: "#testimonials", isLink: false },
