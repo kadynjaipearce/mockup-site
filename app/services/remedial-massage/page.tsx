@@ -1,6 +1,9 @@
+"use client";
+
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
 import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -33,6 +36,8 @@ export const metadata: Metadata = {
 };
 
 export default function RemedialMassagePage() {
+  const { openModal } = useBookingModal();
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -54,7 +59,7 @@ export default function RemedialMassagePage() {
             and improved mobility
           </p>
 
-          <button className="btn-spa-accent ml-8 inline">
+          <button onClick={openModal} className="btn-spa-accent ml-8 inline">
             <span>Book Your Session</span>
           </button>
         </div>
@@ -213,9 +218,9 @@ export default function RemedialMassagePage() {
               therapists
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/#contact" className="btn-spa-accent">
+              <button onClick={openModal} className="btn-spa-accent">
                 <span>Book Appointment</span>
-              </Link>
+              </button>
               <Link href="tel:+61897210000" className="btn-spa-primary">
                 <span>Call Now</span>
               </Link>

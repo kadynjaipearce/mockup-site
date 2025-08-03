@@ -1,7 +1,9 @@
 "use client";
 import { RiCalendar2Line } from "@remixicon/react";
+import { useBookingModal } from "@/components/BookingProvider";
 
 const Hero = () => {
+  const { openModal } = useBookingModal();
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       {/* Background Image */}
@@ -33,13 +35,13 @@ const Hero = () => {
           healing in Bunbury&apos;s premier wellness destination
         </p>
 
-        <a
-          href="#book"
+        <button
+          onClick={openModal}
           className="btn-spa-accent inline-flex items-center gap-2 group"
         >
           <span>Book Your Session</span>
           <RiCalendar2Line className="transition-colors duration-300 text-inherit group-hover:text-[#092518] z-10" />
-        </a>
+        </button>
       </div>
 
       {/* Scroll Indicator */}

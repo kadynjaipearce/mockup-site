@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import "./globals.css";
+import { BookingProvider } from "@/components/BookingProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -250,7 +251,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased bg-white text-gray-800 font-sans`}
       >
-        {children}
+        <BookingProvider>{children}</BookingProvider>
       </body>
     </html>
   );

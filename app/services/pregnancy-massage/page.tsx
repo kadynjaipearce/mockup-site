@@ -1,6 +1,9 @@
+"use client";
+
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
 import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -32,6 +35,8 @@ export const metadata: Metadata = {
 };
 
 export default function PregnancyMassagePage() {
+  const { openModal } = useBookingModal();
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -51,10 +56,10 @@ export default function PregnancyMassagePage() {
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed opacity-90">
             Safe and gentle prenatal massage therapy for expectant mothers
           </p>
-          <Link href="/#contact" className="btn-spa-accent text-lg group">
+          <button onClick={openModal} className="btn-spa-accent text-lg group">
             <span>Book Your Session</span>
             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          </button>
         </div>
       </section>
 
@@ -221,9 +226,9 @@ export default function PregnancyMassagePage() {
               therapists
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/#contact" className="btn-spa-accent">
+              <button onClick={openModal} className="btn-spa-accent">
                 <span>Book Appointment</span>
-              </Link>
+              </button>
               <Link href="tel:+61897210000" className="btn-spa-primary">
                 <span>Call Now</span>
               </Link>
