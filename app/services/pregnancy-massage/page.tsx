@@ -1,38 +1,11 @@
 "use client";
 
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
 import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Pregnancy Massage Bunbury - Safe Prenatal Therapy | Bunbury Wellness",
-  description:
-    "Safe and gentle pregnancy massage therapy in Bunbury, WA. Female massage therapists available. Professional prenatal massage for expectant mothers. Book your session today.",
-  keywords: [
-    "pregnancy massage Bunbury",
-    "female pregnancy massage Bunbury",
-    "women pregnancy massage Bunbury",
-    "prenatal massage Bunbury",
-    "massage for pregnant women Bunbury",
-    "pregnancy massage therapy Bunbury",
-    "prenatal massage therapy Bunbury",
-    "pregnancy massage for stress relief Bunbury",
-    "massage for pregnancy pain Bunbury",
-    "prenatal massage near me",
-    "pregnancy massage near me",
-    "safe pregnancy massage Bunbury",
-    "female massage therapist Bunbury",
-  ],
-  openGraph: {
-    title: "Pregnancy Massage Bunbury - Safe Prenatal Therapy",
-    description:
-      "Safe and gentle pregnancy massage therapy in Bunbury, WA. Female massage therapists available. Professional prenatal massage for expectant mothers.",
-  },
-};
 
 export default function PregnancyMassagePage() {
   const { openModal } = useBookingModal();

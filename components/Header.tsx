@@ -2,10 +2,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { RiLeafLine } from "@remixicon/react";
+import { useBookingModal } from "@/components/BookingProvider";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { openModal } = useBookingModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +19,11 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Specials", href: "#specials" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Services", href: "#services", isLink: false },
+    { name: "About", href: "#about", isLink: false },
+    { name: "Specials", href: "/specials", isLink: true },
+    { name: "Testimonials", href: "#testimonials", isLink: false },
+    { name: "Contact", href: "#contact", isLink: false },
   ];
 
   const scrollToSection = (href: string) => {
@@ -44,7 +47,10 @@ const Header = () => {
           className={`flex justify-between items-center py-6 transition-all duration-300`}
         >
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link
+            href="/"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
             <RiLeafLine className="h-8 w-8" style={{ color: "#FFC857" }} />
             <div className="text-white">
               <div className="font-semibold text-lg leading-tight">
@@ -52,23 +58,30 @@ const Header = () => {
               </div>
               <div className="text-sm opacity-90">Remedial Massage</div>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 ml-auto">
-            {navigation.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="font-medium transition-colors duration-200 text-white hover:text-spa-accent cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80"
-              >
-                {item.name}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollToSection("#contact")}
-              className="btn-spa-accent ml-8"
-            >
+            {navigation.map((item) =>
+              item.isLink ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="font-medium transition-colors duration-200 text-white hover:text-spa-accent cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="font-medium transition-colors duration-200 text-white hover:text-spa-accent cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80"
+                >
+                  {item.name}
+                </button>
+              )
+            )}
+            <button onClick={openModal} className="btn-spa-accent ml-8">
               <span>Book Now</span>
             </button>
           </nav>
@@ -93,18 +106,29 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mobile-fadein">
             <div className="py-4 space-y-2">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-white hover:text-spa-accent hover:bg-spa-primary/20 transition-colors duration-200 cursor-pointer"
-                >
-                  {item.name}
-                </button>
-              ))}
+              {navigation.map((item) =>
+                item.isLink ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block w-full text-left px-4 py-2 text-white hover:text-spa-accent hover:bg-spa-primary/20 transition-colors duration-200 cursor-pointer"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="block w-full text-left px-4 py-2 text-white hover:text-spa-accent hover:bg-spa-primary/20 transition-colors duration-200 cursor-pointer"
+                  >
+                    {item.name}
+                  </button>
+                )
+              )}
               <div className="px-4 pt-4">
                 <button
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={openModal}
                   className="btn-spa-accent w-full justify-center"
                 >
                   <span>Book Now</span>

@@ -1,39 +1,11 @@
 "use client";
 
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
 import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title:
-    "Sports Massage Bunbury - Athletic Therapy & Injury Recovery | Bunbury Wellness",
-  description:
-    "Professional sports massage therapy in Bunbury, WA. Female massage therapists available. Specialized treatment for athletes, sports injuries, and performance enhancement. Book your session.",
-  keywords: [
-    "sports massage Bunbury",
-    "female sports massage Bunbury",
-    "women sports massage Bunbury",
-    "sports massage therapy Bunbury",
-    "sports massage for athletes Bunbury",
-    "massage for sports injuries Bunbury",
-    "athletic massage Bunbury",
-    "massage for runners Bunbury",
-    "massage for football players Bunbury",
-    "sports injury massage Bunbury",
-    "performance massage Bunbury",
-    "athletic therapy Bunbury",
-    "female massage therapist Bunbury",
-  ],
-  openGraph: {
-    title: "Sports Massage Bunbury - Athletic Therapy & Injury Recovery",
-    description:
-      "Professional sports massage therapy in Bunbury, WA. Female massage therapists available. Specialized treatment for athletes and sports injuries.",
-  },
-};
 
 export default function SportsMassagePage() {
   const { openModal } = useBookingModal();

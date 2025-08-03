@@ -1,39 +1,11 @@
 "use client";
 
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
 import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title:
-    "Dry Needling Bunbury - Advanced Pain Relief Therapy | Bunbury Wellness",
-  description:
-    "Professional dry needling therapy in Bunbury, WA. Female massage therapists available. Advanced treatment for muscle pain, tension, and trigger points. Book your session.",
-  keywords: [
-    "dry needling Bunbury",
-    "female dry needling Bunbury",
-    "women dry needling Bunbury",
-    "dry needling therapy Bunbury",
-    "dry needling for pain relief Bunbury",
-    "dry needling therapy Bunbury WA",
-    "dry needling treatment Bunbury",
-    "trigger point therapy Bunbury",
-    "needle therapy Bunbury",
-    "muscle pain treatment Bunbury",
-    "dry needling for back pain Bunbury",
-    "dry needling for neck pain Bunbury",
-    "female massage therapist Bunbury",
-  ],
-  openGraph: {
-    title: "Dry Needling Bunbury - Advanced Pain Relief Therapy",
-    description:
-      "Professional dry needling therapy in Bunbury, WA. Female massage therapists available. Advanced treatment for muscle pain and trigger points.",
-  },
-};
 
 export default function DryNeedlingPage() {
   const { openModal } = useBookingModal();
