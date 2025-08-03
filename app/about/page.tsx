@@ -1,0 +1,433 @@
+"use client";
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { useBookingModal } from "@/components/BookingProvider";
+import { RiLeafLine } from "@remixicon/react";
+import {
+  Clock,
+  MapPin,
+  Phone,
+  ArrowRight,
+  Users,
+  Award,
+  Heart,
+  Shield,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+
+const teamMembers = [
+  {
+    name: "Fuko Kodama",
+    role: "Senior Remedial Massage Therapist",
+    experience: "8+ years",
+    specialties: ["Pregnancy Massage", "Remedial Therapy", "Dry Needling"],
+    image: "/fuko.jpg",
+    description:
+      "Fuko holds a Diploma in Remedial Massage and has been practicing since 2016. She specializes in pregnancy massage and has a gentle, caring approach that puts clients at ease.",
+  },
+  {
+    name: "Tan Hsin-Wen",
+    role: "Remedial Massage Therapist",
+    experience: "10+ years",
+    specialties: ["Sports Massage", "Deep Tissue", "Injury Recovery"],
+    image: "/back.jpg",
+    description:
+      "Tan brings over a decade of experience in remedial massage therapy. He specializes in sports injuries and uses advanced techniques including dry needling and spinal mobilizations.",
+  },
+];
+
+const values = [
+  {
+    icon: Heart,
+    title: "Compassionate Care",
+    description:
+      "We treat every client with genuine care and understanding, creating a safe space for healing and relaxation.",
+  },
+  {
+    icon: Shield,
+    title: "Professional Excellence",
+    description:
+      "Our therapists are fully qualified and continuously update their skills to provide the highest standard of care.",
+  },
+  {
+    icon: Users,
+    title: "Client-Centered",
+    description:
+      "Every treatment is personalized to your specific needs, ensuring you receive the most effective care possible.",
+  },
+  {
+    icon: Award,
+    title: "Proven Results",
+    description:
+      "Our track record speaks for itself - thousands of satisfied clients who have experienced real relief and improvement.",
+  },
+];
+
+const milestones = [
+  {
+    year: "2016",
+    title: "Practice Founded",
+    description:
+      "Started as a small home studio with a vision to provide exceptional massage therapy in Bunbury.",
+  },
+  {
+    year: "2018",
+    title: "First Clinic Location",
+    description:
+      "Moved to our first dedicated clinic space to serve more clients in the Bunbury community.",
+  },
+  {
+    year: "2020",
+    title: "Expanded Services",
+    description:
+      "Added pregnancy massage and dry needling to our service offerings.",
+  },
+  {
+    year: "2023",
+    title: "Current Location",
+    description:
+      "Moved to our current premium location to provide an even better experience for our clients.",
+  },
+];
+
+export default function AboutPage() {
+  const { openModal } = useBookingModal();
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/front.jpg')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-light mb-6 leading-tight">
+            About Us
+          </h1>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed opacity-90">
+            Discover the story behind Bunbury Wellness and meet the team
+            dedicated to your health and wellbeing
+          </p>
+          <button onClick={openModal} className="btn-spa-accent ml-8 inline">
+            <span>Book Your Session</span>
+          </button>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-8">
+              <RiLeafLine className="h-16 w-16 text-spa-primary" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-8">
+              Our Story
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">
+              From a humble home studio to a premium wellness destination in
+              Bunbury, WA. Experience the difference of care, expertise, and a
+              passion for healing that has transformed countless lives through
+              the power of therapeutic touch.
+            </p>
+          </div>
+
+          {/* Stats */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center">
+              <div className="text-3xl font-light text-spa-primary mb-2">
+                8+
+              </div>
+              <div className="text-gray-600">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-light text-spa-primary mb-2">
+                500+
+              </div>
+              <div className="text-gray-600">Happy Clients</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-light text-spa-primary mb-2">
+                100%
+              </div>
+              <div className="text-gray-600">Dedicated Care</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
+      <section className="py-20 bg-spa-neutral">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+              Our Values
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              The principles that guide everything we do and every client we
+              serve
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-spa-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-spa-secondary mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Team */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Experienced, qualified therapists dedicated to your health and
+              wellbeing
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="bg-spa-neutral rounded-lg p-8">
+                <div className="flex flex-col md:flex-row items-start gap-6">
+                  <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-spa-secondary mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-spa-primary font-medium mb-2">
+                      {member.role}
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      {member.experience} experience
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      {member.description}
+                    </p>
+                    <div>
+                      <h4 className="font-semibold text-spa-secondary mb-2">
+                        Specialties:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {member.specialties.map((specialty, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-spa-primary text-white px-3 py-1 rounded-full text-sm"
+                          >
+                            {specialty}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Journey */}
+      <section className="py-20 bg-spa-neutral">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+              Our Journey
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Key milestones in our mission to provide exceptional massage
+              therapy in Bunbury
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="space-y-8">
+              {milestones.map((milestone, index) => (
+                <div key={index} className="flex items-start gap-6 relative">
+                  <div className="flex-shrink-0 relative z-10">
+                    <div className="w-16 h-16 bg-spa-primary rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">
+                        {milestone.year}
+                      </span>
+                    </div>
+                    {/* Connecting line from this dot to the next */}
+                    {index < milestones.length - 1 && (
+                      <div
+                        className="absolute left-8 top-16 w-0.5 bg-spa-primary/30"
+                        style={{ height: "calc(100% + 2rem)" }}
+                      ></div>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-spa-secondary mb-2">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {milestone.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+              Why Choose Bunbury Wellness?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              What sets us apart in the Bunbury wellness community
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <RiLeafLine className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-spa-secondary mb-2">
+                    Female Therapists Available
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    We understand that some clients prefer female therapists,
+                    and we're proud to offer this option for your comfort and
+                    peace of mind.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <RiLeafLine className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-spa-secondary mb-2">
+                    Comprehensive Treatment Plans
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    We don't just treat symptoms - we create personalized care
+                    plans that address the root cause of your discomfort.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <RiLeafLine className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-spa-secondary mb-2">
+                    Advanced Techniques
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    From traditional remedial massage to advanced dry needling,
+                    we offer a full range of therapeutic techniques.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <RiLeafLine className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-spa-secondary mb-2">
+                    Pregnancy-Safe Care
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Our pregnancy massage specialists are trained in safe,
+                    gentle techniques specifically designed for expectant
+                    mothers.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <RiLeafLine className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-spa-secondary mb-2">
+                    Convenient Location
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Located in the heart of Bunbury, we're easily accessible for
+                    residents throughout the region.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <RiLeafLine className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-spa-secondary mb-2">
+                    Flexible Scheduling
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    We offer flexible appointment times to fit your busy
+                    schedule, including early morning and evening sessions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <div className="text-center bg-spa-primary text-white p-12 rounded-lg mx-4 sm:mx-6 lg:mx-8 mb-20">
+        <h3 className="text-2xl font-light mb-4">
+          Ready to Experience the Difference?
+        </h3>
+        <p className="text-lg mb-8 opacity-90">
+          Book your session with our experienced team and start your wellness
+          journey today
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button onClick={openModal} className="btn-spa-accent">
+            <span>Book Your Session</span>
+          </button>
+          <Link href="tel:+61897210000" className="btn-spa-service">
+            <span>Call to Discuss</span>
+          </Link>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}

@@ -1,5 +1,6 @@
 import { RiLeafLine } from "@remixicon/react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -39,10 +40,13 @@ const About = () => {
           </div>
         </div>
 
-        <button className="btn-spa-primary inline-flex items-center gap-2 group">
+        <Link
+          href="/about"
+          className="btn-spa-primary inline-flex items-center gap-2 group"
+        >
           <span>Learn More</span>
           <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
-        </button>
+        </Link>
       </div>
     </section>
   );

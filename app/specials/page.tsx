@@ -329,7 +329,7 @@ export default function SpecialsPage() {
               <button onClick={openModal} className="btn-spa-accent">
                 <span>Book Your Package</span>
               </button>
-              <Link href="tel:+61897210000" className="btn-spa-primary">
+              <Link href="tel:+61897210000" className="btn-spa-service">
                 <span>Call to Discuss</span>
               </Link>
             </div>

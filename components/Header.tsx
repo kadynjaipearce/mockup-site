@@ -20,7 +20,7 @@ const Header = () => {
 
   const navigation = [
     { name: "Services", href: "#services", isLink: false },
-    { name: "About", href: "#about", isLink: false },
+    { name: "About", href: "/about", isLink: true },
     { name: "Specials", href: "/specials", isLink: true },
     { name: "Testimonials", href: "#testimonials", isLink: false },
     { name: "Contact", href: "#contact", isLink: false },

@@ -202,7 +202,7 @@ export default function PregnancyMassagePage() {
               <button onClick={openModal} className="btn-spa-accent">
                 <span>Book Appointment</span>
               </button>
-              <Link href="tel:+61897210000" className="btn-spa-primary">
+              <Link href="tel:+61897210000" className="btn-spa-service">
                 <span>Call Now</span>
               </Link>
             </div>
