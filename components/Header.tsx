@@ -22,7 +22,7 @@ const Header = () => {
     { name: "Services", href: "/services", isLink: true },
     { name: "About", href: "/about", isLink: true },
     { name: "Specials", href: "/specials", isLink: true },
-    { name: "Testimonials", href: "#testimonials", isLink: false },
+    { name: "Gift Cards", href: "/gift-cards", isLink: true },
     { name: "Contact", href: "#contact", isLink: false },
   ];
 

@@ -74,11 +74,47 @@ export default function TermsPage() {
                       the right to modify, reschedule, or cancel appointments
                       due to unforeseen circumstances.
                     </p>
-                    <p>
-                      <strong>Cancellation Policy:</strong> We require 24 hours
-                      notice for appointment cancellations. Late cancellations
-                      may incur a fee.
-                    </p>
+
+                    <div className="bg-spa-neutral p-4 rounded-lg">
+                      <h3 className="font-semibold text-spa-secondary mb-2">
+                        Important Booking Information:
+                      </h3>
+                      <ul className="list-disc list-inside space-y-2">
+                        <li>
+                          <strong>Fuko's Appointments:</strong> Appointments
+                          with Fuko are available for FEMALE CLIENTS ONLY.
+                        </li>
+                        <li>
+                          <strong>Identification:</strong> Please use your first
+                          and last name shown on your ID when filling in your
+                          details.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg">
+                      <h3 className="font-semibold text-amber-800 mb-2">
+                        Cancellation Policy:
+                      </h3>
+                      <ul className="list-disc list-inside space-y-2 text-amber-800">
+                        <li>
+                          <strong>48-hour notice required</strong> to change or
+                          cancel appointments to avoid a late fee equal to 50%
+                          of the scheduled appointment.
+                        </li>
+                        <li>
+                          <strong>Last-minute cancellations</strong> with less
+                          than 2 hours notice, as well as missed appointments
+                          (including clients who show up late) will be charged
+                          100% of the scheduled appointment fee.
+                        </li>
+                        <li>
+                          Special circumstances may be considered on a
+                          case-by-case basis.
+                        </li>
+                      </ul>
+                    </div>
+
                     <p>
                       <strong>Late Arrivals:</strong> If you arrive late, your
                       session may be shortened to accommodate other clients.

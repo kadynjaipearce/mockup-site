@@ -22,19 +22,29 @@ const teamMembers = [
     name: "Fuko Kodama",
     role: "Senior Remedial Massage Therapist",
     experience: "8+ years",
-    specialties: ["Pregnancy Massage", "Remedial Therapy", "Dry Needling"],
+    specialties: [
+      "Pregnancy Massage",
+      "Remedial Therapy",
+      "Cupping",
+      "Heated Tools",
+    ],
     image: "/fuko.jpg",
     description:
-      "Fuko holds a Diploma in Remedial Massage and has been practicing since 2016. She specializes in pregnancy massage and has a gentle, caring approach that puts clients at ease.",
+      "Fuko holds a Diploma in Remedial Massage and has been practicing massage since 2016. She has always been passionate about helping her clients achieve the best results while ensuring they feel relaxed throughout the process. She integrates cupping and heated tools to support these goals.",
   },
   {
     name: "Tan Hsin-Wen",
     role: "Remedial Massage Therapist",
     experience: "10+ years",
-    specialties: ["Sports Massage", "Deep Tissue", "Injury Recovery"],
+    specialties: [
+      "Dry Needling",
+      "Spinal Mobilisations",
+      "Taping/Strapping",
+      "Sports Massage",
+    ],
     image: "/back.jpg",
     description:
-      "Tan brings over a decade of experience in remedial massage therapy. He specializes in sports injuries and uses advanced techniques including dry needling and spinal mobilizations.",
+      "Tan holds a Diploma in Remedial Massage and has over 10 years of experience. He incorporates dry needling, spinal mobilisations (not spinal manipulation), and taping/strapping into his treatments to provide comprehensive therapeutic care.",
   },
 ];
 
