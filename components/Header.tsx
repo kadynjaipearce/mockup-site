@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { RiMenuLine, RiCloseLine, RiCalendar2Line } from "@remixicon/react";
 import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Header = () => {
     { name: "About", href: "/about", isLink: true },
     { name: "Specials", href: "/specials", isLink: true },
     { name: "Gift Cards", href: "/gift-cards", isLink: true },
-    { name: "Contact", href: "#contact", isLink: false },
+    { name: "Contact", href: "/contact", isLink: true },
   ];
 
   const scrollToSection = (href: string) => {
@@ -87,8 +87,12 @@ const Header = () => {
                 </button>
               )
             )}
-            <button onClick={openModal} className="btn-spa-accent ml-8">
+            <button
+              onClick={openModal}
+              className="btn-spa-accent ml-8 inline-flex items-center gap-2 group"
+            >
               <span>Book Now</span>
+              <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
             </button>
           </nav>
 
@@ -100,9 +104,9 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <RiCloseLine className="h-6 w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <RiMenuLine className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -135,9 +139,10 @@ const Header = () => {
               <div className="px-4 pt-4">
                 <button
                   onClick={openModal}
-                  className="btn-spa-accent w-full justify-center"
+                  className="btn-spa-accent w-full justify-center inline-flex items-center gap-2 group"
                 >
                   <span>Book Now</span>
+                  <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
                 </button>
               </div>
             </div>

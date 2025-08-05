@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiArrowRightLine,
+} from "@remixicon/react";
 
 const specials = [
   {
@@ -67,7 +71,7 @@ export default function Specials() {
             </h2>
             <button className="btn-spa-service text-base md:text-lg px-8 py-3 inline-flex items-center gap-2 group">
               <span>{special.cta}</span>
-              <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+              <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
             </button>
           </div>
         </div>
@@ -78,14 +82,14 @@ export default function Specials() {
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 cursor-pointer z-20"
         aria-label="Previous special"
       >
-        <ChevronLeft className="h-6 w-6 relative z-10" />
+        <RiArrowLeftSLine className="h-6 w-6 relative z-10" />
       </button>
       <button
         onClick={next}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 cursor-pointer z-20"
         aria-label="Next special"
       >
-        <ChevronRight className="h-6 w-6 relative z-10" />
+        <RiArrowRightSLine className="h-6 w-6 relative z-10" />
       </button>
     </section>
   );

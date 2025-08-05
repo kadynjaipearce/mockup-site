@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { RiCloseLine } from "@remixicon/react";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -23,10 +23,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center ${
+        isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      }`}
+    >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-transparent" onClick={onClose} />
 
@@ -43,7 +47,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             className="p-2 hover:bg-white hover:bg-opacity-20 rounded-none transition-all duration-300 cursor-pointer hover:scale-110"
             aria-label="Close booking modal"
           >
-            <X className="h-6 w-6 transition-colors duration-300 hover:text-yellow-400" />
+            <RiCloseLine className="h-6 w-6 transition-colors duration-300 hover:text-yellow-400" />
           </button>
         </div>
 

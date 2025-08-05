@@ -4,7 +4,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
-import { Clock, MapPin, Phone, ArrowRight, Star, Percent } from "lucide-react";
+import {
+  RiTimeLine,
+  RiMapPinLine,
+  RiPhoneLine,
+  RiArrowRightLine,
+  RiStarLine,
+  RiPercentLine,
+} from "@remixicon/react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -184,7 +191,7 @@ export default function SpecialsPage() {
                 {offer.popular && (
                   <div className="relative">
                     <div className="absolute top-4 right-4 z-10 bg-spa-accent text-spa-secondary px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-                      <Star className="h-4 w-4" />
+                      <RiStarLine className="h-4 w-4" />
                       Popular
                     </div>
                   </div>
@@ -225,7 +232,7 @@ export default function SpecialsPage() {
                         ${offer.originalPrice}
                       </span>
                       <span className="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium flex items-center gap-1">
-                        <Percent className="h-3 w-3" />
+                        <RiPercentLine className="h-3 w-3" />
                         Save ${offer.savings}
                       </span>
                     </div>
@@ -290,7 +297,7 @@ export default function SpecialsPage() {
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-spa-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Clock className="h-6 w-6 text-white" />
+                    <RiTimeLine className="h-6 w-6 text-white" />
                   </div>
                   <h4 className="font-semibold text-spa-secondary mb-2">
                     Flexible Scheduling
@@ -302,7 +309,7 @@ export default function SpecialsPage() {
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-spa-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Percent className="h-6 w-6 text-white" />
+                    <RiPercentLine className="h-6 w-6 text-white" />
                   </div>
                   <h4 className="font-semibold text-spa-secondary mb-2">
                     Great Value

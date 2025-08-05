@@ -1,5 +1,5 @@
 "use client";
-import { MapPin, Mail, Clock } from "lucide-react";
+import { RiMapPinLine, RiMailLine, RiTimeLine } from "@remixicon/react";
 
 const Contact = () => {
   return (
@@ -47,7 +47,7 @@ const Contact = () => {
             </div>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <MapPin className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
+                <RiMapPinLine className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium text-spa-secondary">Visit Us</div>
                   <div className="text-gray-600">
@@ -60,7 +60,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <Mail className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
+                <RiMailLine className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium text-spa-secondary">Email Us</div>
                   <div className="text-gray-600">
@@ -74,7 +74,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <Clock className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
+                <RiTimeLine className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium text-spa-secondary">
                     Opening Hours

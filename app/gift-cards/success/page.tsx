@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Gift, Mail, Star } from "lucide-react";
+import {
+  RiCheckboxCircleLine,
+  RiGiftLine,
+  RiMailLine,
+  RiStarLine,
+} from "@remixicon/react";
 import Link from "next/link";
 
 export default function GiftCardSuccessPage() {
@@ -36,7 +41,7 @@ export default function GiftCardSuccessPage() {
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="flex justify-center mb-8">
             <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-              <CheckCircle className="h-16 w-16 text-green-600" />
+              <RiCheckboxCircleLine className="h-16 w-16 text-green-600" />
             </div>
           </div>
 
@@ -67,10 +72,10 @@ export default function GiftCardSuccessPage() {
           <div className="bg-spa-neutral rounded-2xl p-8 shadow-sm border border-gray-100 max-w-3xl mx-auto mb-12">
             <div className="flex items-center justify-center mb-8">
               <div className="w-16 h-16 bg-spa-primary/10 rounded-full flex items-center justify-center mr-4">
-                <Gift className="h-8 w-8 text-spa-primary" />
+                <RiGiftLine className="h-8 w-8 text-spa-primary" />
               </div>
               <div className="w-16 h-16 bg-spa-primary/10 rounded-full flex items-center justify-center">
-                <Mail className="h-8 w-8 text-spa-primary" />
+                <RiMailLine className="h-8 w-8 text-spa-primary" />
               </div>
             </div>
 

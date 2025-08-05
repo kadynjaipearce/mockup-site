@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { RiArrowRightLine } from "@remixicon/react";
 
 const amounts = [50, 75, 100, 150, 200];
 
@@ -44,7 +44,7 @@ export default function GiftVoucherPage() {
           </div>
           <button className="btn-spa-accent text-base px-8 py-3 w-fit inline-flex items-center gap-2 group">
             <span>Purchase Voucher</span>
-            <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+            <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
           </button>
         </div>
       </div>

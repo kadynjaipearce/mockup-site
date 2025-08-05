@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { RiLeafLine } from "@remixicon/react";
-import { Home, Phone } from "lucide-react";
+import { RiHomeLine, RiPhoneLine } from "@remixicon/react";
 
 export default function NotFound() {
   return (
@@ -39,7 +39,7 @@ export default function NotFound() {
             href="/"
             className="btn-spa-primary inline-flex items-center gap-2 group"
           >
-            <Home className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+            <RiHomeLine className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
             <span>Return Home</span>
           </Link>
 
@@ -47,7 +47,7 @@ export default function NotFound() {
             href="/#contact"
             className="btn-spa-accent inline-flex items-center gap-2 group"
           >
-            <Phone className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+            <RiPhoneLine className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
             <span>Contact Us</span>
           </Link>
         </div>

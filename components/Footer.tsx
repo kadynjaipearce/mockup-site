@@ -1,4 +1,4 @@
-import { Facebook, Mail } from "lucide-react";
+import { RiFacebookFill, RiMailLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,14 +35,14 @@ const Footer = () => {
                 className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer opacity-60 hover:opacity-100 transform hover:scale-110"
                 aria-label="Follow us on Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <RiFacebookFill className="h-5 w-5" />
               </a>
               <a
                 href="mailto:info@bunburywellnessremedialmassage.com.au"
                 className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer opacity-60 hover:opacity-100 transform hover:scale-110"
                 aria-label="Email us"
               >
-                <Mail className="h-5 w-5" />
+                <RiMailLine className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -84,9 +84,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
+                <Link
+                  href="/contact"
+                  className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
+                >
                   Contact
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

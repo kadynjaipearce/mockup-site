@@ -1,6 +1,11 @@
 "use client";
 import Image from "next/image";
-import { ArrowRight, Gift, CreditCard, X } from "lucide-react";
+import {
+  RiArrowRightLine,
+  RiGiftLine,
+  RiVisaLine,
+  RiCloseLine,
+} from "@remixicon/react";
 import { useState } from "react";
 
 export default function DateNightGiftSection() {
@@ -33,7 +38,7 @@ export default function DateNightGiftSection() {
             </p>
             <button className="btn-spa-accent text-base px-8 py-3 w-fit inline-flex items-center gap-2 group">
               <span>Read More</span>
-              <ArrowRight className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+              <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
             </button>
           </div>
           <div className="order-1 md:order-2 h-64 md:h-80 relative">
@@ -67,7 +72,7 @@ export default function DateNightGiftSection() {
               onClick={() => setShowGiftCard(true)}
             >
               <span>Purchase</span>
-              <Gift className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+              <RiGiftLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
             </button>
             {showGiftCard && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
@@ -81,7 +86,7 @@ export default function DateNightGiftSection() {
                       className="ml-4 text-spa-secondary hover:text-spa-accent cursor-pointer p-1"
                       aria-label="Close"
                     >
-                      <X className="w-8 h-8" />
+                      <RiCloseLine className="w-8 h-8" />
                     </button>
                   </div>
                   <p className="text-gray-700 mb-6">
@@ -138,7 +143,7 @@ export default function DateNightGiftSection() {
                     }}
                   >
                     <span>Purchase Voucher</span>
-                    <CreditCard className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+                    <RiVisaLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
                   </button>
                 </div>
               </div>

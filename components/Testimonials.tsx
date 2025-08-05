@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiStarLine,
+} from "@remixicon/react";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,7 +78,7 @@ const Testimonials = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 md:p-12 text-center min-h-[280px] flex flex-col justify-center">
             <div className="flex justify-center mb-6">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <Star
+                <RiStarLine
                   key={i}
                   className="h-6 w-6 text-spa-accent fill-current"
                 />
@@ -96,7 +100,7 @@ const Testimonials = () => {
             className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 cursor-pointer"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <RiArrowLeftSLine className="h-6 w-6" />
           </button>
 
           <button
@@ -104,7 +108,7 @@ const Testimonials = () => {
             className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 cursor-pointer"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="h-6 w-6" />
+            <RiArrowRightSLine className="h-6 w-6" />
           </button>
         </div>
 

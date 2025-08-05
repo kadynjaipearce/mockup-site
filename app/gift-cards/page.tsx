@@ -3,7 +3,12 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Gift, CreditCard, Sparkles, Star } from "lucide-react";
+import {
+  RiGiftLine,
+  RiVisaLine,
+  RiStarLine,
+  RiMoneyDollarCircleLine,
+} from "@remixicon/react";
 
 const giftCardOptions = [
   {
@@ -38,7 +43,21 @@ const giftCardOptions = [
 
 export default function GiftCardsPage() {
   const [selectedAmount, setSelectedAmount] = useState<string>("100");
+  const [customAmount, setCustomAmount] = useState<string>("");
+  const [isCustomAmount, setIsCustomAmount] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const handleAmountSelect = (amount: string) => {
+    setSelectedAmount(amount);
+    setIsCustomAmount(false);
+    setCustomAmount("");
+  };
+
+  const handleCustomAmountChange = (value: string) => {
+    setCustomAmount(value);
+    setIsCustomAmount(true);
+    setSelectedAmount(value);
+  };
 
   const handlePurchase = async () => {
     setIsLoading(true);
@@ -69,6 +88,10 @@ export default function GiftCardsPage() {
     }
   };
 
+  const getDisplayAmount = () => {
+    return isCustomAmount ? customAmount : selectedAmount;
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -90,7 +113,7 @@ export default function GiftCardsPage() {
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="flex justify-center mb-8">
-            <Gift className="h-20 w-20 text-spa-accent" />
+            <RiGiftLine className="h-20 w-20 text-spa-accent" />
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
@@ -118,8 +141,8 @@ export default function GiftCardsPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-spa-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Gift className="h-8 w-8 text-spa-primary" />
+              <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
+                <RiGiftLine className="h-8 w-8 text-spa-primary" />
               </div>
               <h3 className="text-xl font-semibold text-spa-secondary mb-3">
                 Perfect Gift
@@ -130,20 +153,20 @@ export default function GiftCardsPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-spa-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CreditCard className="h-8 w-8 text-spa-primary" />
+              <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
+                <RiVisaLine className="h-8 w-8 text-spa-primary" />
               </div>
               <h3 className="text-xl font-semibold text-spa-secondary mb-3">
                 Flexible Value
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Choose from multiple denominations to suit any budget
+                Choose from multiple denominations or enter a custom amount
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-spa-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="h-8 w-8 text-spa-primary" />
+              <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
+                <RiStarLine className="h-8 w-8 text-spa-primary" />
               </div>
               <h3 className="text-xl font-semibold text-spa-secondary mb-3">
                 Premium Experience
@@ -164,25 +187,26 @@ export default function GiftCardsPage() {
               Choose Your Gift Card
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Select the perfect amount for your gift
+              Select a preset amount or enter your own custom value
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Preset Amounts */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {giftCardOptions.map((option) => (
               <div
                 key={option.id}
-                className={`relative bg-white rounded-2xl p-6 shadow-sm border-2 transition-all duration-300 cursor-pointer hover:shadow-md ${
-                  selectedAmount === option.id
+                className={`relative bg-white p-6 shadow-sm border-2 transition-all duration-300 cursor-pointer hover:shadow-md ${
+                  selectedAmount === option.id && !isCustomAmount
                     ? "border-spa-primary bg-spa-primary/5"
                     : "border-gray-200 hover:border-spa-primary/50"
                 }`}
-                onClick={() => setSelectedAmount(option.id)}
+                onClick={() => handleAmountSelect(option.id)}
               >
                 {option.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-spa-accent text-white px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-                      <Star className="h-3 w-3" />
+                    <span className="bg-spa-accent text-white px-4 py-1 text-sm font-medium flex items-center gap-1">
+                      <RiStarLine className="h-3 w-3" />
                       Most Popular
                     </span>
                   </div>
@@ -203,22 +227,62 @@ export default function GiftCardsPage() {
             ))}
           </div>
 
+          {/* Custom Amount Section */}
+          <div className="mb-12">
+            <div className="max-w-md mx-auto">
+              <div className="bg-white p-6 shadow-sm border-2 border-gray-200">
+                <div className="text-center mb-4">
+                  <h3 className="text-xl font-semibold text-spa-secondary mb-2">
+                    Custom Amount
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Enter any amount between $25 - $500
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="flex-1">
+                    <div className="relative">
+                      <RiMoneyDollarCircleLine className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                      <input
+                        type="number"
+                        min="25"
+                        max="500"
+                        placeholder="Enter amount"
+                        value={customAmount}
+                        onChange={(e) =>
+                          handleCustomAmountChange(e.target.value)
+                        }
+                        className={`w-full pl-10 pr-4 py-3 border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-spa-primary/20 ${
+                          isCustomAmount
+                            ? "border-spa-primary bg-spa-primary/5"
+                            : "border-gray-200 focus:border-spa-primary"
+                        }`}
+                      />
+                    </div>
+                  </div>
+                  <div className="text-gray-500 text-sm">AUD</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Purchase Button */}
           <div className="text-center">
             <button
               onClick={handlePurchase}
-              disabled={isLoading}
+              disabled={isLoading || !getDisplayAmount()}
               className="btn-spa-accent inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent animate-spin"></div>
                   <span>Processing...</span>
                 </>
               ) : (
                 <>
-                  <CreditCard className="h-5 w-5" />
-                  <span>Purchase ${selectedAmount} Gift Card</span>
+                  <RiVisaLine className="h-5 w-5" />
+                  <span>Purchase ${getDisplayAmount()} Gift Card</span>
                 </>
               )}
             </button>
@@ -242,15 +306,15 @@ export default function GiftCardsPage() {
               </h3>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-spa-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
                   <span>Gift cards are delivered via email</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-spa-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
                   <span>Valid for 12 months from purchase date</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-spa-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
                   <span>Can be used for any of our services</span>
                 </li>
               </ul>
@@ -262,15 +326,15 @@ export default function GiftCardsPage() {
               </h3>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-amber-500 mt-2 flex-shrink-0"></div>
                   <span>Non-refundable and non-transferable</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-amber-500 mt-2 flex-shrink-0"></div>
                   <span>Cannot be combined with other promotions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-amber-500 mt-2 flex-shrink-0"></div>
                   <span>Subject to our booking and cancellation policies</span>
                 </li>
               </ul>
