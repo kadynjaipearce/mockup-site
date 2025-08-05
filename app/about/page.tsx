@@ -348,8 +348,8 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-gray-600 text-sm">
                     We understand that some clients prefer female therapists,
-                    and we're proud to offer this option for your comfort and
-                    peace of mind.
+                    and we&apos;re proud to offer this option for your comfort
+                    and peace of mind.
                   </p>
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function AboutPage() {
                     Comprehensive Treatment Plans
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    We don't just treat symptoms - we create personalized care
+                    We don&apos;t just treat symptoms - we create personalized care
                     plans that address the root cause of your discomfort.
                   </p>
                 </div>
@@ -407,8 +407,8 @@ export default function AboutPage() {
                     Convenient Location
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    Located in the heart of Bunbury, we're easily accessible for
-                    residents throughout the region.
+                    Located in the heart of Bunbury, we&apos;re easily
+                    accessible for residents throughout the region.
                   </p>
                 </div>
               </div>

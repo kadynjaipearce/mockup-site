@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
-import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
+import { RiArrowRightLine } from "@remixicon/react";
 import Link from "next/link";
 
 export default function PregnancyMassagePage() {
@@ -29,10 +29,10 @@ export default function PregnancyMassagePage() {
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed opacity-90">
             Safe and gentle prenatal massage therapy for expectant mothers
           </p>
-          <button onClick={openModal} className="btn-spa-accent text-lg group">
-            <span>Book Your Session</span>
-            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
+                      <button onClick={openModal} className="btn-spa-accent text-lg group">
+              <span>Book Your Session</span>
+              <RiArrowRightLine className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
         </div>
       </section>
 

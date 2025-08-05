@@ -3,19 +3,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import Link from "next/link";
-import Image from "next/image";
 import {
-  Clock,
-  MapPin,
-  Phone,
-  ArrowRight,
-  Star,
-  CheckCircle,
-  Users,
-  Heart,
-  Target,
-  Baby,
-} from "lucide-react";
+  RiTimeLine,
+  RiPhoneLine,
+  RiArrowRightLine,
+  RiStarLine,
+  RiUserLine,
+  RiHeartLine,
+  RiAwardLine,
+  RiShieldCheckLine,
+} from "@remixicon/react";
 
 export default function ServicesPage() {
   const { openModal } = useBookingModal();
@@ -45,8 +42,6 @@ export default function ServicesPage() {
         "Promotes healing",
         "Restores mobility",
       ],
-      icon: Target,
-      image: "/images/remedial-massage.jpg",
       popular: true,
     },
     {
@@ -73,8 +68,6 @@ export default function ServicesPage() {
         "Increases endurance",
         "Optimizes muscle function",
       ],
-      icon: Users,
-      image: "/images/sports-massage.jpg",
     },
     {
       id: "pregnancy-massage",
@@ -100,8 +93,6 @@ export default function ServicesPage() {
         "Supports hormone balance",
         "Prepares body for labor",
       ],
-      icon: Baby,
-      image: "/images/pregnancy-massage.jpg",
     },
     {
       id: "dry-needling",
@@ -127,226 +118,236 @@ export default function ServicesPage() {
         "Better range of motion",
         "Accelerated healing",
       ],
-      icon: Target,
-      image: "/images/dry-needling.jpg",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-spa-primary text-white py-16 mt-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-light mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-spa-neutral/90 max-w-2xl mx-auto">
-              Professional massage therapy services tailored to your needs. From
-              pain relief to relaxation, we're here to support your wellness
-              journey.
-            </p>
+      <section className="relative min-h-[60vh] flex items-center justify-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/back.jpg')`,
+            filter: "blur(5px)",
+          }}
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
+
+        {/* Content */}
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="flex justify-center mb-8">
+            <RiShieldCheckLine className="h-20 w-20 text-spa-accent" />
           </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
+            Our Services
+          </h1>
+
+          <div className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent">
+            Professional Care for Your Wellness
+          </div>
+
+          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
+            From pain relief to relaxation, we offer a range of specialized
+            massage therapies tailored to your unique needs and wellness goals.
+          </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid gap-8 lg:grid-cols-2">
-              {services.map((service, index) => (
-                <div
-                  key={service.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden"
-                >
-                  {/* Service Header */}
-                  <div className="bg-spa-secondary text-white p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center space-x-3">
-                        <service.icon className="h-8 w-8 text-spa-accent" />
-                        <div>
-                          <h3 className="text-2xl font-semibold">
-                            {service.title}
-                          </h3>
-                          <p className="text-spa-neutral/80">
-                            {service.subtitle}
-                          </p>
-                        </div>
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+              Our Treatment Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Each service is designed to address specific needs and provide
+              lasting relief and wellness benefits.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="bg-white border-2 border-gray-200 hover:border-spa-primary/50 transition-all duration-300 hover:shadow-lg"
+              >
+                {/* Service Header */}
+                <div className="bg-spa-secondary text-white p-8">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="text-2xl font-semibold mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-spa-neutral/80">{service.subtitle}</p>
+                    </div>
+                    {service.popular && (
+                      <div className="bg-spa-accent text-spa-secondary px-4 py-2 text-sm font-medium flex items-center gap-2">
+                        <RiStarLine className="h-4 w-4" />
+                        Most Popular
                       </div>
-                      {service.popular && (
-                        <div className="bg-spa-accent text-spa-secondary px-3 py-1 rounded-full text-sm font-medium">
-                          Most Popular
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Service Content */}
-                  <div className="p-6">
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-
-                    {/* Service Details */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
-                      <div className="space-y-3">
-                        <div className="flex items-center space-x-2">
-                          <Clock className="h-5 w-5 text-spa-primary" />
-                          <span className="text-gray-700">
-                            <strong>Duration:</strong> {service.duration}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <span className="text-2xl font-bold text-spa-primary">
-                            {service.price}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Features */}
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-spa-secondary mb-3">
-                        What's Included:
-                      </h4>
-                      <div className="grid md:grid-cols-2 gap-2">
-                        {service.features.map((feature, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center space-x-2"
-                          >
-                            <CheckCircle className="h-4 w-4 text-spa-primary" />
-                            <span className="text-sm text-gray-700">
-                              {feature}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Benefits */}
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-spa-secondary mb-3">
-                        Benefits:
-                      </h4>
-                      <div className="grid md:grid-cols-2 gap-2">
-                        {service.benefits.map((benefit, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center space-x-2"
-                          >
-                            <Star className="h-4 w-4 text-spa-accent" />
-                            <span className="text-sm text-gray-700">
-                              {benefit}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <button
-                        onClick={openModal}
-                        className="btn-spa-primary flex-1 flex items-center justify-center space-x-2"
-                      >
-                        <span>Book This Service</span>
-                        <ArrowRight className="h-4 w-4" />
-                      </button>
-                      <Link
-                        href={`/services/${service.id}`}
-                        className="btn-spa-accent flex-1 flex items-center justify-center space-x-2"
-                      >
-                        <span>Learn More</span>
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </div>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Service Content */}
+                <div className="p-8">
+                  <p className="text-gray-700 leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+
+                  {/* Service Details */}
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <RiTimeLine className="h-5 w-5 text-spa-primary" />
+                        <span className="text-gray-700">
+                          <strong>Duration:</strong> {service.duration}
+                        </span>
+                      </div>
+                      <div className="text-2xl font-bold text-spa-primary">
+                        {service.price}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div className="mb-8">
+                    <h4 className="font-semibold text-spa-secondary mb-4">
+                      What&apos;s Included:
+                    </h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <RiStarLine className="h-4 w-4 text-spa-primary" />
+                          <span className="text-sm text-gray-700">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="mb-8">
+                    <h4 className="font-semibold text-spa-secondary mb-4">
+                      Benefits:
+                    </h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {service.benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <RiHeartLine className="h-4 w-4 text-spa-accent" />
+                          <span className="text-sm text-gray-700">
+                            {benefit}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="text-center">
+                    <button
+                      onClick={openModal}
+                      className="btn-spa-accent inline-flex items-center gap-2 group"
+                    >
+                      <span>Book This Service</span>
+                      <RiArrowRightLine className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-spa-neutral py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-8">
+      <section className="py-20 bg-spa-neutral">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
               Why Choose Bunbury Wellness?
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-spa-primary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-spa-secondary mb-2">
-                  Qualified Therapists
-                </h3>
-                <p className="text-gray-700">
-                  Our team consists of certified and experienced massage
-                  therapists dedicated to your health and wellness.
-                </p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Experience the difference of professional care in a tranquil
+              environment
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-spa-primary flex items-center justify-center mx-auto mb-6">
+                <RiUserLine className="h-8 w-8 text-white" />
               </div>
-              <div className="text-center">
-                <div className="bg-spa-primary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-spa-secondary mb-2">
-                  Personalized Care
-                </h3>
-                <p className="text-gray-700">
-                  Every session is tailored to your specific needs, ensuring the
-                  most effective treatment for your condition.
-                </p>
+              <h3 className="text-xl font-semibold text-spa-secondary mb-4">
+                Qualified Therapists
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our team consists of certified and experienced massage
+                therapists dedicated to your health and wellness.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-spa-primary flex items-center justify-center mx-auto mb-6">
+                <RiHeartLine className="h-8 w-8 text-white" />
               </div>
-              <div className="text-center">
-                <div className="bg-spa-primary text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Star className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-spa-secondary mb-2">
-                  Premium Experience
-                </h3>
-                <p className="text-gray-700">
-                  Relax in our tranquil environment with premium amenities and
-                  professional service from start to finish.
-                </p>
+              <h3 className="text-xl font-semibold text-spa-secondary mb-4">
+                Personalized Care
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Every session is tailored to your specific needs, ensuring the
+                most effective treatment for your condition.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-spa-primary flex items-center justify-center mx-auto mb-6">
+                <RiAwardLine className="h-8 w-8 text-white" />
               </div>
+              <h3 className="text-xl font-semibold text-spa-secondary mb-4">
+                Premium Experience
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Relax in our tranquil environment with premium amenities and
+                professional service from start to finish.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-spa-secondary text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-light mb-6">
-              Ready to Experience the Difference?
-            </h2>
-            <p className="text-xl text-spa-neutral/90 mb-8 max-w-2xl mx-auto">
-              Book your appointment today and take the first step towards better
-              health and wellness.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={openModal}
-                className="btn-spa-accent text-lg px-8 py-4"
-              >
-                <span>Book Your Session</span>
-              </button>
-              <a
-                href="tel:+61897912345"
-                className="btn-spa-service text-lg px-8 py-4 flex items-center justify-center space-x-2"
-              >
-                <Phone className="h-5 w-5" />
-                <span>Call to Discuss</span>
-              </a>
-            </div>
+      <section className="py-20 bg-spa-secondary text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-light mb-6">
+            Ready to Experience the Difference?
+          </h2>
+          <p className="text-xl text-spa-neutral/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Book your appointment today and take the first step towards better
+            health and wellness.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openModal}
+              className="btn-spa-accent inline-flex items-center gap-2 group"
+            >
+              <span>Book Your Session</span>
+              <RiArrowRightLine className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+            </button>
+            <Link
+              href="mailto:info@bunburywellnessremedialmassage.com.au"
+              className="btn-spa-service inline-flex items-center gap-2 group"
+            >
+              <span>Email to Discuss</span>
+              <RiPhoneLine className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+            </Link>
           </div>
         </div>
       </section>

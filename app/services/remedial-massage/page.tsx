@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
-import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
+
 import Link from "next/link";
 
 export default function RemedialMassagePage() {
@@ -96,7 +96,7 @@ export default function RemedialMassagePage() {
                     Initial Consultation
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    We'll discuss your medical history, current symptoms, and
+                    We&apos;ll discuss your medical history, current symptoms, and
                     treatment goals to create a personalized treatment plan.
                   </p>
                 </div>
@@ -115,7 +115,7 @@ export default function RemedialMassagePage() {
                     Aftercare
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    We'll provide you with exercises, stretches, and lifestyle
+                    We&apos;ll provide you with exercises, stretches, and lifestyle
                     recommendations to maintain your progress between sessions.
                   </p>
                 </div>

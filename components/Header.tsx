@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { RiMenuLine, RiCloseLine, RiCalendar2Line } from "@remixicon/react";
 import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";

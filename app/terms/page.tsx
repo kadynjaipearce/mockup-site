@@ -1,11 +1,10 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useBookingModal } from "@/components/BookingProvider";
+
 import Link from "next/link";
 
 export default function TermsPage() {
-  const { openModal } = useBookingModal();
 
   return (
     <div className="min-h-screen bg-white">
@@ -37,7 +36,7 @@ export default function TermsPage() {
                     1. Introduction
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
-                    These Terms of Service ("Terms") govern your use of the
+                    These Terms of Service (&quot;Terms&quot;) govern your use of the
                     Bunbury Wellness website and services. By accessing or using
                     our website, you agree to be bound by these Terms. If you
                     disagree with any part of these terms, you may not access
@@ -81,7 +80,7 @@ export default function TermsPage() {
                       </h3>
                       <ul className="list-disc list-inside space-y-2">
                         <li>
-                          <strong>Fuko's Appointments:</strong> Appointments
+                          <strong>Fuko&apos;s Appointments:</strong> Appointments
                           with Fuko are available for FEMALE CLIENTS ONLY.
                         </li>
                         <li>

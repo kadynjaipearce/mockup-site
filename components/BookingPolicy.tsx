@@ -2,7 +2,6 @@
 
 import {
   RiTimeLine,
-  RiAlertLine,
   RiUserLine,
   RiShieldCheckLine,
   RiInformationLine,
@@ -47,7 +46,7 @@ export default function BookingPolicy() {
                 <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
                 <p className="text-gray-700 text-sm leading-relaxed">
                   <span className="font-medium text-spa-secondary">
-                    Fuko's Sessions:
+                    Fuko&apos;s Sessions:
                   </span>{" "}
                   Available for female clients only
                 </p>
@@ -146,7 +145,7 @@ export default function BookingPolicy() {
         <div className="text-center py-8">
           <div className="w-24 h-1 bg-spa-accent mx-auto mb-6"></div>
           <p className="text-gray-600 text-sm">
-            Have questions? We're here to help you every step of the way.
+            Have questions? We&apos;re here to help you every step of the way.
           </p>
         </div>
       </div>

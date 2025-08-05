@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
-import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
+import { RiArrowRightLine } from "@remixicon/react";
 import Link from "next/link";
 
 export default function DryNeedlingPage() {
@@ -30,10 +30,10 @@ export default function DryNeedlingPage() {
             Advanced therapy using fine needles to treat muscle pain and trigger
             points
           </p>
-          <button onClick={openModal} className="btn-spa-accent text-lg group">
-            <span>Book Your Session</span>
-            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
+                      <button onClick={openModal} className="btn-spa-accent text-lg group">
+              <span>Book Your Session</span>
+              <RiArrowRightLine className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
         </div>
       </section>
 
@@ -48,7 +48,7 @@ export default function DryNeedlingPage() {
               Dry needling is an advanced therapeutic technique that uses fine,
               sterile needles to target trigger points in muscles. This
               treatment helps release muscle tension, reduce pain, and improve
-              function by stimulating the body's natural healing response.
+              function by stimulating the body&apos;s natural healing response.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export default function DryNeedlingPage() {
                     Assessment
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    We'll assess your condition, identify trigger points, and
+                    We&apos;ll assess your condition, identify trigger points, and
                     create a personalized treatment plan for your specific
                     needs.
                   </p>
@@ -107,7 +107,7 @@ export default function DryNeedlingPage() {
                   </h4>
                   <p className="text-gray-700 text-sm">
                     Fine needles are inserted into trigger points to release
-                    tension and stimulate the body's natural healing response.
+                    tension and stimulate the body&apos;s natural healing response.
                   </p>
                 </div>
                 <div className="bg-spa-neutral p-6 rounded-lg">
@@ -115,7 +115,7 @@ export default function DryNeedlingPage() {
                     Aftercare
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    We'll provide guidance on post-treatment care and recommend
+                    We&apos;ll provide guidance on post-treatment care and recommend
                     follow-up sessions for optimal results.
                   </p>
                 </div>

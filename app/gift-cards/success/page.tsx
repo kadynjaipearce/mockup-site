@@ -1,23 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   RiCheckboxCircleLine,
   RiGiftLine,
   RiMailLine,
-  RiStarLine,
 } from "@remixicon/react";
 import Link from "next/link";
 
 export default function GiftCardSuccessPage() {
-  const [sessionId, setSessionId] = useState<string>("");
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    setSessionId(urlParams.get("session_id") || "");
-  }, []);
 
   return (
     <div className="min-h-screen">
@@ -54,7 +47,7 @@ export default function GiftCardSuccessPage() {
           </div>
 
           <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-            Your gift card purchase was successful. We've sent the gift card to
+            Your gift card purchase was successful. We&apos;ve sent the gift card to
             your email address.
           </p>
         </div>
@@ -65,7 +58,7 @@ export default function GiftCardSuccessPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
-              What's Next?
+              What&apos;s Next?
             </h2>
           </div>
 

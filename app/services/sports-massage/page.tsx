@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useBookingModal } from "@/components/BookingProvider";
 import { RiLeafLine } from "@remixicon/react";
-import { Clock, MapPin, Phone, ArrowRight } from "lucide-react";
+import { RiArrowRightLine } from "@remixicon/react";
 import Link from "next/link";
 
 export default function SportsMassagePage() {
@@ -30,10 +30,10 @@ export default function SportsMassagePage() {
             Specialized massage therapy for athletes, performance enhancement,
             and injury recovery
           </p>
-          <button onClick={openModal} className="btn-spa-accent text-lg group">
-            <span>Book Your Session</span>
-            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
+                      <button onClick={openModal} className="btn-spa-accent text-lg group">
+              <span>Book Your Session</span>
+              <RiArrowRightLine className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
         </div>
       </section>
 

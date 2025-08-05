@@ -1,11 +1,10 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useBookingModal } from "@/components/BookingProvider";
+
 import Link from "next/link";
 
 export default function PrivacyPage() {
-  const { openModal } = useBookingModal();
 
   return (
     <div className="min-h-screen bg-white">
@@ -47,7 +46,7 @@ export default function PrivacyPage() {
                 {/* Information We Don't Collect */}
                 <div>
                   <h2 className="text-2xl font-semibold text-spa-secondary mb-4">
-                    2. Information We Don't Collect
+                    2. Information We Don&apos;t Collect
                   </h2>
                   <div className="space-y-4 text-gray-700">
                     <p>
@@ -79,13 +78,13 @@ export default function PrivacyPage() {
                       <strong>Booking System:</strong> Our booking functionality
                       is provided by Cliniko, a third-party booking platform.
                       When you make a booking through our website, you will be
-                      redirected to Cliniko's secure booking system.
+                      redirected to Cliniko&apos;s secure booking system.
                     </p>
                     <p>
                       <strong>Cliniko Privacy:</strong> Any information you
                       provide during the booking process is handled by Cliniko
                       according to their privacy policy. We recommend reviewing
-                      Cliniko's privacy policy before making a booking.
+                      Cliniko&apos;s privacy policy before making a booking.
                     </p>
                     <p>
                       <strong>No Data Sharing:</strong> We do not receive,
@@ -194,7 +193,7 @@ export default function PrivacyPage() {
                 {/* Children's Privacy */}
                 <div>
                   <h2 className="text-2xl font-semibold text-spa-secondary mb-4">
-                    8. Children's Privacy
+                    8. Children&apos;s Privacy
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
                     Our website is not intended for children under 13 years of
