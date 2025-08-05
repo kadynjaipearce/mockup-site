@@ -1,5 +1,5 @@
-import { Facebook, Instagram, Twitter } from "lucide-react";
-import { RiLeafLine } from "@remixicon/react";
+import { Facebook, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -10,7 +10,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <RiLeafLine className="h-10 w-10 text-spa-accent" />
+              <Image
+                src="/Icon.png"
+                alt="Bunbury Wellness Logo"
+                width={60}
+                height={60}
+                className="h-15 w-15"
+              />
               <div>
                 <div className="font-semibold text-xl">Bunbury Wellness</div>
                 <div className="text-sm opacity-80">Remedial Massage</div>
@@ -23,25 +29,20 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/BunburyWellnessRemedialMassage"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer opacity-60 hover:opacity-100 transform hover:scale-110"
                 aria-label="Follow us on Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="mailto:info@bunburywellnessremedialmassage.com.au"
                 className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer opacity-60 hover:opacity-100 transform hover:scale-110"
-                aria-label="Follow us on Instagram"
+                aria-label="Email us"
               >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-white/10 hover:bg-spa-accent hover:text-spa-secondary p-3 rounded-sm transition-all duration-200 cursor-pointer opacity-60 hover:opacity-100 transform hover:scale-110"
-                aria-label="Follow us on Twitter"
-              >
-                <Twitter className="h-5 w-5" />
+                <Mail className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -51,28 +52,40 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
-                  Our Services
-                </button>
+                <Link
+                  href="/services"
+                  className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/specials"
+                  className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
+                >
+                  Specials
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gift-cards"
+                  className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
+                >
+                  Gift Cards
+                </Link>
               </li>
               <li>
                 <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
-                  Current Specials
-                </button>
-              </li>
-              <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
-                  Testimonials
-                </button>
-              </li>
-              <li>
-                <button className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer">
-                  Contact & Booking
+                  Contact
                 </button>
               </li>
             </ul>
@@ -85,27 +98,18 @@ const Footer = () => {
               <div>
                 <div className="font-medium text-white mb-1">Address</div>
                 <div className="text-sm">
-                  123 Wellness Street
+                  Unit 4 3 Victoria Street
                   <br />
                   Bunbury, WA 6230
                 </div>
               </div>
               <div>
-                <div className="font-medium text-white mb-1">Phone</div>
-                <a
-                  href="tel:+61897210000"
-                  className="text-sm hover:text-spa-accent transition-colors cursor-pointer"
-                >
-                  (08) 9721 0000
-                </a>
-              </div>
-              <div>
                 <div className="font-medium text-white mb-1">Email</div>
                 <a
-                  href="mailto:hello@bunburywellness.com.au"
+                  href="mailto:info@bunburywellnessremedialmassage.com.au"
                   className="text-sm hover:text-spa-accent transition-colors cursor-pointer"
                 >
-                  hello@bunburywellness.com.au
+                  info@bunburywellnessremedialmassage.com.au
                 </a>
               </div>
             </div>

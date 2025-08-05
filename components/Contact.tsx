@@ -1,5 +1,5 @@
 "use client";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -16,7 +16,7 @@ const Contact = () => {
         </div>
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Google Maps Only, fills left space or full width on mobile */}
-          <div className="bg-gray-50 p-0 rounded-sm flex items-center justify-center min-h-[400px] h-full w-full">
+          <div className="bg-gray-50 p-0 rounded-sm flex items-center justify-center min-h-[500px] h-full w-full">
             <iframe
               title="Bunbury WA Map"
               src="https://www.google.com/maps?q=Bunbury+WA,+Australia&output=embed"
@@ -25,7 +25,7 @@ const Contact = () => {
               style={{
                 border: 0,
                 borderRadius: "0.375rem",
-                minHeight: "400px",
+                minHeight: "500px",
                 minWidth: "100%",
               }}
               allowFullScreen
@@ -51,25 +51,11 @@ const Contact = () => {
                 <div>
                   <div className="font-medium text-spa-secondary">Visit Us</div>
                   <div className="text-gray-600">
-                    123 Wellness Street
+                    Unit 4 3 Victoria Street
                     <br />
                     Bunbury, WA 6230
                     <br />
                     Australia
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Phone className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
-                <div>
-                  <div className="font-medium text-spa-secondary">Call Us</div>
-                  <div className="text-gray-600">
-                    <a
-                      href="tel:+61400000000"
-                      className="hover:text-spa-primary transition-colors"
-                    >
-                      (08) 9721 0000
-                    </a>
                   </div>
                 </div>
               </div>
@@ -79,10 +65,10 @@ const Contact = () => {
                   <div className="font-medium text-spa-secondary">Email Us</div>
                   <div className="text-gray-600">
                     <a
-                      href="mailto:hello@bunburywellness.com.au"
+                      href="mailto:info@bunburywellnessremedialmassage.com.au"
                       className="hover:text-spa-primary transition-colors"
                     >
-                      hello@bunburywellness.com.au
+                      info@bunburywellnessremedialmassage.com.au
                     </a>
                   </div>
                 </div>
@@ -94,9 +80,7 @@ const Contact = () => {
                     Opening Hours
                   </div>
                   <div className="text-gray-600 space-y-1">
-                    <div>Monday - Friday: 9:00 AM - 7:00 PM</div>
-                    <div>Saturday: 9:00 AM - 5:00 PM</div>
-                    <div>Sunday: 10:00 AM - 4:00 PM</div>
+                    <div>Monday - Friday: 10:00 AM - 4:00 PM</div>
                   </div>
                 </div>
               </div>

@@ -1,22 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { RiLeafLine } from "@remixicon/react";
+import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";
 import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  // const [scrolled, setScrolled] = useState(false);
   const { openModal } = useBookingModal();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrolled(window.scrollY > 10);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   const navigation = [
     { name: "Services", href: "/services", isLink: true },
@@ -34,9 +34,8 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // Always use solid secondary background if menu is open, else use scroll logic
-  const headerBg =
-    isMenuOpen || scrolled ? "bg-spa-secondary shadow-lg" : "bg-transparent";
+  // Always use solid secondary background
+  const headerBg = "bg-spa-secondary shadow-lg";
 
   return (
     <header
@@ -51,7 +50,14 @@ const Header = () => {
             href="/"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <RiLeafLine className="h-8 w-8" style={{ color: "#FFC857" }} />
+            {/* <RiLeafLine className="h-8 w-8" style={{ color: "#FFC857" }} /> */}
+            <Image
+              src="/Icon.png"
+              alt="Bunbury Wellness Logo"
+              width={48}
+              height={48}
+              className="h-12 w-12"
+            />
             <div className="text-white">
               <div className="font-semibold text-lg leading-tight">
                 Bunbury Wellness
