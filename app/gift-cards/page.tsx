@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   RiGiftLine,
-  RiVisaLine,
+  RiBankCardLine,
   RiStarLine,
   RiMoneyDollarCircleLine,
 } from "@remixicon/react";
@@ -154,7 +154,7 @@ export default function GiftCardsPage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
-                <RiVisaLine className="h-8 w-8 text-spa-primary" />
+                <RiBankCardLine className="h-8 w-8 text-spa-primary" />
               </div>
               <h3 className="text-xl font-semibold text-spa-secondary mb-3">
                 Flexible Value
@@ -192,7 +192,7 @@ export default function GiftCardsPage() {
           </div>
 
           {/* Preset Amounts */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {giftCardOptions.map((option) => (
               <div
                 key={option.id}
@@ -281,8 +281,8 @@ export default function GiftCardsPage() {
                 </>
               ) : (
                 <>
-                  <RiVisaLine className="h-5 w-5" />
                   <span>Purchase ${getDisplayAmount()} Gift Card</span>
+                  <RiBankCardLine className="h-5 w-5 z-10" />
                 </>
               )}
             </button>

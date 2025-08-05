@@ -1,5 +1,75 @@
----
-description:
+[---  
+description: >
+Enforce strict coding and commit conventions for all changes, including Git commit formatting, visual consistency using @remixicon/react, and matching new page designs to the landing page.
+
 globs:
+
+- "\*_/_.{ts,tsx,js,jsx,json,md,css,scss,html}"
+
 alwaysApply: false
----
+---]
+
+rules:
+
+# ✅ Git Commit Rules
+
+- id: git-conventional-commits
+  description: >
+  All commits must follow the Conventional Commits format with Gitmoji. Messages must be concise, lowercase, and end with a period.
+  condition: >
+  commit.message matches /^(🔧|✨|🐛|💄|⚡️|🎨|✅|🚧|📝|💥) (feat|fix|style|refactor|perf|chore|test|docs|wip)(\([\w\-]+\))?!?: .+\.$/
+  errorMessage: >
+  ❌ Commit message must follow Conventional Commits + Gitmoji:
+  "<emoji> <type>(optional-scope): message." (ends with a period).
+
+# ✅ Git Commit Scope Guidelines
+
+- id: git-scope-format
+  description: >
+  If a scope is used, it must be lowercase and contain only letters, numbers, or dashes.
+  condition: >
+  !commit.message.contains("()") && (commit.message contains "(" && commit.message contains ")")
+  action: >
+  ensure commit.message.scope matches /^[a-z0-9\-]+$/
+  errorMessage: >
+  ❌ Scope in commit message must be lowercase and use dashes only.
+
+# ✅ Enforce use of @remixicon/react
+
+- id: remixicon-import
+  description: >
+  All icons must be imported from '@remixicon/react'.
+  condition: >
+  file.content.includes("Icon") && !file.content.includes("@remixicon/react")
+  errorMessage: >
+  ❌ All icons must be imported from '@remixicon/react'.
+
+# ✅ Consistent Page Design with Landing Page
+
+- id: consistent-design
+  description: >
+  All new pages must match the landing page design system and color scheme.
+  condition: >
+  file.path.includes("/pages/") && file.diff.added.includes("<div") && !file.diff.added.includes("className=\"landing-style\"")
+  errorMessage: >
+  ❌ New pages must follow the same layout, spacing, and colour scheme as the Landing Page. Reuse design components.
+
+# ✅ Prevent vague commits
+
+- id: no-vague-commit
+  description: >
+  Avoid vague commit messages like "update", "fix stuff", or "misc changes".
+  condition: >
+  commit.message matches /update|fix(stuff)?|misc/
+  errorMessage: >
+  ❌ Commit messages must be specific and meaningful. Avoid vague words like "update" or "fix stuff".
+
+# ✅ Force short commit messages
+
+- id: concise-commit
+  description: >
+  Keep commit messages short (max 72 characters).
+  condition: >
+  commit.message.length > 72
+  errorMessage: >
+  ❌ Commit message too long. Keep it under 72 characters.

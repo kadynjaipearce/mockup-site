@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="space-y-3 text-gray-300">
               <div>
                 <div className="font-medium text-white mb-1">Address</div>
-                <div className="text-sm">
+                <div className="text-sm break-words">
                   Unit 4 3 Victoria Street
                   <br />
                   Bunbury, WA 6230
@@ -110,7 +110,7 @@ const Footer = () => {
                 <div className="font-medium text-white mb-1">Email</div>
                 <a
                   href="mailto:info@bunburywellnessremedialmassage.com.au"
-                  className="text-sm hover:text-spa-accent transition-colors cursor-pointer"
+                  className="text-sm hover:text-spa-accent transition-colors cursor-pointer break-all"
                 >
                   info@bunburywellnessremedialmassage.com.au
                 </a>
@@ -120,14 +120,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div className="text-gray-400 text-sm mb-4 md:mb-0 break-words">
             © 2025 Bunbury Wellness Remedial Massage. All rights reserved.
             <span className="block md:inline text-xs text-gray-500 mt-1 md:mt-0 md:ml-4">
               Developed by Aperia Solutions
             </span>
           </div>
-          <div className="flex space-x-6 text-sm">
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
             <Link
               href="/privacy"
               className="text-gray-400 hover:text-spa-accent transition-colors cursor-pointer"

@@ -1,21 +1,32 @@
-"use client";
-
+import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useBookingModal } from "@/components/BookingProvider";
-import { RiLeafLine } from "@remixicon/react";
 import {
-  Clock,
-  MapPin,
-  Phone,
-  ArrowRight,
-  Users,
-  Award,
-  Heart,
-  Shield,
-} from "lucide-react";
+  RiLeafLine,
+  RiHeartLine,
+  RiShieldCheckLine,
+  RiUserLine,
+  RiAwardLine,
+  RiCalendar2Line,
+  RiPhoneLine,
+} from "@remixicon/react";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "About Us - Bunbury Wellness Remedial Massage",
+  description:
+    "Discover the story behind Bunbury Wellness and meet our experienced team of remedial massage therapists. Learn about our values, journey, and commitment to your health and wellbeing.",
+  keywords:
+    "about us, Bunbury wellness, remedial massage therapists, massage therapy team, wellness journey, therapeutic care",
+  openGraph: {
+    title: "About Us - Bunbury Wellness Remedial Massage",
+    description:
+      "Discover the story behind Bunbury Wellness and meet our experienced team of remedial massage therapists.",
+    type: "website",
+    locale: "en_AU",
+  },
+};
 
 const teamMembers = [
   {
@@ -50,25 +61,25 @@ const teamMembers = [
 
 const values = [
   {
-    icon: Heart,
+    icon: RiHeartLine,
     title: "Compassionate Care",
     description:
       "We treat every client with genuine care and understanding, creating a safe space for healing and relaxation.",
   },
   {
-    icon: Shield,
+    icon: RiShieldCheckLine,
     title: "Professional Excellence",
     description:
       "Our therapists are fully qualified and continuously update their skills to provide the highest standard of care.",
   },
   {
-    icon: Users,
+    icon: RiUserLine,
     title: "Client-Centered",
     description:
       "Every treatment is personalized to your specific needs, ensuring you receive the most effective care possible.",
   },
   {
-    icon: Award,
+    icon: RiAwardLine,
     title: "Proven Results",
     description:
       "Our track record speaks for itself - thousands of satisfied clients who have experienced real relief and improvement.",
@@ -103,8 +114,6 @@ const milestones = [
 ];
 
 export default function AboutPage() {
-  const { openModal } = useBookingModal();
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -125,9 +134,13 @@ export default function AboutPage() {
             Discover the story behind Bunbury Wellness and meet the team
             dedicated to your health and wellbeing
           </p>
-          <button onClick={openModal} className="btn-spa-accent ml-8 inline">
+          <Link
+            href="/#contact"
+            className="btn-spa-accent inline-flex items-center gap-2 group"
+          >
             <span>Book Your Session</span>
-          </button>
+            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+          </Link>
         </div>
       </section>
 
@@ -189,7 +202,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-spa-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-spa-primary flex items-center justify-center mx-auto mb-4">
                   <value.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-spa-secondary mb-3">
@@ -219,14 +232,14 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 gap-12">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-spa-neutral rounded-lg p-8">
+              <div key={index} className="bg-spa-neutral p-8">
                 <div className="flex flex-col md:flex-row items-start gap-6">
                   <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover"
                     />
                   </div>
                   <div className="flex-1">
@@ -250,7 +263,7 @@ export default function AboutPage() {
                         {member.specialties.map((specialty, idx) => (
                           <span
                             key={idx}
-                            className="bg-spa-primary text-white px-3 py-1 rounded-full text-sm"
+                            className="bg-spa-primary text-white px-3 py-1 text-sm"
                           >
                             {specialty}
                           </span>
@@ -283,7 +296,7 @@ export default function AboutPage() {
               {milestones.map((milestone, index) => (
                 <div key={index} className="flex items-start gap-6 relative">
                   <div className="flex-shrink-0 relative z-10">
-                    <div className="w-16 h-16 bg-spa-primary rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-spa-primary flex items-center justify-center">
                       <span className="text-white font-bold text-lg">
                         {milestone.year}
                       </span>
@@ -326,7 +339,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -341,7 +354,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -355,7 +368,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -371,7 +384,7 @@ export default function AboutPage() {
             </div>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -386,7 +399,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -400,7 +413,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-spa-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -419,7 +432,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <div className="text-center bg-spa-primary text-white p-12 rounded-lg mx-4 sm:mx-6 lg:mx-8 mb-20">
+      <div className="text-center bg-spa-primary text-white p-12 mx-4 sm:mx-6 lg:mx-8 mb-20">
         <h3 className="text-2xl font-light mb-4">
           Ready to Experience the Difference?
         </h3>
@@ -428,11 +441,19 @@ export default function AboutPage() {
           journey today
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button onClick={openModal} className="btn-spa-accent">
+          <Link
+            href="/#contact"
+            className="btn-spa-accent inline-flex items-center gap-2 group"
+          >
             <span>Book Your Session</span>
-          </button>
-          <Link href="tel:+61897210000" className="btn-spa-service">
-            <span>Call to Discuss</span>
+            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+          </Link>
+          <Link
+            href="mailto:info@bunburywellnessremedialmassage.com.au"
+            className="btn-spa-service inline-flex items-center gap-2 group"
+          >
+            <span>Email to Discuss</span>
+            <RiPhoneLine className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
           </Link>
         </div>
       </div>

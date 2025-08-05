@@ -14,7 +14,7 @@ export default function BookingPolicy() {
   const { openModal } = useBookingModal();
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-white to-spa-neutral">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
@@ -31,7 +31,7 @@ export default function BookingPolicy() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Booking Requirements */}
           <div className="bg-white p-8 shadow-sm border-2 border-gray-200 hover:shadow-md transition-all duration-300">
             <div className="flex items-center mb-6">
@@ -124,15 +124,30 @@ export default function BookingPolicy() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
+        {/* CTA Section */}
+        <div className="text-center bg-spa-primary text-white p-12 mx-4 sm:mx-6 lg:mx-8 mb-8">
+          <h3 className="text-2xl font-light mb-4">
+            Ready to Start Your Wellness Journey?
+          </h3>
+          <p className="text-lg mb-8 opacity-90">
+            Book your session with our experienced team and experience the
+            difference
+          </p>
           <button
             onClick={openModal}
             className="btn-spa-accent inline-flex items-center gap-2 group"
           >
             <span>Book Your Session</span>
-            <RiCalendar2Line className="transition-colors duration-300 text-inherit group-hover:text-[#092518] z-10" />
+            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
           </button>
+        </div>
+
+        {/* Transition Section */}
+        <div className="text-center py-8">
+          <div className="w-24 h-1 bg-spa-accent mx-auto mb-6"></div>
+          <p className="text-gray-600 text-sm">
+            Have questions? We're here to help you every step of the way.
+          </p>
         </div>
       </div>
     </section>
