@@ -191,45 +191,43 @@ export default function GiftCardsPage() {
             </p>
           </div>
 
-          {/* Preset Amounts */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {giftCardOptions.map((option) => (
-              <div
-                key={option.id}
-                className={`relative bg-white p-6 shadow-sm border-2 transition-all duration-300 cursor-pointer hover:shadow-md ${
-                  selectedAmount === option.id && !isCustomAmount
-                    ? "border-spa-primary bg-spa-primary/5"
-                    : "border-gray-200 hover:border-spa-primary/50"
-                }`}
-                onClick={() => handleAmountSelect(option.id)}
-              >
-                {option.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-spa-accent text-white px-4 py-1 text-sm font-medium flex items-center gap-1">
-                      <RiStarLine className="h-3 w-3" />
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center">
-                  <div className="text-3xl font-light text-spa-secondary mb-2">
-                    ${option.amount}
-                  </div>
-                  <h3 className="text-lg font-semibold text-spa-secondary mb-2">
-                    {option.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {option.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Most Popular Tag */}
+          <div className="w-full flex justify-center mb-4">
+            <span className="bg-spa-accent text-white px-4 py-1 text-sm font-medium flex items-center gap-1 rounded-full shadow">
+              <RiStarLine className="h-3 w-3" /> Most Popular
+            </span>
           </div>
-
-          {/* Custom Amount Section */}
-          <div className="mb-12">
-            <div className="max-w-md mx-auto">
+          <div className="flex flex-col lg:flex-row gap-8 mb-12">
+            {/* Preset Amounts Grid */}
+            <div className="flex-1">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                {giftCardOptions.map((option) => (
+                  <div
+                    key={option.id}
+                    className={`relative bg-white p-6 shadow-sm border-2 transition-all duration-300 cursor-pointer hover:shadow-md ${
+                      selectedAmount === option.id && !isCustomAmount
+                        ? "border-spa-primary bg-spa-primary/5"
+                        : "border-gray-200 hover:border-spa-primary/50"
+                    }`}
+                    onClick={() => handleAmountSelect(option.id)}
+                  >
+                    <div className="text-center">
+                      <div className="text-3xl font-light text-spa-secondary mb-2">
+                        ${option.amount}
+                      </div>
+                      <h3 className="text-lg font-semibold text-spa-secondary mb-2">
+                        {option.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {option.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Custom Amount and Purchase Button */}
+            <div className="w-full lg:w-[340px] flex flex-col gap-6">
               <div className="bg-white p-6 shadow-sm border-2 border-gray-200">
                 <div className="text-center mb-4">
                   <h3 className="text-xl font-semibold text-spa-secondary mb-2">
@@ -239,15 +237,14 @@ export default function GiftCardsPage() {
                     Enter any amount between $25 - $500
                   </p>
                 </div>
-
                 <div className="flex items-center gap-3">
                   <div className="flex-1">
                     <div className="relative">
                       <RiMoneyDollarCircleLine className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                       <input
-                        type="number"
-                        min="25"
-                        max="500"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Enter amount"
                         value={customAmount}
                         onChange={(e) =>
@@ -257,35 +254,37 @@ export default function GiftCardsPage() {
                           isCustomAmount
                             ? "border-spa-primary bg-spa-primary/5"
                             : "border-gray-200 focus:border-spa-primary"
-                        }`}
+                        } appearance-none`}
+                        style={{ MozAppearance: "textfield" }}
+                        onWheel={(e) => e.currentTarget.blur()}
+                        onKeyDown={(e) => {
+                          if (e.key === "ArrowUp" || e.key === "ArrowDown")
+                            e.preventDefault();
+                        }}
                       />
                     </div>
                   </div>
                   <div className="text-gray-500 text-sm">AUD</div>
                 </div>
               </div>
+              <button
+                onClick={handlePurchase}
+                disabled={isLoading || !getDisplayAmount()}
+                className="btn-spa-accent inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <>
+                    <span>Processing...</span>
+                    <div className="w-5 h-5 ml-2 rounded-full border-2 border-black border-t-transparent animate-spin"></div>
+                  </>
+                ) : (
+                  <>
+                    <span>Purchase ${getDisplayAmount()} Gift Card</span>
+                    <RiBankCardLine className="h-5 w-5 z-10" />
+                  </>
+                )}
+              </button>
             </div>
-          </div>
-
-          {/* Purchase Button */}
-          <div className="text-center">
-            <button
-              onClick={handlePurchase}
-              disabled={isLoading || !getDisplayAmount()}
-              className="btn-spa-accent inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isLoading ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent animate-spin"></div>
-                  <span>Processing...</span>
-                </>
-              ) : (
-                <>
-                  <span>Purchase ${getDisplayAmount()} Gift Card</span>
-                  <RiBankCardLine className="h-5 w-5 z-10" />
-                </>
-              )}
-            </button>
           </div>
         </div>
       </section>
