@@ -5,27 +5,12 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export default function PrivacyPage() {
-
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-spa-primary text-white py-16 pt-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-light mb-6">
-              Privacy Policy
-            </h1>
-            <p className="text-xl text-spa-neutral/90 max-w-2xl mx-auto">
-              How we protect your privacy and handle your information
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Content Section */}
-      <section className="py-16">
+      <section className="pt-42 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto prose prose-lg">
             <div className="bg-white rounded-lg shadow-lg p-8">
@@ -43,53 +28,49 @@ export default function PrivacyPage() {
                   </p>
                 </div>
 
-                {/* Information We Don't Collect */}
+                {/* Information We Collect and Analytics */}
                 <div>
                   <h2 className="text-2xl font-semibold text-spa-secondary mb-4">
-                    2. Information We Don&apos;t Collect
+                    2. Analytics and Data Collection
                   </h2>
                   <div className="space-y-4 text-gray-700">
                     <p>
+                      <strong>Analytics:</strong> We use Google Analytics and
+                      Facebook Pixel to help us understand how visitors use our
+                      website. These services may use cookies and similar
+                      technologies to collect usage data, but we do not receive
+                      or store any personally identifiable information from
+                      these analytics providers.
+                    </p>
+                    <p>
                       <strong>No Personal Data Storage:</strong> Our website
                       does not collect, store, or process any personal
-                      information from visitors. We do not use cookies, tracking
-                      technologies, or any form of data collection.
-                    </p>
-                    <p>
-                      <strong>No User Accounts:</strong> We do not require user
+                      information from visitors. We do not require user
                       registration, accounts, or login credentials to access our
                       website.
-                    </p>
-                    <p>
-                      <strong>No Analytics:</strong> We do not use Google
-                      Analytics, Facebook Pixel, or any other tracking services
-                      to monitor website usage.
                     </p>
                   </div>
                 </div>
 
-                {/* Third-Party Services */}
+                {/* Third-Party Services and Checkout */}
                 <div>
                   <h2 className="text-2xl font-semibold text-spa-secondary mb-4">
-                    3. Third-Party Services
+                    3. Third-Party Services and Checkout
                   </h2>
                   <div className="space-y-4 text-gray-700">
                     <p>
                       <strong>Booking System:</strong> Our booking functionality
                       is provided by Cliniko, a third-party booking platform.
                       When you make a booking through our website, you will be
-                      redirected to Cliniko&apos;s secure booking system.
+                      redirected to Cliniko&apos;s secure booking system. Any
+                      information you provide during the booking process is
+                      handled by Cliniko according to their privacy policy.
                     </p>
                     <p>
-                      <strong>Cliniko Privacy:</strong> Any information you
-                      provide during the booking process is handled by Cliniko
-                      according to their privacy policy. We recommend reviewing
-                      Cliniko&apos;s privacy policy before making a booking.
-                    </p>
-                    <p>
-                      <strong>No Data Sharing:</strong> We do not receive,
-                      store, or have access to any personal information you
-                      provide to Cliniko during the booking process.
+                      <strong>Checkout and Email:</strong> If you purchase a
+                      service or gift card, our checkout system will send
+                      confirmation and notification emails. We do not store your
+                      payment or contact information on our website or servers.
                     </p>
                   </div>
                 </div>
@@ -172,11 +153,9 @@ export default function PrivacyPage() {
                     <p>
                       Since we do not collect or store personal data through our
                       website, there is no personal information to access,
-                      modify, or delete.
-                    </p>
-                    <p>
-                      For any health information collected during in-person
-                      sessions, you have the right to:
+                      modify, or delete from our systems. For any health
+                      information collected during in-person sessions, you have
+                      the right to:
                     </p>
                     <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                       <li>Request access to your records</li>
@@ -229,11 +208,19 @@ export default function PrivacyPage() {
                     <p className="text-gray-700">
                       <strong>Bunbury Wellness</strong>
                       <br />
-                      Phone: (08) 9791 2345
+                      Address: Unit 4 3 Victoria Street
                       <br />
-                      Email: info@bunburywellness.com.au
+                      Bunbury, WA 6230
                       <br />
-                      Address: 123 Wellness Street, Bunbury WA 6230
+                      Australia
+                      <br />
+                      Email:{" "}
+                      <a
+                        href="mailto:info@bunburywellnessremedialmassage.com.au"
+                        className="text-spa-primary hover:underline"
+                      >
+                        info@bunburywellnessremedialmassage.com.au
+                      </a>
                     </p>
                   </div>
                 </div>
