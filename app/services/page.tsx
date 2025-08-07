@@ -20,7 +20,7 @@ const services = [
     subtitle: "Therapeutic Treatment",
     description:
       "Targeted therapy to address specific muscle tension, injuries, and chronic pain conditions.",
-    image: "/fuko.jpg",
+    image: "/placeholder.svg",
     duration: "60-90 minutes",
     price: "From $90",
     features: [
@@ -37,7 +37,7 @@ const services = [
     subtitle: "Performance Enhancement",
     description:
       "Specialized massage for athletes and active individuals to improve performance and recovery.",
-    image: "/back.jpg",
+    image: "/placeholder.svg",
     duration: "60-90 minutes",
     price: "From $95",
     features: [
@@ -54,7 +54,7 @@ const services = [
     subtitle: "Gentle Care for Mums-to-Be",
     description:
       "Safe and comfortable massage therapy designed specifically for expectant mothers.",
-    image: "/preg.jpg",
+    image: "/placeholder.svg",
     duration: "60-75 minutes",
     price: "From $85",
     features: [
@@ -71,7 +71,7 @@ const services = [
     subtitle: "Stress Relief & Wellness",
     description:
       "Gentle, flowing massage to promote relaxation, reduce stress, and improve overall wellbeing.",
-    image: "/front.jpg",
+    image: "/placeholder.svg",
     duration: "60-90 minutes",
     price: "From $80",
     features: [
@@ -87,35 +87,35 @@ const services = [
 const specials = [
   {
     id: 1,
-    title: "Spa Date Night",
-    subtitle: "Romantic Evening Under the Stars",
+    title: "Specials 1",
+    subtitle: "Premium Wellness Experience",
     description:
-      "We would like to invite you to book our divine spa room for an evening under the stars with your loved one.",
-    image: "/back.jpg",
+      "Experience our signature wellness package designed to provide ultimate relaxation and rejuvenation for your mind and body.",
+    image: "/placeholder.svg",
     price: "From $150",
     duration: "2 Hours",
     features: [
-      "Couples massage",
-      "Private spa room",
-      "Romantic atmosphere",
-      "Champagne service",
+      "Full body massage",
+      "Aromatherapy treatment",
+      "Hot stone therapy",
+      "Wellness consultation",
     ],
     popular: true,
   },
   {
     id: 2,
-    title: "Wellness Package",
-    subtitle: "Complete Mind & Body Experience",
+    title: "Specials 2",
+    subtitle: "Ultimate Relaxation Package",
     description:
-      "A comprehensive treatment combining multiple therapies for ultimate relaxation and rejuvenation.",
-    image: "/front.jpg",
-    price: "From $200",
-    duration: "3 Hours",
+      "A comprehensive relaxation experience combining multiple therapeutic techniques for complete mind-body wellness.",
+    image: "/placeholder.svg",
+    price: "From $180",
+    duration: "2.5 Hours",
     features: [
-      "Full body massage",
-      "Aromatherapy",
+      "Extended massage session",
+      "Aromatherapy oils",
       "Hot stone therapy",
-      "Wellness consultation",
+      "Post-treatment consultation",
     ],
     popular: false,
   },
@@ -200,7 +200,7 @@ export default function ServicesPage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-spa-accent">
+                      <div className="text-xl font-bold text-spa-accent">
                         {service.price}
                       </div>
                       <div className="text-sm text-gray-500 flex items-center gap-1 mt-1">
@@ -288,7 +288,7 @@ export default function ServicesPage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className="text-4xl font-bold text-spa-accent">
+                      <div className="text-2xl font-bold text-spa-accent">
                         {special.price}
                       </div>
                       <div className="text-lg text-gray-500 font-medium">
@@ -330,7 +330,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-spa-secondary to-spa-primary">
+      <section className="py-24 bg-spa-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
             Ready to Experience Our Services?
@@ -342,17 +342,17 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/#contact"
-              className="bg-white text-spa-secondary hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-3 group transition-all duration-300"
+              className="btn-spa-accent inline-flex items-center gap-3 group"
             >
               <span>Book Your Session</span>
-              <RiCalendar2Line className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
+              <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
             </Link>
             <Link
               href="/gift-cards"
-              className="border-2 border-white text-white hover:bg-white hover:text-spa-secondary px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-3 group transition-all duration-300"
+              className="btn-spa-service inline-flex items-center gap-3 group"
             >
               <span>Gift a Session</span>
-              <RiGiftLine className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
+              <RiGiftLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
             </Link>
           </div>
         </div>

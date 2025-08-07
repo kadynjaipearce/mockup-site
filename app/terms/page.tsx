@@ -5,27 +5,12 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export default function TermsPage() {
-
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-spa-primary text-white py-16 pt-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-light mb-6">
-              Terms of Service
-            </h1>
-            <p className="text-xl text-spa-neutral/90 max-w-2xl mx-auto">
-              Please read these terms carefully before using our services
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Content Section */}
-      <section className="py-16">
+      <section className="pt-42 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto prose prose-lg">
             <div className="bg-white rounded-lg shadow-lg p-8">
@@ -36,11 +21,11 @@ export default function TermsPage() {
                     1. Introduction
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
-                    These Terms of Service (&quot;Terms&quot;) govern your use of the
-                    Bunbury Wellness website and services. By accessing or using
-                    our website, you agree to be bound by these Terms. If you
-                    disagree with any part of these terms, you may not access
-                    our services.
+                    These Terms of Service (&quot;Terms&quot;) govern your use
+                    of the Bunbury Wellness website and services. By accessing
+                    or using our website, you agree to be bound by these Terms.
+                    If you disagree with any part of these terms, you may not
+                    access our services.
                   </p>
                 </div>
 
@@ -80,8 +65,9 @@ export default function TermsPage() {
                       </h3>
                       <ul className="list-disc list-inside space-y-2">
                         <li>
-                          <strong>Fuko&apos;s Appointments:</strong> Appointments
-                          with Fuko are available for FEMALE CLIENTS ONLY.
+                          <strong>Fuko&apos;s Appointments:</strong>{" "}
+                          Appointments with Fuko are available for FEMALE
+                          CLIENTS ONLY.
                         </li>
                         <li>
                           <strong>Identification:</strong> Please use your first
@@ -234,17 +220,25 @@ export default function TermsPage() {
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
                     If you have any questions about these Terms of Service,
-                    please contact us at:
+                    please contact us:
                   </p>
                   <div className="mt-4 p-4 bg-spa-neutral rounded-lg">
                     <p className="text-gray-700">
                       <strong>Bunbury Wellness</strong>
                       <br />
-                      Phone: (08) 9791 2345
+                      Address: Unit 4 3 Victoria Street
                       <br />
-                      Email: info@bunburywellness.com.au
+                      Bunbury, WA 6230
                       <br />
-                      Address: 123 Wellness Street, Bunbury WA 6230
+                      Australia
+                      <br />
+                      Email:{" "}
+                      <a
+                        href="mailto:info@bunburywellnessremedialmassage.com.au"
+                        className="text-spa-primary hover:underline"
+                      >
+                        info@bunburywellnessremedialmassage.com.au
+                      </a>
                     </p>
                   </div>
                 </div>

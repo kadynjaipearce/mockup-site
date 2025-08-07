@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import {
   RiArrowLeftSLine,
   RiArrowRightSLine,
-  RiStarLine,
+  RiStarFill,
 } from "@remixicon/react";
 
 const Testimonials = () => {
@@ -12,32 +12,31 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote:
-        "Absolutely the best massage experience I've ever had. The space is beautiful and calming!",
-      name: "Sophie L.",
+        "I totally recommend the services of Bunbury Wellness Remedial Massage, knowledgeable, professional and muscle aches are relieved. Fabulous premises in the town centre as well.",
+      name: "Suzette Mowday",
       rating: 5,
+      date: "4 weeks ago",
     },
     {
       quote:
-        "Professional, friendly, and truly effective. My back pain is gone! Highly recommend.",
-      name: "James R.",
+        "Fuko provided an really great massage experience. Her knowledge of muscles and their functions really helped with getting to the right spots for my pain.",
+      name: "Azima Patel",
       rating: 5,
+      date: "3 months ago",
     },
     {
       quote:
-        "The pregnancy massage was so gentle and relaxing. I felt so cared for.",
-      name: "Emily W.",
+        "I highly recommend Bunbury Wellness Remedial Massage, Fuko is incredible - very welcoming and professional, and she shows genuine care for you. She tailors the massage to your specific concerns and needs, and is very skilled. The treatment room is well set up and is a lovely relaxing atmosphere. I look forward to my massages so much because I always end up feeling so good!",
+      name: "Felicity J",
       rating: 5,
-    },
-    {
-      quote: "A premium experience from start to finish. The team is amazing!",
-      name: "Michael T.",
-      rating: 5,
+      date: "3 months ago",
     },
     {
       quote:
-        "The atmosphere is so calming and the therapists are very skilled.",
-      name: "Priya S.",
+        "Fuko is absolutely incredible! Not only is she so kind and caring but she’s extremely thorough and takes great pride in her work with helping customers! She checked constantly that I was okay and the pressure is okay, I am 17 weeks pregnant also and she was very accommodating! I walked in with a lot of neck problems and she worked so hard to help soothe them! I will be back for sure! 10/10! 🩷🩷🩷🩷",
+      name: "Tahlia Ferbrache",
       rating: 5,
+      date: "5 months ago",
     },
   ];
 
@@ -75,23 +74,23 @@ const Testimonials = () => {
         </div>
 
         <div className="relative">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 md:p-12 text-center min-h-[280px] flex flex-col justify-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 md:p-12 text-center min-h-[280px] md:min-h-[320px] h-[320px] md:h-[360px] flex flex-col justify-center">
             <div className="flex justify-center mb-6">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <RiStarLine
-                  key={i}
-                  className="h-6 w-6 text-spa-accent fill-current"
-                />
+                <RiStarFill key={i} className="h-6 w-6 text-spa-accent" />
               ))}
             </div>
 
-            <blockquote className="text-xl md:text-2xl text-white font-light mb-6 leading-relaxed">
+            <blockquote className="text-base md:text-lg text-white font-light mb-6 leading-relaxed">
               &quot;{testimonials[currentIndex].quote}&quot;
             </blockquote>
 
             <cite className="text-spa-accent font-medium text-lg">
               — {testimonials[currentIndex].name}
             </cite>
+            <div className="text-white/70 text-sm mt-1">
+              {testimonials[currentIndex].date}
+            </div>
           </div>
 
           {/* Navigation Buttons */}

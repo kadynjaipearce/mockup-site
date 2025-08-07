@@ -1,10 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Specials from "@/components/Specials";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
-import Specials from "@/components/Specials";
-import DateNightGiftSection from "@/components/DateNightGiftSection";
 import BookingPolicy from "@/components/BookingPolicy";
 import Footer from "@/components/Footer";
 import TestimonialsSchema from "@/components/TestimonialsSchema";
@@ -19,7 +18,6 @@ const Index = () => {
       <Services />
       <Testimonials />
       <Specials />
-      <DateNightGiftSection />
       <BookingPolicy />
       <Footer />
     </div>

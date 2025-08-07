@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
-import { RiMenuLine, RiCloseLine, RiCalendar2Line } from "@remixicon/react";
+import { RiMenu2Line, RiCloseFill, RiCalendar2Line } from "@remixicon/react";
 import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [scrolled, setScrolled] = useState(false);
   const { openModal } = useBookingModal();
+  const pathname = usePathname();
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -19,9 +21,8 @@ const Header = () => {
   // }, []);
 
   const navigation = [
-    { name: "Services", href: "/services", isLink: true },
     { name: "About", href: "/about", isLink: true },
-    { name: "Specials", href: "/specials", isLink: true },
+    { name: "Services", href: "/services", isLink: true },
     { name: "Gift Cards", href: "/gift-cards", isLink: true },
     { name: "Contact", href: "/contact", isLink: true },
   ];
@@ -73,7 +74,11 @@ const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="font-medium transition-colors duration-200 text-white hover:text-spa-accent cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80"
+                  className={`font-medium transition-colors duration-200 cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80 ${
+                    pathname === item.href
+                      ? "text-spa-accent italic"
+                      : "text-white hover:text-spa-accent"
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -81,7 +86,11 @@ const Header = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="font-medium transition-colors duration-200 text-white hover:text-spa-accent cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80"
+                  className={`font-medium transition-colors duration-200 cursor-pointer transform transition-transform hover:scale-110 hover:opacity-80 ${
+                    pathname === item.href
+                      ? "text-spa-accent italic"
+                      : "text-white hover:text-spa-accent"
+                  }`}
                 >
                   {item.name}
                 </button>
@@ -104,9 +113,9 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <RiCloseLine className="h-6 w-6" />
+                <RiCloseFill className="h-6 w-6" />
               ) : (
-                <RiMenuLine className="h-6 w-6" />
+                <RiMenu2Line className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -121,7 +130,11 @@ const Header = () => {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block w-full text-left px-4 py-2 text-white hover:text-spa-accent hover:bg-spa-primary/20 transition-colors duration-200 cursor-pointer"
+                    className={`block w-full text-left px-4 py-2 transition-colors duration-200 cursor-pointer ${
+                      pathname === item.href
+                        ? "text-spa-accent italic bg-spa-primary/20"
+                        : "text-white hover:text-spa-accent hover:bg-spa-primary/20"
+                    }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
@@ -130,7 +143,11 @@ const Header = () => {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-4 py-2 text-white hover:text-spa-accent hover:bg-spa-primary/20 transition-colors duration-200 cursor-pointer"
+                    className={`block w-full text-left px-4 py-2 transition-colors duration-200 cursor-pointer ${
+                      pathname === item.href
+                        ? "text-spa-accent italic bg-spa-primary/20"
+                        : "text-white hover:text-spa-accent hover:bg-spa-primary/20"
+                    }`}
                   >
                     {item.name}
                   </button>

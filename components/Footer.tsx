@@ -69,14 +69,6 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/specials"
-                  className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
-                >
-                  Specials
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/gift-cards"
                   className="text-gray-300 hover:text-spa-accent transition-colors duration-200 cursor-pointer"
                 >

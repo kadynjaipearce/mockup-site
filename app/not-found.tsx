@@ -43,11 +43,17 @@ export default function NotFound() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Link href="/" className="btn-spa-service inline-flex items-center gap-2 group">
+          <Link
+            href="/"
+            className="btn-spa-service inline-flex items-center gap-2 group"
+          >
             <span>Return Home</span>
             <RiHomeLine className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 z-10 relative" />
           </Link>
-          <Link href="/contact" className="btn-spa-accent inline-flex items-center gap-2 group">
+          <Link
+            href="/contact"
+            className="btn-spa-accent inline-flex items-center gap-2 group"
+          >
             <span>Contact Us</span>
             <RiPhoneLine className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 z-10 relative" />
           </Link>

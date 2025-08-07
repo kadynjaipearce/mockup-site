@@ -8,7 +8,7 @@ import {
   RiUserLine,
   RiAwardLine,
   RiCalendar2Line,
-  RiPhoneLine,
+  RiMailLine,
 } from "@remixicon/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -53,7 +53,7 @@ const teamMembers = [
       "Taping/Strapping",
       "Sports Massage",
     ],
-    image: "/back.jpg",
+    image: "/placeholder.svg",
     description:
       "Tan holds a Diploma in Remedial Massage and has over 10 years of experience. He incorporates dry needling, spinal mobilisations (not spinal manipulation), and taping/strapping into his treatments to provide comprehensive therapeutic care.",
   },
@@ -117,72 +117,28 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <Header />
-
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/front.jpg')` }}
+          style={{ backgroundImage: `url('/front.jpg')`, filter: "blur(5px)" }}
         />
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-light mb-6 leading-tight">
+          <div className="flex justify-center mb-8">
+            <RiHeartLine className="h-20 w-20 text-spa-accent" />
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
             About Us
           </h1>
+          <div className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent">
+            Discover the Story Behind Bunbury Wellness
+          </div>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed opacity-90">
-            Discover the story behind Bunbury Wellness and meet the team
-            dedicated to your health and wellbeing
+            Meet the team dedicated to your health and wellbeing
           </p>
-          <Link
-            href="/#contact"
-            className="btn-spa-accent inline-flex items-center gap-2 group"
-          >
-            <span>Book Your Session</span>
-            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-          </Link>
-        </div>
-      </section>
-
-      {/* Our Story */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-8">
-              <RiLeafLine className="h-16 w-16 text-spa-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-8">
-              Our Story
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">
-              From a humble home studio to a premium wellness destination in
-              Bunbury, WA. Experience the difference of care, expertise, and a
-              passion for healing that has transformed countless lives through
-              the power of therapeutic touch.
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="text-3xl font-light text-spa-primary mb-2">
-                8+
-              </div>
-              <div className="text-gray-600">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-light text-spa-primary mb-2">
-                500+
-              </div>
-              <div className="text-gray-600">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-light text-spa-primary mb-2">
-                100%
-              </div>
-              <div className="text-gray-600">Dedicated Care</div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -362,8 +318,8 @@ export default function AboutPage() {
                     Comprehensive Treatment Plans
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    We don&apos;t just treat symptoms - we create personalized care
-                    plans that address the root cause of your discomfort.
+                    We don&apos;t just treat symptoms - we create personalized
+                    care plans that address the root cause of your discomfort.
                   </p>
                 </div>
               </div>
@@ -432,7 +388,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <div className="text-center bg-spa-primary text-white p-12 mx-4 sm:mx-6 lg:mx-8 mb-20">
+      <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
         <h3 className="text-2xl font-light mb-4">
           Ready to Experience the Difference?
         </h3>
@@ -453,7 +409,7 @@ export default function AboutPage() {
             className="btn-spa-service inline-flex items-center gap-2 group"
           >
             <span>Email to Discuss</span>
-            <RiPhoneLine className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+            <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
           </Link>
         </div>
       </div>
