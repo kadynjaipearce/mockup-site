@@ -1,3 +1,5 @@
+"use client";
+
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,8 +14,9 @@ import {
 } from "@remixicon/react";
 import Link from "next/link";
 import Image from "next/image";
+import { useBookingModal } from "@/components/BookingProvider";
 
-export const metadata: Metadata = {
+/* export const metadata: Metadata = {
   title: "About Us - Bunbury Wellness Remedial Massage",
   description:
     "Discover the story behind Bunbury Wellness and meet our experienced team of remedial massage therapists. Learn about our values, journey, and commitment to your health and wellbeing.",
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AU",
   },
-};
+}; */
 
 const teamMembers = [
   {
@@ -114,6 +117,7 @@ const milestones = [
 ];
 
 export default function AboutPage() {
+  const { openModal } = useBookingModal();
   return (
     <div className="min-h-screen">
       <Header />
@@ -408,13 +412,13 @@ export default function AboutPage() {
             journey today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/#contact"
+            <button
+              onClick={openModal}
               className="btn-spa-accent inline-flex items-center gap-2 group"
             >
               <span>Book Your Session</span>
               <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-            </Link>
+            </button>
             <Link
               href="mailto:info@bunburywellnessremedialmassage.com.au"
               className="btn-spa-service inline-flex items-center gap-2 group"

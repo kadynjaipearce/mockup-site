@@ -6,22 +6,23 @@ import {
   RiTimeLine,
   RiInformationLine,
   RiCalendar2Line,
+  RiMailLine,
 } from "@remixicon/react";
 import { useBookingModal } from "@/components/BookingProvider";
+import Link from "next/link";
 
 export default function BookingPolicy() {
   const { openModal } = useBookingModal();
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-spa-neutral/60 relative">
-      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[url('/placeholder.svg')] bg-center bg-no-repeat bg-contain" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-24 bg-spa-primary/10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-spa-primary/10 flex items-center justify-center rounded-full">
-              <RiShieldCheckLine className="h-10 w-10 text-spa-primary/70" />
+            <div className="w-20 h-20 bg-spa-accent/20 flex items-center justify-center">
+              <RiShieldCheckLine className="h-10 w-10 text-spa-accent" />
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-light text-spa-secondary mb-4">
+          <h2 className="text-4xl md:text-5xl font-light text-spa-primary mb-4">
             Booking Policies
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -31,10 +32,10 @@ export default function BookingPolicy() {
 
         <div className="grid md:grid-cols-2 gap-10 mb-20">
           {/* Booking Requirements */}
-          <div className="bg-white rounded-2xl shadow-lg border-l-8 border-spa-primary/80 p-8 flex flex-col gap-6">
+          <div className="bg-white shadow-lg border-l-8 border-spa-primary/80 p-8 flex flex-col gap-6">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-14 h-14 bg-spa-primary/10 flex items-center justify-center rounded-full">
-                <RiUserLine className="h-7 w-7 text-spa-primary/70" />
+              <div className="w-14 h-14 bg-spa-primary/10 flex items-center justify-center">
+                <RiUserLine className="h-7 w-7 text-spa-primary" />
               </div>
               <h3 className="text-2xl font-semibold text-spa-secondary">
                 Booking
@@ -57,12 +58,12 @@ export default function BookingPolicy() {
           </div>
 
           {/* Cancellation Policy */}
-          <div className="bg-white rounded-2xl shadow-lg border-l-8 border-spa-accent/80 p-8 flex flex-col gap-6">
+          <div className="bg-white shadow-lg border-l-8 border-spa-accent p-8 flex flex-col gap-6">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-14 h-14 bg-spa-accent/10 flex items-center justify-center rounded-full">
-                <RiTimeLine className="h-7 w-7 text-spa-accent/70" />
+              <div className="w-14 h-14 bg-spa-accent/10 flex items-center justify-center">
+                <RiTimeLine className="h-7 w-7 text-spa-accent" />
               </div>
-              <h3 className="text-2xl font-semibold text-spa-secondary">
+              <h3 className="text-2xl font-semibold text-spa-accent">
                 Cancellations
               </h3>
             </div>
@@ -89,12 +90,12 @@ export default function BookingPolicy() {
           </div>
 
           {/* Special Notice */}
-          <div className="bg-white rounded-2xl shadow-lg border-l-8 border-spa-secondary/80 p-8 flex flex-col gap-6 md:col-span-2">
+          <div className="bg-white shadow-lg border-l-8 border-spa-primary p-8 flex flex-col gap-6 md:col-span-2">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-14 h-14 bg-spa-secondary/10 flex items-center justify-center rounded-full">
-                <RiInformationLine className="h-7 w-7 text-spa-secondary/70" />
+              <div className="w-14 h-14 bg-spa-primary/10 flex items-center justify-center">
+                <RiInformationLine className="h-7 w-7 text-spa-primary" />
               </div>
-              <h3 className="text-2xl font-semibold text-spa-secondary">
+              <h3 className="text-2xl font-semibold text-spa-primary">
                 Special Considerations
               </h3>
             </div>
@@ -107,22 +108,33 @@ export default function BookingPolicy() {
         </div>
 
         {/* CTA Section */}
-        <div className="max-w-2xl mx-auto bg-gradient-to-r from-spa-accent/90 to-spa-accent/60 rounded-2xl shadow-xl p-10 text-center flex flex-col items-center gap-6">
-          <h3 className="text-3xl font-light text-white mb-2 drop-shadow">
-            Ready to Start Your Wellness Journey?
-          </h3>
-          <p className="text-lg text-white/90 mb-2">
-            Book your session with our experienced team and experience the
-            difference.
-          </p>
-          <button
-            onClick={openModal}
-            className="btn-spa-service inline-flex items-center gap-2 group text-lg px-8 py-4"
-          >
-            <span>Book Your Session</span>
-            <RiCalendar2Line className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-accent z-10" />
-          </button>
-        </div>
+        <section>
+          <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
+            <h3 className="text-2xl font-light mb-4">
+              Ready to Experience the Difference?
+            </h3>
+            <p className="text-lg mb-8 opacity-90">
+              Book your session with our experienced team and start your
+              wellness journey today
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={openModal}
+                className="btn-spa-accent inline-flex items-center gap-2 group"
+              >
+                <span>Book Your Session</span>
+                <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+              </button>
+              <Link
+                href="mailto:info@bunburywellnessremedialmassage.com.au"
+                className="btn-spa-service inline-flex items-center gap-2 group"
+              >
+                <span>Email to Discuss</span>
+                <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ import {
   RiTimeLine,
   RiMailLine,
 } from "@remixicon/react";
+import { useBookingModal } from "@/components/BookingProvider";
 
 const services = [
   {
@@ -109,6 +110,7 @@ const specials = [
 ];
 
 export default function ServicesPage() {
+  const { openModal } = useBookingModal();
   return (
     <div className="min-h-screen">
       <Header />
@@ -339,7 +341,7 @@ export default function ServicesPage() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* New Clients */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white shadow-lg p-8">
               <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
                 New Clients
               </h3>
@@ -398,7 +400,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Existing Clients */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white  shadow-lg p-8">
               <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
                 Existing Clients
               </h3>
@@ -479,31 +481,33 @@ export default function ServicesPage() {
       </section>
 
       {/* Call to Action */}
-      <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
-        <h3 className="text-2xl font-light mb-4">
-          Ready to Experience the Difference?
-        </h3>
-        <p className="text-lg mb-8 opacity-90">
-          Book your session with our experienced team and start your wellness
-          journey today
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            href="/#contact"
-            className="btn-spa-accent inline-flex items-center gap-2 group"
-          >
-            <span>Book Your Session</span>
-            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-          </Link>
-          <Link
-            href="mailto:info@bunburywellnessremedialmassage.com.au"
-            className="btn-spa-service inline-flex items-center gap-2 group"
-          >
-            <span>Email to Discuss</span>
-            <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
-          </Link>
+      <section>
+        <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
+          <h3 className="text-2xl font-light mb-4">
+            Ready to Experience the Difference?
+          </h3>
+          <p className="text-lg mb-8 opacity-90">
+            Book your session with our experienced team and start your wellness
+            journey today
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={openModal}
+              className="btn-spa-accent inline-flex items-center gap-2 group"
+            >
+              <span>Book Your Session</span>
+              <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+            </button>
+            <Link
+              href="mailto:info@bunburywellnessremedialmassage.com.au"
+              className="btn-spa-service inline-flex items-center gap-2 group"
+            >
+              <span>Email to Discuss</span>
+              <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
       <Footer />
     </div>
   );

@@ -12,6 +12,7 @@ import {
   RiMailLine,
 } from "@remixicon/react";
 import Link from "next/link";
+import { useBookingModal } from "@/components/BookingProvider";
 
 const giftCardOptions = [
   {
@@ -49,7 +50,7 @@ export default function GiftCardsPage() {
   const [customAmount, setCustomAmount] = useState<string>("");
   const [isCustomAmount, setIsCustomAmount] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const { openModal } = useBookingModal();
   const handleAmountSelect = (amount: string) => {
     setSelectedAmount(amount);
     setIsCustomAmount(false);
@@ -355,13 +356,13 @@ export default function GiftCardsPage() {
             journey today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/#contact"
+            <button
+              onClick={openModal}
               className="btn-spa-accent inline-flex items-center gap-2 group"
             >
               <span>Book Your Session</span>
               <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-            </Link>
+            </button>
             <Link
               href="mailto:info@bunburywellnessremedialmassage.com.au"
               className="btn-spa-service inline-flex items-center gap-2 group"
