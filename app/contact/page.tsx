@@ -82,8 +82,8 @@ const ContactPage = () => {
           </div>
 
           <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-            Ready to start your wellness journey? We&apos;re here to help you every
-            step of the way.
+            Ready to start your wellness journey? We&apos;re here to help you
+            every step of the way.
           </p>
         </div>
       </section>
@@ -96,8 +96,8 @@ const ContactPage = () => {
               Send Us a Message
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have a question or want to discuss your treatment? We&apos;d love to
-              hear from you.
+              Have a question or want to discuss your treatment? We&apos;d love
+              to hear from you.
             </p>
           </div>
 

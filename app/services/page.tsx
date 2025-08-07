@@ -11,6 +11,7 @@ import {
   RiGiftLine,
   RiLeafLine,
   RiTimeLine,
+  RiMailLine,
 } from "@remixicon/react";
 
 const services = [
@@ -127,28 +128,34 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero Section */}
+
       <section className="relative min-h-[60vh] flex items-center justify-center">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/front.jpg')`,
+            backgroundImage: `url('/back.jpg')`,
             filter: "blur(5px)",
           }}
         />
+
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
+
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="flex justify-center mb-8">
             <RiLeafLine className="h-20 w-20 text-spa-accent" />
           </div>
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
             Our Services
           </h1>
+
           <div className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent">
             Professional Massage Therapy
           </div>
+
           <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
             Experience the healing power of professional massage therapy
             tailored to your needs
@@ -173,7 +180,7 @@ export default function ServicesPage() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="relative h-72">
                   <Image
@@ -183,7 +190,7 @@ export default function ServicesPage() {
                     className="object-cover"
                   />
                   {service.popular && (
-                    <div className="absolute top-4 right-4 bg-spa-accent text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-4 right-4 bg-spa-accent text-white px-4 py-2 text-sm font-medium flex items-center gap-1 shadow-lg">
                       <RiStarLine className="h-3 w-3" />
                       Popular
                     </div>
@@ -261,7 +268,7 @@ export default function ServicesPage() {
             {specials.map((special) => (
               <div
                 key={special.id}
-                className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
+                className="bg-white shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
               >
                 <div className="relative h-80">
                   <Image
@@ -271,7 +278,7 @@ export default function ServicesPage() {
                     className="object-cover"
                   />
                   {special.popular && (
-                    <div className="absolute top-6 right-6 bg-spa-accent text-white px-6 py-3 rounded-full text-lg font-bold flex items-center gap-2 shadow-xl">
+                    <div className="absolute top-6 right-6 bg-spa-accent text-white px-6 py-3 text-lg font-bold flex items-center gap-2 shadow-xl">
                       <RiStarLine className="h-4 w-4" />
                       Popular
                     </div>
@@ -330,34 +337,31 @@ export default function ServicesPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-spa-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
-            Ready to Experience Our Services?
-          </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Book your appointment today and discover the perfect massage therapy
-            experience tailored just for you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link
-              href="/#contact"
-              className="btn-spa-accent inline-flex items-center gap-3 group"
-            >
-              <span>Book Your Session</span>
-              <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
-            </Link>
-            <Link
-              href="/gift-cards"
-              className="btn-spa-service inline-flex items-center gap-3 group"
-            >
-              <span>Gift a Session</span>
-              <RiGiftLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
-            </Link>
-          </div>
+      <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
+        <h3 className="text-2xl font-light mb-4">
+          Ready to Experience the Difference?
+        </h3>
+        <p className="text-lg mb-8 opacity-90">
+          Book your session with our experienced team and start your wellness
+          journey today
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link
+            href="/#contact"
+            className="btn-spa-accent inline-flex items-center gap-2 group"
+          >
+            <span>Book Your Session</span>
+            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+          </Link>
+          <Link
+            href="mailto:info@bunburywellnessremedialmassage.com.au"
+            className="btn-spa-service inline-flex items-center gap-2 group"
+          >
+            <span>Email to Discuss</span>
+            <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
+          </Link>
         </div>
-      </section>
-
+      </div>
       <Footer />
     </div>
   );

@@ -33,10 +33,13 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       }`}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-transparent" onClick={onClose} />
+      <div
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-all duration-300"
+        onClick={onClose}
+      />
 
       {/* Modal */}
-      <div className="relative w-full h-full md:w-[90%] md:h-[90%] bg-white md:rounded-lg shadow-2xl overflow-hidden">
+      <div className="relative w-full h-full md:w-[90%] md:h-[90%] bg-white shadow-2xl overflow-hidden">
         {/* Header */}
         <div
           className="flex items-center justify-between p-4 border-b text-white"
