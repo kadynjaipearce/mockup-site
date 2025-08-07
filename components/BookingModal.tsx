@@ -25,6 +25,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   return (
     <div
+      style={{ display: isOpen ? "flex" : "none" }}
       className={`fixed inset-0 z-50 flex items-center justify-center ${
         isOpen
           ? "opacity-100 pointer-events-auto"
