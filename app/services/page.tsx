@@ -10,7 +10,6 @@ import {
   RiCalendar2Line,
   RiGiftLine,
   RiLeafLine,
-  RiUserLine,
   RiTimeLine,
 } from "@remixicon/react";
 
@@ -302,7 +301,7 @@ export default function ServicesPage() {
                   </p>
                   <div className="mb-8">
                     <h4 className="font-bold text-spa-secondary mb-4 text-xl">
-                      What's Included:
+                      What&apos;s Included:
                     </h4>
                     <ul className="space-y-3">
                       {special.features.map((feature, index) => (
