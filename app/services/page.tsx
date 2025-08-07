@@ -20,15 +20,16 @@ const services = [
     title: "Remedial Massage",
     subtitle: "Therapeutic Treatment",
     description:
-      "Targeted therapy to address specific muscle tension, injuries, and chronic pain conditions.",
+      "Targeted therapy to address specific muscle tension, injuries, and chronic pain conditions. Includes free 15 minutes assessment.",
     image: "/placeholder.svg",
     duration: "60-90 minutes",
-    price: "From $90",
+    price: "From $125",
     features: [
       "Deep tissue techniques",
       "Injury rehabilitation",
       "Pain relief",
       "Posture correction",
+      "Free 15-minute assessment",
     ],
     popular: true,
   },
@@ -40,12 +41,13 @@ const services = [
       "Specialized massage for athletes and active individuals to improve performance and recovery.",
     image: "/placeholder.svg",
     duration: "60-90 minutes",
-    price: "From $95",
+    price: "From $125",
     features: [
       "Pre/post event",
       "Injury prevention",
       "Performance optimization",
       "Recovery focus",
+      "Free 15-minute assessment",
     ],
     popular: false,
   },
@@ -54,15 +56,16 @@ const services = [
     title: "Pregnancy Massage",
     subtitle: "Gentle Care for Mums-to-Be",
     description:
-      "Safe and comfortable massage therapy designed specifically for expectant mothers.",
+      "Safe and comfortable massage therapy designed specifically for expectant mothers. Performed in side-lying position for optimal comfort and safety.",
     image: "/placeholder.svg",
-    duration: "60-75 minutes",
-    price: "From $85",
+    duration: "60-90 minutes",
+    price: "From $135",
     features: [
       "Pregnancy-safe techniques",
-      "Specialized positioning",
+      "Side-lying position",
       "Stress relief",
       "Comfort focus",
+      "Free 15-minute assessment",
     ],
     popular: false,
   },
@@ -74,12 +77,13 @@ const services = [
       "Gentle, flowing massage to promote relaxation, reduce stress, and improve overall wellbeing.",
     image: "/placeholder.svg",
     duration: "60-90 minutes",
-    price: "From $80",
+    price: "From $125",
     features: [
       "Stress reduction",
       "Relaxation techniques",
       "Wellness focus",
       "Gentle pressure",
+      "Free 15-minute assessment",
     ],
     popular: false,
   },
@@ -102,23 +106,6 @@ const specials = [
       "Wellness consultation",
     ],
     popular: true,
-  },
-  {
-    id: 2,
-    title: "Specials 2",
-    subtitle: "Ultimate Relaxation Package",
-    description:
-      "A comprehensive relaxation experience combining multiple therapeutic techniques for complete mind-body wellness.",
-    image: "/placeholder.svg",
-    price: "From $180",
-    duration: "2.5 Hours",
-    features: [
-      "Extended massage session",
-      "Aromatherapy oils",
-      "Hot stone therapy",
-      "Post-treatment consultation",
-    ],
-    popular: false,
   },
 ];
 
@@ -160,6 +147,93 @@ export default function ServicesPage() {
             Experience the healing power of professional massage therapy
             tailored to your needs
           </p>
+        </div>
+      </section>
+
+      {/* Special Packages */}
+      <section className="py-24 bg-gradient-to-br from-spa-neutral to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-spa-secondary mb-6">
+              Special Packages
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Experience our curated special packages designed to provide
+              exceptional value and unforgettable experiences.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            {specials.map((special) => (
+              <div
+                key={special.id}
+                className="bg-white shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
+              >
+                <div className="flex flex-col lg:flex-row">
+                  <div className="relative lg:w-1/2 h-80 lg:h-auto">
+                    <Image
+                      src={special.image}
+                      alt={special.title}
+                      fill
+                      className="object-cover"
+                    />
+                    {special.popular && (
+                      <div className="absolute top-6 right-6 bg-spa-accent text-white px-6 py-3 text-lg font-bold flex items-center gap-2 shadow-xl">
+                        <RiStarLine className="h-4 w-4" />
+                        Popular
+                      </div>
+                    )}
+                  </div>
+                  <div className="lg:w-1/2 p-10">
+                    <div className="flex justify-between items-start mb-6">
+                      <div>
+                        <h3 className="text-3xl font-bold text-spa-secondary mb-3">
+                          {special.title}
+                        </h3>
+                        <p className="text-xl text-spa-primary font-medium mb-2">
+                          {special.subtitle}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-spa-accent">
+                          {special.price}
+                        </div>
+                        <div className="text-lg text-gray-500 font-medium">
+                          {special.duration}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+                      {special.description}
+                    </p>
+                    <div className="mb-8">
+                      <h4 className="font-bold text-spa-secondary mb-4 text-xl">
+                        What&apos;s Included:
+                      </h4>
+                      <ul className="space-y-3">
+                        {special.features.map((feature, index) => (
+                          <li
+                            key={index}
+                            className="flex items-center gap-3 text-gray-600 text-lg"
+                          >
+                            <RiHeartLine className="h-6 w-6 text-spa-accent flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Link
+                      href="/#contact"
+                      className="btn-spa-accent inline-flex items-center gap-3 group w-full justify-center text-xl py-5 font-bold"
+                    >
+                      <span>Book This Special</span>
+                      <RiCalendar2Line className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -251,87 +325,156 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Special Packages */}
-      <section className="py-24 bg-gradient-to-br from-spa-neutral to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Pricing Table */}
+      <section className="py-20 bg-spa-neutral">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-spa-secondary mb-6">
-              Special Packages
+            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+              Service Pricing
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Experience our curated special packages designed to provide
-              exceptional value and unforgettable experiences.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Transparent pricing for all our massage therapy services. All
+              sessions include a free 15-minute assessment.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {specials.map((special) => (
-              <div
-                key={special.id}
-                className="bg-white shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
-              >
-                <div className="relative h-80">
-                  <Image
-                    src={special.image}
-                    alt={special.title}
-                    fill
-                    className="object-cover"
-                  />
-                  {special.popular && (
-                    <div className="absolute top-6 right-6 bg-spa-accent text-white px-6 py-3 text-lg font-bold flex items-center gap-2 shadow-xl">
-                      <RiStarLine className="h-4 w-4" />
-                      Popular
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* New Clients */}
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
+                New Clients
+              </h3>
+              <div className="space-y-4">
+                <div className="border-b border-gray-200 pb-4">
+                  <h4 className="font-semibold text-spa-primary mb-2">
+                    Remedial Massage
+                  </h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>60 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $125
+                      </span>
                     </div>
-                  )}
+                    <div className="flex justify-between">
+                      <span>75 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $150
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>90 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $180
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h3 className="text-3xl font-bold text-spa-secondary mb-3">
-                        {special.title}
-                      </h3>
-                      <p className="text-xl text-spa-primary font-medium mb-2">
-                        {special.subtitle}
-                      </p>
+                <div>
+                  <h4 className="font-semibold text-spa-primary mb-2">
+                    Pregnancy Massage
+                  </h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>60 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $135
+                      </span>
                     </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-spa-accent">
-                        {special.price}
-                      </div>
-                      <div className="text-lg text-gray-500 font-medium">
-                        {special.duration}
-                      </div>
+                    <div className="flex justify-between">
+                      <span>75 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $160
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>90 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $190
+                      </span>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                    {special.description}
-                  </p>
-                  <div className="mb-8">
-                    <h4 className="font-bold text-spa-secondary mb-4 text-xl">
-                      What&apos;s Included:
-                    </h4>
-                    <ul className="space-y-3">
-                      {special.features.map((feature, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-3 text-gray-600 text-lg"
-                        >
-                          <RiHeartLine className="h-6 w-6 text-spa-accent flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Link
-                    href="/#contact"
-                    className="btn-spa-accent inline-flex items-center gap-3 group w-full justify-center text-xl py-5 font-bold"
-                  >
-                    <span>Book This Special</span>
-                    <RiCalendar2Line className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
-                  </Link>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Existing Clients */}
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
+                Existing Clients
+              </h3>
+              <div className="space-y-4">
+                <div className="border-b border-gray-200 pb-4">
+                  <h4 className="font-semibold text-spa-primary mb-2">
+                    Remedial Massage
+                  </h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>60 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $125
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>75 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $150
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>90 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $180
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-spa-primary mb-2">
+                    Pregnancy Massage
+                  </h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>60 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $135
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>75 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $160
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>90 minutes</span>
+                      <span className="font-semibold text-spa-accent">
+                        $190
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-spa-primary/10 rounded-lg p-6 max-w-2xl mx-auto">
+              <h4 className="font-semibold text-spa-secondary mb-3">
+                Important Notes
+              </h4>
+              <ul className="text-sm text-gray-700 space-y-2 text-left">
+                <li>• All sessions include a free 15-minute assessment</li>
+                <li>
+                  • Please allow additional time for your full appointment
+                </li>
+                <li>• If you are pregnant, please select Pregnancy Massage</li>
+                <li>
+                  • For pregnancy before 12 weeks, consult your healthcare
+                  professional first
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
