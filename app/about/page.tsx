@@ -3,13 +3,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
-  RiLeafLine,
   RiHeartLine,
   RiShieldCheckLine,
   RiUserLine,
   RiAwardLine,
   RiCalendar2Line,
   RiMailLine,
+  RiLeafLine,
 } from "@remixicon/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -78,7 +78,7 @@ const values = [
     icon: RiUserLine,
     title: "Client-Centered",
     description:
-      "Every treatment is personalized to your specific needs, ensuring you receive the most effective care possible.",
+      "Every treatment is personalised to your specific needs, ensuring you receive the most effective care possible.",
   },
   {
     icon: RiAwardLine,
@@ -125,7 +125,7 @@ export default function AboutPage() {
       <section className="relative min-h-[60vh] flex items-center justify-center">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-centre bg-no-repeat"
           style={{
             backgroundImage: `url('/back.jpg')`,
             filter: "blur(5px)",
@@ -136,7 +136,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div className="relative z-10 text-centre text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="flex justify-center mb-8">
             <RiHeartLine className="h-20 w-20 text-spa-accent" />
           </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
       {/* Our Values */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-centre mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
               Our Values
             </h2>
@@ -170,8 +170,8 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-spa-primary flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-centre">
+                <div className="w-16 h-16 bg-spa-primary flex items-centre justify-centre mx-auto mb-4">
                   <value.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-spa-secondary mb-3">
@@ -189,7 +189,7 @@ export default function AboutPage() {
       {/* Our Team */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-centre mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
               Meet Our Team
             </h2>
@@ -250,7 +250,7 @@ export default function AboutPage() {
       {/* Our Journey */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-centre mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
               Our Journey
             </h2>
@@ -296,7 +296,7 @@ export default function AboutPage() {
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-centre mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
               Why Choose Bunbury Wellness?
             </h2>
@@ -331,7 +331,7 @@ export default function AboutPage() {
                     Comprehensive Treatment Plans
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    We don&apos;t just treat symptoms - we create personalized
+                    We don&apos;t just treat symptoms - we create personalised
                     care plans that address the root cause of your discomfort.
                   </p>
                 </div>

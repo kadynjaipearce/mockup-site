@@ -125,8 +125,11 @@ export default function Specials() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="relative z-10 flex flex-col justify-end h-full p-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow">
-                  Spa Date Night
+                  Specials #1
                 </h2>
+                <p className="text-white/90 mb-6 text-base font-light drop-shadow">
+                  Treat that someone special
+                </p>
                 <Link
                   href="/services/remedial-massage"
                   className="btn-spa-accent px-6 py-3 w-fit inline-flex items-center gap-2 group text-base font-medium"

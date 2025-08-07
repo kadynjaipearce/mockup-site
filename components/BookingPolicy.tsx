@@ -32,10 +32,10 @@ export default function BookingPolicy() {
 
         <div className="grid md:grid-cols-2 gap-10 mb-20">
           {/* Booking Requirements */}
-          <div className="bg-white shadow-lg border-l-8 border-spa-primary/80 p-8 flex flex-col gap-6">
+          <div className="bg-white shadow-lg border-l-8 text-spa-secondary p-8 flex flex-col gap-6">
             <div className="flex items-center gap-4 mb-2">
               <div className="w-14 h-14 bg-spa-primary/10 flex items-center justify-center">
-                <RiUserLine className="h-7 w-7 text-spa-primary" />
+                <RiUserLine className="h-7 w-7 text-spa-secondary" />
               </div>
               <h3 className="text-2xl font-semibold text-spa-secondary">
                 Booking
@@ -69,21 +69,19 @@ export default function BookingPolicy() {
             </div>
             <ul className="space-y-3 text-gray-700 text-base">
               <li>
-                <span className="font-medium text-spa-secondary">
+                <span className="font-medium text-spa-accent">
                   48-hour notice:
                 </span>{" "}
                 Required to avoid fees
               </li>
               <li>
-                <span className="font-medium text-spa-secondary">
+                <span className="font-medium text-spa-accent">
                   Late cancellations:
                 </span>{" "}
                 (under 2 hours) incur full session fee
               </li>
               <li>
-                <span className="font-medium text-spa-secondary">
-                  No-shows:
-                </span>{" "}
+                <span className="font-medium text-spa-accent">No-shows:</span>{" "}
                 Charged full session fee
               </li>
             </ul>
