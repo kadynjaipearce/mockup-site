@@ -8,7 +8,6 @@ import {
   RiArrowRightLine,
   RiStarLine,
   RiCalendar2Line,
-  RiGiftLine,
   RiLeafLine,
   RiTimeLine,
   RiMailLine,
