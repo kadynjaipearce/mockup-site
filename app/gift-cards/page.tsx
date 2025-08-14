@@ -97,7 +97,7 @@ export default function GiftCardsPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
       <Header />
 
       {/* Hero Section */}

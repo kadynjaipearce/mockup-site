@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   RiMapPinLine,
@@ -11,6 +10,7 @@ import {
   RiUserLine,
   RiMailSendLine,
 } from "@remixicon/react";
+import { motion } from "framer-motion";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -49,14 +49,59 @@ const ContactPage = () => {
     }, 1000);
   };
 
-  return (
-    <div className="min-h-screen">
-      <Header />
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+    },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  return (
+    <div className="min-h-screen pt-20 overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
         {/* Background Image */}
-        <div
+        <motion.div
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/back.jpg')`,
@@ -65,54 +110,105 @@ const ContactPage = () => {
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent"
+        />
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="flex justify-center mb-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
+        >
+          <motion.div
+            variants={iconVariants}
+            className="flex justify-center mb-8"
+          >
             <RiMessage3Line className="h-20 w-20 text-spa-accent" />
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight"
+          >
             Contact Us
-          </h1>
+          </motion.h1>
 
-          <div className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent">
+          <motion.div
+            variants={itemVariants}
+            className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent"
+          >
             Get In Touch
-          </div>
+          </motion.div>
 
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90"
+          >
             Ready to start your wellness journey? We&apos;re here to help you
             every step of the way.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Message Form Section */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Send Us a Message
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
               Have a question or want to discuss your treatment? We&apos;d love
               to hear from you.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="bg-white p-8 shadow-sm border-2 border-gray-200">
+          <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            className="bg-white p-8 shadow-sm border-2 border-gray-200"
+          >
             {submitStatus === "success" && (
-              <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 text-green-800">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-6 p-4 bg-green-50 border-2 border-green-200 text-green-800"
+              >
                 <p className="font-medium">Thank you for your message!</p>
                 <p className="text-sm">
                   We&apos;ll get back to you as soon as possible.
                 </p>
-              </div>
+              </motion.div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <motion.form
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              <motion.div
+                variants={formVariants}
+                className="grid md:grid-cols-2 gap-6"
+              >
                 <div>
                   <label
                     htmlFor="name"
@@ -156,9 +252,9 @@ const ContactPage = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={formVariants}>
                 <label
                   htmlFor="subject"
                   className="block text-sm font-medium text-spa-secondary mb-2"
@@ -175,9 +271,9 @@ const ContactPage = () => {
                   className="w-full px-4 py-3 border-2 border-gray-200 focus:border-spa-primary focus:outline-none focus:ring-2 focus:ring-spa-primary/20 transition-all duration-300"
                   placeholder="What's this about?"
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={formVariants}>
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-spa-secondary mb-2"
@@ -194,9 +290,9 @@ const ContactPage = () => {
                   className="w-full px-4 py-3 border-2 border-gray-200 focus:border-spa-primary focus:outline-none focus:ring-2 focus:ring-spa-primary/20 transition-all duration-300 resize-none"
                   placeholder="Tell us about your needs or ask any questions..."
                 />
-              </div>
+              </motion.div>
 
-              <div className="text-center">
+              <motion.div variants={formVariants} className="text-center">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -214,27 +310,48 @@ const ContactPage = () => {
                     </>
                   )}
                 </button>
-              </div>
-            </form>
-          </div>
+              </motion.div>
+            </motion.form>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact Information Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Find Us in Bunbury
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
               Ready to experience the healing touch? Get in touch to schedule
               your appointment
-            </p>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-12">
+            </motion.p>
+          </motion.div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid lg:grid-cols-2 gap-12"
+          >
             {/* Google Maps Only, fills left space or full width on mobile */}
-            <div className="bg-gray-50 p-0 flex items-center justify-center min-h-[500px] h-full w-full">
+            <motion.div
+              variants={cardVariants}
+              className="bg-gray-50 p-0 flex items-center justify-center min-h-[500px] h-full w-full"
+            >
               <iframe
                 title="Bunbury WA Map"
                 src="https://www.google.com/maps?q=Bunbury+WA,+Australia&output=embed"
@@ -250,10 +367,10 @@ const ContactPage = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
-            </div>
+            </motion.div>
             {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
+            <motion.div variants={containerVariants} className="space-y-8">
+              <motion.div variants={itemVariants}>
                 <h3 className="text-2xl font-semibold text-spa-secondary mb-6">
                   Get In Touch
                 </h3>
@@ -262,9 +379,12 @@ const ContactPage = () => {
                   us today to discuss your needs and book your personalized
                   treatment.
                 </p>
-              </div>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
+              </motion.div>
+              <motion.div variants={containerVariants} className="space-y-6">
+                <motion.div
+                  variants={itemVariants}
+                  className="flex items-start space-x-4"
+                >
                   <RiMapPinLine className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-medium text-spa-secondary">
@@ -278,8 +398,11 @@ const ContactPage = () => {
                       Australia
                     </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-4">
+                </motion.div>
+                <motion.div
+                  variants={itemVariants}
+                  className="flex items-start space-x-4"
+                >
                   <RiMailLine className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-medium text-spa-secondary">
@@ -294,8 +417,11 @@ const ContactPage = () => {
                       </a>
                     </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-4">
+                </motion.div>
+                <motion.div
+                  variants={itemVariants}
+                  className="flex items-start space-x-4"
+                >
                   <RiTimeLine className="h-6 w-6 text-spa-primary mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-medium text-spa-secondary">
@@ -305,10 +431,10 @@ const ContactPage = () => {
                       <div>Monday - Friday: 10:00 AM - 4:00 PM</div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

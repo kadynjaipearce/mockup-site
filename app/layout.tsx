@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import { BookingProvider } from "@/components/BookingProvider";
+import PageTransition from "@/components/PageTransition";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -251,7 +253,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased bg-white text-gray-800 font-sans`}
       >
-        <BookingProvider>{children}</BookingProvider>
+        <BookingProvider>
+          <Header />
+          <PageTransition>{children}</PageTransition>
+        </BookingProvider>
       </body>
     </html>
   );

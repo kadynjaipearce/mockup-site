@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   RiHeartLine,
@@ -14,21 +13,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";
-
-/* export const metadata: Metadata = {
-  title: "About Us - Bunbury Wellness Remedial Massage",
-  description:
-    "Discover the story behind Bunbury Wellness and meet our experienced team of remedial massage therapists. Learn about our values, journey, and commitment to your health and wellbeing.",
-  keywords:
-    "about us, Bunbury wellness, remedial massage therapists, massage therapy team, wellness journey, therapeutic care",
-  openGraph: {
-    title: "About Us - Bunbury Wellness Remedial Massage",
-    description:
-      "Discover the story behind Bunbury Wellness and meet our experienced team of remedial massage therapists.",
-    type: "website",
-    locale: "en_AU",
-  },
-}; */
+import { motion } from "framer-motion";
 
 const teamMembers = [
   {
@@ -117,15 +102,61 @@ const milestones = [
 
 export default function AboutPage() {
   const { openModal } = useBookingModal();
-  return (
-    <div className="min-h-screen">
-      <Header />
-      {/* Hero Section */}
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+    },
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+    },
+  };
+
+  const milestoneVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
+  return (
+    <div className="min-h-screen pt-20 overflow-hidden">
+      {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-centre bg-no-repeat"
+        <motion.div
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/back.jpg')`,
             filter: "blur(5px)",
@@ -133,75 +164,144 @@ export default function AboutPage() {
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent"
+        />
 
         {/* Content */}
-        <div className="relative z-10 text-centre text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="flex justify-center mb-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
+        >
+          <motion.div
+            variants={iconVariants}
+            className="flex justify-center mb-8"
+          >
             <RiHeartLine className="h-20 w-20 text-spa-accent" />
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight"
+          >
             About Us
-          </h1>
+          </motion.h1>
 
-          <div className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent">
+          <motion.div
+            variants={itemVariants}
+            className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent"
+          >
             Discover the Story Behind Bunbury Wellness
-          </div>
+          </motion.div>
 
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90"
+          >
             Meet the team dedicated to your health and wellbeing
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Our Values */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Our Values
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
               The principles that guide everything we do and every client we
               serve
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {values.map((value, index) => (
-              <div key={index} className="text-centre">
-                <div className="w-16 h-16 bg-spa-primary flex items-centre justify-centre mx-auto mb-4">
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ y: -5 }}
+                className="text-center"
+              >
+                <motion.div
+                  variants={iconVariants}
+                  className="w-16 h-16 bg-spa-primary flex items-center justify-center mx-auto mb-4"
+                >
                   <value.icon className="h-8 w-8 text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold text-spa-secondary mb-3">
                   {value.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   {value.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Our Team */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Meet Our Team
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
               Experienced, qualified therapists dedicated to your health and
               wellbeing
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid md:grid-cols-2 gap-12"
+          >
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-spa-neutral p-8">
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ y: -5 }}
+                className="bg-spa-neutral p-8"
+              >
                 <div className="flex flex-col md:flex-row items-start gap-6">
                   <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
                     <Image
@@ -241,29 +341,51 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Our Journey */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Our Journey
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
               Key milestones in our mission to provide exceptional massage
               therapy in Bunbury
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative"
+          >
             <div className="space-y-8">
               {milestones.map((milestone, index) => (
-                <div key={index} className="flex items-start gap-6 relative">
+                <motion.div
+                  key={index}
+                  variants={milestoneVariants}
+                  className="flex items-start gap-6 relative"
+                >
                   <div className="flex-shrink-0 relative z-10">
                     <div className="w-16 h-16 bg-spa-primary flex items-center justify-center">
                       <span className="text-white font-bold text-lg">
@@ -286,28 +408,49 @@ export default function AboutPage() {
                       {milestone.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Why Choose Bunbury Wellness?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
               What sets us apart in the Bunbury wellness community
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid md:grid-cols-2 gap-8"
+          >
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4"
+              >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
@@ -321,8 +464,11 @@ export default function AboutPage() {
                     and peace of mind.
                   </p>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
+              </motion.div>
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4"
+              >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
@@ -335,8 +481,11 @@ export default function AboutPage() {
                     care plans that address the root cause of your discomfort.
                   </p>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
+              </motion.div>
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4"
+              >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
@@ -349,10 +498,13 @@ export default function AboutPage() {
                     we offer a full range of therapeutic techniques.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4"
+              >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
@@ -366,8 +518,11 @@ export default function AboutPage() {
                     mothers.
                   </p>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
+              </motion.div>
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4"
+              >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
@@ -380,8 +535,11 @@ export default function AboutPage() {
                     accessible for residents throughout the region.
                   </p>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
+              </motion.div>
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4"
+              >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
                   <RiLeafLine className="h-4 w-4 text-white" />
                 </div>
@@ -394,22 +552,33 @@ export default function AboutPage() {
                     schedule, including early morning and evening sessions.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section>
-        <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
-          <h3 className="text-2xl font-light mb-4">
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.div
+          variants={cardVariants}
+          className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20"
+        >
+          <motion.h3
+            variants={itemVariants}
+            className="text-2xl font-light mb-4"
+          >
             Ready to Experience the Difference?
-          </h3>
-          <p className="text-lg mb-8 opacity-90">
+          </motion.h3>
+          <motion.p variants={itemVariants} className="text-lg mb-8 opacity-90">
             Book your session with our experienced team and start your wellness
             journey today
-          </p>
+          </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={openModal}
@@ -426,8 +595,8 @@ export default function AboutPage() {
               <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <Footer />
     </div>
