@@ -1,45 +1,136 @@
+"use client";
 import { RiArrowRightLine } from "@remixicon/react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const statsVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const numberVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "backOut",
+      },
+    },
+  };
+
   return (
     <section id="about" className="py-20 bg-spa-neutral">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-8">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl md:text-4xl font-light text-spa-secondary mb-8"
+        >
           Our Story
-        </h2>
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">
+        </motion.h2>
+        <motion.p
+          variants={itemVariants}
+          className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto"
+        >
           From a humble home studio to a premium wellness destination in
           Bunbury, WA. Experience the difference of care, expertise, and a
           passion for healing that has transformed countless lives through the
           power of therapeutic touch.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="text-center">
-            <div className="text-3xl font-light text-spa-primary mb-2">5+</div>
-            <div className="text-gray-600">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-light text-spa-primary mb-2">
-              500+
-            </div>
-            <div className="text-gray-600">Happy Clients</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-light text-spa-primary mb-2">
-              100%
-            </div>
-            <div className="text-gray-600">Dedicated Care</div>
-          </div>
-        </div>
-        <Link
-          href="/about"
-          className="btn-spa-primary inline-flex items-center gap-2 group"
+        </motion.p>
+        <motion.div
+          variants={containerVariants}
+          className="grid md:grid-cols-3 gap-8 mb-12"
         >
-          <span>Learn More</span>
-          <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
-        </Link>
-      </div>
+          <motion.div
+            variants={statsVariants}
+            whileHover={{ scale: 1.05 }}
+            className="text-center"
+          >
+            <motion.div
+              variants={numberVariants}
+              className="text-3xl font-light text-spa-primary mb-2"
+            >
+              5+
+            </motion.div>
+            <div className="text-gray-600">Years Experience</div>
+          </motion.div>
+          <motion.div
+            variants={statsVariants}
+            whileHover={{ scale: 1.05 }}
+            className="text-center"
+          >
+            <motion.div
+              variants={numberVariants}
+              className="text-3xl font-light text-spa-primary mb-2"
+            >
+              500+
+            </motion.div>
+            <div className="text-gray-600">Happy Clients</div>
+          </motion.div>
+          <motion.div
+            variants={statsVariants}
+            whileHover={{ scale: 1.05 }}
+            className="text-center"
+          >
+            <motion.div
+              variants={numberVariants}
+              className="text-3xl font-light text-spa-primary mb-2"
+            >
+              100%
+            </motion.div>
+            <div className="text-gray-600">Dedicated Care</div>
+          </motion.div>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Link
+            href="/about"
+            className="btn-spa-primary inline-flex items-center gap-2 group"
+          >
+            <span>Learn More</span>
+            <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+              <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+            </motion.div>
+          </Link>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
