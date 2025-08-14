@@ -27,10 +27,6 @@ const PageTransition = ({ children }: PageTransitionProps) => {
     },
   };
 
-  const pageTransition = {
-    duration: 0.8,
-  };
-
   // Don't render animations until client-side
   if (!isClient) {
     return <div className="min-h-screen">{children}</div>;
@@ -44,7 +40,6 @@ const PageTransition = ({ children }: PageTransitionProps) => {
         animate="in"
         exit="out"
         variants={pageVariants}
-        transition={pageTransition}
         className="min-h-screen"
       >
         {children}

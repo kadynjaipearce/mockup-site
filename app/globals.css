@@ -3,8 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap");
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -134,7 +132,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
 
   h1,
@@ -143,12 +141,12 @@
   h4,
   h5,
   h6 {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter), sans-serif;
     letter-spacing: -0.025em;
   }
 
   .font-serif {
-    font-family: "Crimson Text", serif;
+    font-family: var(--font-crimson-text), serif;
   }
 }
 

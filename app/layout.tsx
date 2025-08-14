@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Caveat } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Caveat,
+  Inter,
+  Crimson_Text,
+} from "next/font/google";
 import "./globals.css";
 import { BookingProvider } from "@/components/BookingProvider";
 import PageTransition from "@/components/PageTransition";
@@ -19,6 +25,19 @@ const caveat = Caveat({
   variable: "--font-caveat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const crimsonText = Crimson_Text({
+  variable: "--font-crimson-text",
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -251,7 +270,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased bg-white text-gray-800 font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${inter.variable} ${crimsonText.variable} antialiased bg-white text-gray-800 font-sans`}
       >
         <BookingProvider>
           <Header />
