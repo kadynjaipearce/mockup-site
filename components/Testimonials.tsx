@@ -156,7 +156,7 @@ const Testimonials = () => {
                   ))}
                 </motion.div>
 
-                <blockquote className="text-base md:text-lg text-white font-light mb-6 leading-relaxed">
+                <blockquote className="text-base text-sm md:text-lg text-white font-light mb-6 leading-relaxed">
                   &quot;{testimonials[currentIndex].quote}&quot;
                 </blockquote>
 

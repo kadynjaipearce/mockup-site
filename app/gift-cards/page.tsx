@@ -13,6 +13,7 @@ import {
 } from "@remixicon/react";
 import Link from "next/link";
 import { useBookingModal } from "@/components/BookingProvider";
+import { motion } from "framer-motion";
 
 const giftCardOptions = [
   {
@@ -96,42 +97,94 @@ export default function GiftCardsPage() {
     return isCustomAmount ? customAmount : selectedAmount;
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+    },
+  };
+
   return (
     <div className="min-h-screen pt-20">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div
+        <motion.div
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/back.jpg')`,
+            backgroundImage: `url('/giftcard.png')`,
             filter: "blur(5px)",
           }}
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent"
+        />
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="flex justify-center mb-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
+        >
+          <motion.div
+            variants={iconVariants}
+            className="flex justify-center mb-8"
+          >
             <RiGiftLine className="h-20 w-20 text-spa-accent" />
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight"
+          >
             Gift Cards
-          </h1>
+          </motion.h1>
 
-          <div className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent">
+          <motion.div
+            variants={itemVariants}
+            className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent"
+          >
             Give the Gift of Wellness
-          </div>
+          </motion.div>
 
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90"
+          >
             Share the experience of premium massage therapy with your loved ones
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Benefits Section */}
@@ -310,15 +363,20 @@ export default function GiftCardsPage() {
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
-                  <span>Gift cards are delivered via email</span>
+                  <span>Delivered by email with a unique code.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
-                  <span>Valid for 12 months from purchase date</span>
+                  <span>
+                    Book your treatment, then bring the code to your
+                    appointment.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-spa-primary mt-2 flex-shrink-0"></div>
-                  <span>Can be used for any of our services</span>
+                  <span>
+                    We reduce your appointment price by the gift card amount.
+                  </span>
                 </li>
               </ul>
             </div>

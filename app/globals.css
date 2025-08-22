@@ -87,7 +87,7 @@
   /* Spa-specific colors */
   --spa-primary: 168 15% 50%; /* #69918C */
   --spa-secondary: 160 61% 8%; /* #091E19 */
-  --spa-accent: 43 74% 66%; /* Gold/amber */
+  --spa-accent: 43 74% 66%; /* #e8c468 */
   --spa-neutral: 0 0% 98%; /* Warm white */
 }
 
@@ -309,7 +309,8 @@
 }
 .card-hover:hover {
   transform: translateY(-0.25rem);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 

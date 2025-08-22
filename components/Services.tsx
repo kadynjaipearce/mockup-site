@@ -128,6 +128,7 @@ const Services = () => {
                   >
                     <span>Learn More</span>
                     <motion.div
+                      className="z-10"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >

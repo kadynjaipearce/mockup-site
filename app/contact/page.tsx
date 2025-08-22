@@ -23,6 +23,7 @@ const ContactPage = () => {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,16 +38,37 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage(null);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch("/api/contact-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setSubmitStatus("error");
+        setErrorMessage(
+          json?.error || "Unable to send your message. Please try again."
+        );
+        return;
+      }
+
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
-
-      // Reset success message after 3 seconds
       setTimeout(() => setSubmitStatus("idle"), 3000);
-    }, 1000);
+    } catch (err) {
+      setSubmitStatus("error");
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -104,7 +126,7 @@ const ContactPage = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/back.jpg')`,
+            backgroundImage: `url('/contact.png')`,
             filter: "blur(5px)",
           }}
         />
@@ -185,6 +207,21 @@ const ContactPage = () => {
             animate="visible"
             className="bg-white p-8 shadow-sm border-2 border-gray-200"
           >
+            {submitStatus === "error" && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-6 p-4 bg-red-50 border-2 border-red-200 text-red-800"
+              >
+                <p className="font-medium">
+                  We couldn&apos;t send your message.
+                </p>
+                {errorMessage ? (
+                  <p className="text-sm">{errorMessage}</p>
+                ) : null}
+              </motion.div>
+            )}
+
             {submitStatus === "success" && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -354,7 +391,7 @@ const ContactPage = () => {
             >
               <iframe
                 title="Bunbury WA Map"
-                src="https://www.google.com/maps?q=Bunbury+WA,+Australia&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5513.252290443255!2d115.63670669999999!3d-33.3188616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a2e1d956eebac8f%3A0x9640f4a39b9aa884!2sBunbury%20Wellness%20Remedial%20Massage!5e1!3m2!1sen!2sau!4v1755852555631!5m2!1sen!2sau"
                 width="100%"
                 height="100%"
                 style={{

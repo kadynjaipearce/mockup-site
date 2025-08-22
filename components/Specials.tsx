@@ -142,6 +142,7 @@ export default function Specials() {
                       >
                         <span>{special.cta}</span>
                         <motion.div
+                          className="z-10"
                           whileHover={{ x: 5 }}
                           transition={{ duration: 0.2 }}
                         >
@@ -233,6 +234,7 @@ export default function Specials() {
                 >
                   <span>Read More</span>
                   <motion.div
+                    className="z-10"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -248,8 +250,8 @@ export default function Specials() {
               className="relative overflow-hidden shadow-lg flex flex-col h-96 md:h-[28rem] w-full md:w-[30rem] mx-auto"
             >
               <Image
-                src="/placeholder.svg"
-                alt="Placeholder"
+                src="/giftcard.png"
+                alt="Gift Vouchers"
                 fill
                 className="object-cover object-center w-full h-full"
                 priority
@@ -268,6 +270,7 @@ export default function Specials() {
                 >
                   <span>Purchase</span>
                   <motion.div
+                    className="z-10"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >

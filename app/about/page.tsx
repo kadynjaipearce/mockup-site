@@ -9,6 +9,12 @@ import {
   RiCalendar2Line,
   RiMailLine,
   RiLeafLine,
+  RiWomenLine,
+  RiFileList3Line,
+  RiToolsLine,
+  RiUserHeartLine,
+  RiMapPinLine,
+  RiTimeLine,
 } from "@remixicon/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -36,13 +42,13 @@ const teamMembers = [
     experience: "10+ years",
     specialties: [
       "Dry Needling",
-      "Spinal Mobilisations",
-      "Taping/Strapping",
-      "Sports Massage",
+      "Joint Mobilisations",
+      "Rehab-focused Massage",
+      "Progressive Exercise",
     ],
     image: "/placeholder.svg",
     description:
-      "Tan holds a Diploma in Remedial Massage and has over 10 years of experience. He incorporates dry needling, spinal mobilisations (not spinal manipulation), and taping/strapping into his treatments to provide comprehensive therapeutic care.",
+      "Tan is a qualified Remedial Massage Therapist with over 10 years of hands-on experience helping people relieve pain, recover from injury, and move better. Trained in dry needling, joint mobilisations, and rehab-focused massage, Tan has worked alongside physiotherapists since 2019. Each treatment is tailored to individual needs—combining effective hands-on therapy with simple, practical exercises to support long-term results.",
   },
 ];
 
@@ -75,28 +81,16 @@ const values = [
 
 const milestones = [
   {
-    year: "2016",
-    title: "Practice Founded",
+    year: "2024",
+    title: "Home Clinic Opened",
     description:
-      "Started as a small home studio with a vision to provide exceptional massage therapy in Bunbury.",
+      "Began in July 2024 as a home clinic focused on personalised, evidence-based care.",
   },
   {
-    year: "2018",
-    title: "First Clinic Location",
+    year: "2025",
+    title: "Clinic Expansion & Tan Joined",
     description:
-      "Moved to our first dedicated clinic space to serve more clients in the Bunbury community.",
-  },
-  {
-    year: "2020",
-    title: "Expanded Services",
-    description:
-      "Added pregnancy massage and dry needling to our service offerings.",
-  },
-  {
-    year: "2023",
-    title: "Current Location",
-    description:
-      "Moved to our current premium location to provide an even better experience for our clients.",
+      "In June 2025, Tan joined the team and the practice moved into a dedicated clinic space.",
   },
 ];
 
@@ -158,7 +152,7 @@ export default function AboutPage() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/back.jpg')`,
+            backgroundImage: `url('/about.png')`,
             filter: "blur(5px)",
           }}
         />
@@ -452,7 +446,7 @@ export default function AboutPage() {
                 className="flex items-start gap-4"
               >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiLeafLine className="h-4 w-4 text-white" />
+                  <RiWomenLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-spa-secondary mb-2">
@@ -470,7 +464,7 @@ export default function AboutPage() {
                 className="flex items-start gap-4"
               >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiLeafLine className="h-4 w-4 text-white" />
+                  <RiFileList3Line className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-spa-secondary mb-2">
@@ -487,7 +481,7 @@ export default function AboutPage() {
                 className="flex items-start gap-4"
               >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiLeafLine className="h-4 w-4 text-white" />
+                  <RiToolsLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-spa-secondary mb-2">
@@ -506,7 +500,7 @@ export default function AboutPage() {
                 className="flex items-start gap-4"
               >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiLeafLine className="h-4 w-4 text-white" />
+                  <RiUserHeartLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-spa-secondary mb-2">
@@ -524,7 +518,7 @@ export default function AboutPage() {
                 className="flex items-start gap-4"
               >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiLeafLine className="h-4 w-4 text-white" />
+                  <RiMapPinLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-spa-secondary mb-2">
@@ -541,7 +535,7 @@ export default function AboutPage() {
                 className="flex items-start gap-4"
               >
                 <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiLeafLine className="h-4 w-4 text-white" />
+                  <RiTimeLine className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-spa-secondary mb-2">
