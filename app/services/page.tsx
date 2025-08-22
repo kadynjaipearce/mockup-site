@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   RiHeartLine,
-  RiArrowRightLine,
   RiStarLine,
   RiCalendar2Line,
   RiLeafLine,
