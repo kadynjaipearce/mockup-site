@@ -61,7 +61,7 @@ const ContactPage = () => {
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setTimeout(() => setSubmitStatus("idle"), 3000);
-    } catch (err) {
+    } catch {
       setSubmitStatus("error");
       setErrorMessage(
         "Network error. Please check your connection and try again."

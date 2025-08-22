@@ -8,7 +8,6 @@ import {
   RiAwardLine,
   RiCalendar2Line,
   RiMailLine,
-  RiLeafLine,
   RiWomenLine,
   RiFileList3Line,
   RiToolsLine,

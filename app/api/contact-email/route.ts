@@ -20,10 +20,15 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  let parsedBody: any;
+  let parsedBody: {
+    email?: string;
+    name?: string;
+    subject?: string;
+    message?: string;
+  };
   try {
     parsedBody = await req.json();
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
