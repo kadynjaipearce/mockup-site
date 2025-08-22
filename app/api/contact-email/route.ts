@@ -4,7 +4,7 @@ import ContactAcknowledgementEmail from "@/emails/ContactAcknowledgementEmail";
 import ContactNotificationEmail from "@/emails/ContactNotificationEmail";
 
 const resend = new Resend(
-  process.env.RESEND_API_KEY ?? "re_H5RhnsCh_z8izE43GSbBL2hMqtxvjpJ14"
+  process.env.RESEND_API_KEY ?? "dont put this in production lol"
 );
 
 const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL || "kadynjaipearce@gmail.com";
