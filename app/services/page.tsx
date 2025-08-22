@@ -10,6 +10,17 @@ import {
   RiLeafLine,
   RiTimeLine,
   RiMailLine,
+  RiShieldCheckLine,
+  RiSpeedLine,
+  RiRefreshLine,
+  RiUserHeartLine,
+  RiMedalLine,
+  RiCheckLine,
+  RiHealthBookLine,
+  RiMentalHealthLine,
+  RiRestTimeLine,
+  RiHandHeartLine,
+  RiBodyScanLine,
 } from "@remixicon/react";
 import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
@@ -21,7 +32,7 @@ const services = [
     subtitle: "Therapeutic Treatment",
     description:
       "Targeted therapy to address specific muscle tension, injuries, and chronic pain conditions. Includes free 15 minutes assessment.",
-    image: "/placeholder.svg",
+    image: "/remedial.png",
     duration: "60-90 minutes",
     price: "From $125",
     features: [
@@ -39,7 +50,7 @@ const services = [
     subtitle: "Performance Enhancement",
     description:
       "Specialized massage for athletes and active individuals to improve performance and recovery.",
-    image: "/placeholder.svg",
+    image: "/sports.png",
     duration: "60-90 minutes",
     price: "From $125",
     features: [
@@ -57,7 +68,7 @@ const services = [
     subtitle: "Gentle Care for Mums-to-Be",
     description:
       "Safe and comfortable massage therapy designed specifically for expectant mothers. Performed in side-lying position for optimal comfort and safety.",
-    image: "/placeholder.svg",
+    image: "/preg.png",
     duration: "60-90 minutes",
     price: "From $135",
     features: [
@@ -75,7 +86,7 @@ const services = [
     subtitle: "Stress Relief & Wellness",
     description:
       "Gentle, flowing massage to promote relaxation, reduce stress, and improve overall wellbeing.",
-    image: "/placeholder.svg",
+    image: "/needling.png",
     duration: "60-90 minutes",
     price: "From $125",
     features: [
@@ -92,12 +103,12 @@ const services = [
 const specials = [
   {
     id: 1,
-    title: "Specials 1",
-    subtitle: "Premium Wellness Experience",
+    title: "Special Experience",
+    subtitle: "In-Store Only Special",
     description:
       "Experience our signature wellness package designed to provide ultimate relaxation and rejuvenation for your mind and body.",
-    image: "/placeholder.svg",
-    price: "From $150",
+    image: "/specials1.png",
+    price: "From $300",
     duration: "2 Hours",
     features: [
       "Full body massage",
@@ -106,11 +117,48 @@ const specials = [
       "Wellness consultation",
     ],
     popular: true,
+    button: false,
   },
 ];
 
 export default function ServicesPage() {
   const { openModal } = useBookingModal();
+
+  // Function to get appropriate icon for each feature
+  const getFeatureIcon = (feature: string) => {
+    const featureLower = feature.toLowerCase();
+
+    // Remedial Massage features
+    if (featureLower.includes("deep tissue")) return RiBodyScanLine;
+    if (featureLower.includes("injury rehabilitation"))
+      return RiShieldCheckLine;
+    if (featureLower.includes("pain relief")) return RiHandHeartLine;
+    if (featureLower.includes("posture correction")) return RiUserHeartLine;
+
+    // Sports Massage features
+    if (featureLower.includes("pre/post event")) return RiSpeedLine;
+    if (featureLower.includes("injury prevention")) return RiShieldCheckLine;
+    if (featureLower.includes("performance optimization")) return RiMedalLine;
+    if (featureLower.includes("recovery focus")) return RiRefreshLine;
+
+    // Pregnancy Massage features
+    if (featureLower.includes("pregnancy-safe")) return RiUserHeartLine;
+    if (featureLower.includes("side-lying")) return RiRestTimeLine;
+    if (featureLower.includes("stress relief")) return RiMentalHealthLine;
+    if (featureLower.includes("comfort focus")) return RiHandHeartLine;
+
+    // Relaxation Massage features
+    if (featureLower.includes("stress reduction")) return RiMentalHealthLine;
+    if (featureLower.includes("relaxation techniques")) return RiRestTimeLine;
+    if (featureLower.includes("wellness focus")) return RiHealthBookLine;
+    if (featureLower.includes("gentle pressure")) return RiHandHeartLine;
+
+    // Assessment features
+    if (featureLower.includes("assessment")) return RiCheckLine;
+
+    // Default fallback
+    return RiLeafLine;
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -326,13 +374,15 @@ export default function ServicesPage() {
                         ))}
                       </ul>
                     </div>
-                    <Link
-                      href="/#contact"
-                      className="btn-spa-accent inline-flex items-center gap-3 group w-full justify-center text-xl py-5 font-bold"
-                    >
-                      <span>Book This Special</span>
-                      <RiCalendar2Line className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
-                    </Link>
+                    {special.button && (
+                      <Link
+                        href="/#contact"
+                        className="btn-spa-accent inline-flex items-center gap-3 group w-full justify-center text-xl py-5 font-bold"
+                      >
+                        <span>Book This Special</span>
+                        <RiCalendar2Line className="h-6 w-6 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -422,15 +472,18 @@ export default function ServicesPage() {
                       What&apos;s Included:
                     </h4>
                     <ul className="space-y-2">
-                      {service.features.map((feature, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-2 text-gray-600 text-sm"
-                        >
-                          <RiLeafLine className="h-5 w-5 text-spa-accent flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
+                      {service.features.map((feature, index) => {
+                        const IconComponent = getFeatureIcon(feature);
+                        return (
+                          <li
+                            key={index}
+                            className="flex items-center gap-2 text-gray-600 text-sm"
+                          >
+                            <IconComponent className="h-5 w-5 text-spa-accent flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                   <div className="mt-auto">
