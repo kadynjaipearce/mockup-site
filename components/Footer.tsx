@@ -115,9 +115,14 @@ const Footer = () => {
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0 break-words">
             © 2025 Bunbury Wellness Remedial Massage. All rights reserved.
-            <span className="block md:inline text-xs text-gray-500 mt-1 md:mt-0 md:ml-4">
+            <Link
+              href="https://www.aperiasolutions.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block md:inline text-xs text-gray-500 mt-1 md:mt-0 md:ml-4 hover:text-spa-accent hover:underline transition-colors cursor-pointer"
+            >
               Developed by Aperia Solutions
-            </span>
+            </Link>
           </div>
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
             <Link
