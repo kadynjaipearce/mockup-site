@@ -333,13 +333,14 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-spa-accent inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  className={`inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group px-8 py-4 font-semibold text-lg transition-all duration-300 ${
+                    isSubmitting
+                      ? "bg-yellow-400 text-white hover:bg-yellow-500"
+                      : "btn-spa-accent"
+                  }`}
                 >
                   {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent animate-spin"></div>
-                      <span>Sending...</span>
-                    </>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   ) : (
                     <>
                       <span>Send Message</span>

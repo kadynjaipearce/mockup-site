@@ -48,10 +48,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
           <h2 className="text-xl font-light">Book Your Appointment</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-white hover:bg-opacity-20 rounded-none transition-all duration-300 cursor-pointer hover:scale-110"
+            className="p-2 hover:bg-white hover:bg-opacity-20 rounded-none transition-all duration-300 cursor-pointer hover:scale-110 group"
             aria-label="Close booking modal"
           >
-            <RiCloseLine className="h-6 w-6 transition-colors duration-300 hover:text-yellow-400" />
+            <RiCloseLine className="h-6 w-6 transition-colors duration-300 group-hover:text-yellow-400" />
           </button>
         </div>
 
