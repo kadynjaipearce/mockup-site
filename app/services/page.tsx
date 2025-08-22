@@ -398,28 +398,6 @@ export default function ServicesPage() {
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center mb-16"
-          >
-            <motion.h2
-              variants={fadeInUpVariants}
-              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
-            >
-              Massage Services
-            </motion.h2>
-            <motion.p
-              variants={fadeInUpVariants}
-              className="text-lg text-gray-600 max-w-3xl mx-auto"
-            >
-              Professional massage therapy services designed to address your
-              specific needs and promote overall wellness.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
           >
@@ -532,126 +510,63 @@ export default function ServicesPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            className="max-w-2xl mx-auto"
           >
-            {/* New Clients */}
+            {/* Unified Pricing */}
             <motion.div
               variants={cardVariants}
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
               className="bg-white shadow-lg p-8"
             >
               <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
-                New Clients
+                Service Pricing
               </h3>
-              <div className="space-y-4">
-                <div className="border-b border-gray-200 pb-4">
-                  <h4 className="font-semibold text-spa-primary mb-2">
+              <div className="space-y-6">
+                <div className="border-b border-gray-200 pb-6">
+                  <h4 className="font-semibold text-spa-primary mb-4 text-lg">
                     Remedial Massage
                   </h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>60 minutes</span>
-                      <span className="font-semibold text-spa-accent">
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">60 minutes</span>
+                      <span className="font-semibold text-spa-accent text-lg">
                         $125
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>75 minutes</span>
-                      <span className="font-semibold text-spa-accent">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">75 minutes</span>
+                      <span className="font-semibold text-spa-accent text-lg">
                         $150
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>90 minutes</span>
-                      <span className="font-semibold text-spa-accent">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">90 minutes</span>
+                      <span className="font-semibold text-spa-accent text-lg">
                         $180
                       </span>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-spa-primary mb-2">
+                  <h4 className="font-semibold text-spa-primary mb-4 text-lg">
                     Pregnancy Massage
                   </h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>60 minutes</span>
-                      <span className="font-semibold text-spa-accent">
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">60 minutes</span>
+                      <span className="font-semibold text-spa-accent text-lg">
                         $135
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>75 minutes</span>
-                      <span className="font-semibold text-spa-accent">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">75 minutes</span>
+                      <span className="font-semibold text-spa-accent text-lg">
                         $160
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>90 minutes</span>
-                      <span className="font-semibold text-spa-accent">
-                        $190
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Existing Clients */}
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="bg-white  shadow-lg p-8"
-            >
-              <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
-                Existing Clients
-              </h3>
-              <div className="space-y-4">
-                <div className="border-b border-gray-200 pb-4">
-                  <h4 className="font-semibold text-spa-primary mb-2">
-                    Remedial Massage
-                  </h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>60 minutes</span>
-                      <span className="font-semibold text-spa-accent">
-                        $125
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>75 minutes</span>
-                      <span className="font-semibold text-spa-accent">
-                        $150
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>90 minutes</span>
-                      <span className="font-semibold text-spa-accent">
-                        $180
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-spa-primary mb-2">
-                    Pregnancy Massage
-                  </h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>60 minutes</span>
-                      <span className="font-semibold text-spa-accent">
-                        $135
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>75 minutes</span>
-                      <span className="font-semibold text-spa-accent">
-                        $160
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>90 minutes</span>
-                      <span className="font-semibold text-spa-accent">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">90 minutes</span>
+                      <span className="font-semibold text-spa-accent text-lg">
                         $190
                       </span>
                     </div>

@@ -49,6 +49,7 @@ const Header = () => {
           {/* Logo */}
           <Link
             href="/"
+            onClick={() => setIsMenuOpen(false)}
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
             {/* <RiLeafLine className="h-8 w-8" style={{ color: "#FFC857" }} /> */}
@@ -169,7 +170,10 @@ const Header = () => {
                 ) : (
                   <button
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                    onClick={() => {
+                      scrollToSection(item.href);
+                      setIsMenuOpen(false);
+                    }}
                     className={`block w-full text-left px-4 py-2 transition-colors duration-200 cursor-pointer ${
                       pathname === item.href
                         ? "text-spa-accent italic bg-spa-primary/20"
@@ -182,7 +186,10 @@ const Header = () => {
               )}
               <div className="px-4 pt-4">
                 <button
-                  onClick={openModal}
+                  onClick={() => {
+                    openModal();
+                    setIsMenuOpen(false);
+                  }}
                   className="btn-spa-accent w-full justify-center inline-flex items-center gap-2 group"
                 >
                   <span>Book Now</span>
