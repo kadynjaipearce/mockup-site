@@ -10,25 +10,25 @@ const Services = () => {
     {
       title: "REMEDIAL MASSAGE",
       description: "Targeted therapy for pain relief and mobility",
-      image: "/placeholder.svg",
+      image: "/remedial.png",
       link: "/services/remedial-massage",
     },
     {
       title: "SPORTS MASSAGE",
       description: "Performance enhancement and injury recovery",
-      image: "/placeholder.svg",
+      image: "/sports.png",
       link: "/services/sports-massage",
     },
     {
       title: "PREGNANCY MASSAGE",
       description: "Gentle, safe, and nurturing for mums-to-be",
-      image: "/placeholder.svg",
+      image: "/preg.png",
       link: "/services/pregnancy-massage",
     },
     {
       title: "DRY NEEDLING",
       description: "Advanced therapy for muscle pain and trigger points",
-      image: "/placeholder.svg",
+      image: "/needling.png",
       link: "/services/dry-needling",
     },
   ];

@@ -2,9 +2,21 @@
 import { RiCalendar2Line } from "@remixicon/react";
 import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
   const { openModal } = useBookingModal();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Force animation to trigger on every page load
+    setIsVisible(false);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,7 +48,9 @@ const Hero = () => {
       {/* Background Image */}
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        animate={
+          isVisible ? { scale: 1, opacity: 1 } : { scale: 1.1, opacity: 0 }
+        }
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -48,7 +62,7 @@ const Hero = () => {
       {/* Gradient Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1 }}
         className="absolute inset-0 bg-gradient-to-t from-spa-secondary via-spa-secondary/60 to-transparent"
       />
@@ -57,7 +71,7 @@ const Hero = () => {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={isVisible ? "visible" : "hidden"}
         className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
       >
         <motion.h1

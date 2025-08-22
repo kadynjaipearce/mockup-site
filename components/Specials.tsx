@@ -12,32 +12,32 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const specials = [
   {
-    image: "/front.jpg",
+    image: "/remedial.png",
     title: "Relax and renew",
     subtitle: "Book in your body treatment today",
     cta: "Learn More",
-    link: "/services/remedial-massage",
+    link: "/services",
   },
   {
-    image: "/back.jpg",
+    image: "/sports.png",
     title: "Deep Tissue Relief",
     subtitle: "Experience our signature back massage",
     cta: "Learn More",
-    link: "/services/sports-massage",
+    link: "/services",
   },
   {
-    image: "/preg.jpg",
+    image: "/preg.png",
     title: "Pregnancy Massage",
     subtitle: "Gentle care for mums-to-be",
     cta: "Learn More",
-    link: "/services/pregnancy-massage",
+    link: "/services",
   },
   {
-    image: "/fuko.jpg",
+    image: "/needling.png",
     title: "Remedial Therapy",
     subtitle: "Restore balance and wellness",
     cta: "Learn More",
-    link: "/services/remedial-massage",
+    link: "/services",
   },
 ];
 
@@ -110,8 +110,8 @@ export default function Specials() {
                   className="absolute inset-0"
                 >
                   <Image
-                    src="/placeholder.svg"
-                    alt="Placeholder"
+                    src={special.image}
+                    alt={special.title}
                     fill
                     className="object-cover object-center w-full h-full"
                     priority={i === 0}
@@ -214,7 +214,7 @@ export default function Specials() {
               className="relative overflow-hidden shadow-lg flex flex-col h-96 md:h-[28rem] w-full md:w-[30rem] mx-auto"
             >
               <Image
-                src="/placeholder.svg"
+                src="/specials1.png"
                 alt="Placeholder"
                 fill
                 className="object-cover object-center w-full h-full"
@@ -223,13 +223,13 @@ export default function Specials() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="relative z-10 flex flex-col justify-end h-full p-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow">
-                  Specials #1
+                  Special Experiences
                 </h2>
                 <p className="text-white/90 mb-6 text-base font-light drop-shadow">
                   Treat that someone special
                 </p>
                 <Link
-                  href="/services/remedial-massage"
+                  href="/services"
                   className="btn-spa-accent px-6 py-3 w-fit inline-flex items-center gap-2 group text-base font-medium"
                 >
                   <span>Read More</span>
