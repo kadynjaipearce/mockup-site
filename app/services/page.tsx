@@ -138,6 +138,40 @@ export default function ServicesPage() {
       rotate: 0,
     },
   };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
   return (
     <div className="min-h-screen pt-20">
       <Header />
@@ -206,21 +240,41 @@ export default function ServicesPage() {
       {/* Special Packages */}
       <section className="py-24 bg-gradient-to-br from-spa-neutral to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-spa-secondary mb-6">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUpVariants}
+              className="text-4xl md:text-5xl font-light text-spa-secondary mb-6"
+            >
               Special Packages
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpVariants}
+              className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            >
               Experience our curated special packages designed to provide
               exceptional value and unforgettable experiences.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="max-w-6xl mx-auto">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="max-w-6xl mx-auto"
+          >
             {specials.map((special) => (
-              <div
+              <motion.div
                 key={special.id}
-                className="bg-white shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
+                variants={cardVariants}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="bg-white shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform"
               >
                 <div className="flex flex-col lg:flex-row">
                   <div className="relative lg:w-1/2 h-80 lg:h-auto">
@@ -284,30 +338,50 @@ export default function ServicesPage() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Regular Services */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUpVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Massage Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpVariants}
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
+            >
               Professional massage therapy services designed to address your
               specific needs and promote overall wellness.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          >
             {services.map((service) => (
-              <div
+              <motion.div
                 key={service.id}
-                className="bg-white shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                variants={cardVariants}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="bg-white shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform"
               >
                 <div className="relative h-72">
                   <Image
@@ -372,28 +446,50 @@ export default function ServicesPage() {
                     <RiArrowRightLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Pricing Table */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-spa-secondary mb-4">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUpVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
               Service Pricing
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpVariants}
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
+            >
               Transparent pricing for all our massage therapy services. All
               sessions include a free 15-minute assessment.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          >
             {/* New Clients */}
-            <div className="bg-white shadow-lg p-8">
+            <motion.div
+              variants={cardVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              className="bg-white shadow-lg p-8"
+            >
               <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
                 New Clients
               </h3>
@@ -449,10 +545,14 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Existing Clients */}
-            <div className="bg-white  shadow-lg p-8">
+            <motion.div
+              variants={cardVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              className="bg-white  shadow-lg p-8"
+            >
               <h3 className="text-2xl font-semibold text-spa-secondary mb-6 text-center">
                 Existing Clients
               </h3>
@@ -508,58 +608,93 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="text-center mt-12">
-            <div className="bg-spa-primary/10 rounded-lg p-6 max-w-2xl mx-auto">
-              <h4 className="font-semibold text-spa-secondary mb-3">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mt-12"
+          >
+            <motion.div
+              variants={cardVariants}
+              className="bg-spa-primary/10 rounded-lg p-6 max-w-2xl mx-auto"
+            >
+              <motion.h4
+                variants={fadeInUpVariants}
+                className="font-semibold text-spa-secondary mb-3"
+              >
                 Important Notes
-              </h4>
-              <ul className="text-sm text-gray-700 space-y-2 text-left">
-                <li>• All sessions include a free 15-minute assessment</li>
-                <li>
+              </motion.h4>
+              <motion.ul
+                variants={sectionVariants}
+                className="text-sm text-gray-700 space-y-2 text-left"
+              >
+                <motion.li variants={itemVariants}>• All sessions include a free 15-minute assessment</motion.li>
+                <motion.li variants={itemVariants}>
                   • Please allow additional time for your full appointment
-                </li>
-                <li>• If you are pregnant, please select Pregnancy Massage</li>
-                <li>
+                </motion.li>
+                <motion.li variants={itemVariants}>• If you are pregnant, please select Pregnancy Massage</motion.li>
+                <motion.li variants={itemVariants}>
                   • For pregnancy before 12 weeks, consult your healthcare
                   professional first
-                </li>
-              </ul>
-            </div>
-          </div>
+                </motion.li>
+              </motion.ul>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section>
-        <div className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20">
-          <h3 className="text-2xl font-light mb-4">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.div
+          variants={cardVariants}
+          className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20"
+        >
+          <motion.h3
+            variants={fadeInUpVariants}
+            className="text-2xl font-light mb-4"
+          >
             Ready to Experience the Difference?
-          </h3>
-          <p className="text-lg mb-8 opacity-90">
+          </motion.h3>
+          <motion.p
+            variants={fadeInUpVariants}
+            className="text-lg mb-8 opacity-90"
+          >
             Book your session with our experienced team and start your wellness
             journey today
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
+          </motion.p>
+          <motion.div
+            variants={sectionVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <motion.button
+              variants={itemVariants}
               onClick={openModal}
               className="btn-spa-accent inline-flex items-center gap-2 group"
             >
               <span>Book Your Session</span>
               <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-            </button>
-            <Link
-              href="mailto:info@bunburywellnessremedialmassage.com.au"
-              className="btn-spa-service inline-flex items-center gap-2 group"
-            >
-              <span>Email to Discuss</span>
-              <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
-            </Link>
-          </div>
-        </div>
-      </section>
+            </motion.button>
+            <motion.div variants={itemVariants}>
+              <Link
+                href="mailto:info@bunburywellnessremedialmassage.com.au"
+                className="btn-spa-service inline-flex items-center gap-2 group"
+              >
+                <span>Email to Discuss</span>
+                <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
       <Footer />
     </div>
   );
