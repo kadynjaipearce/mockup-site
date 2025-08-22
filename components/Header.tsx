@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { RiMenu2Line, RiCloseFill, RiCalendar2Line } from "@remixicon/react";
+import { RiCalendar2Line } from "@remixicon/react";
 import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";
 import Link from "next/link";
@@ -109,14 +109,41 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-spa-accent"
+              className="relative w-10 h-10 flex items-center justify-center text-white hover:text-spa-accent transition-colors duration-300 group cursor-pointer"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <RiCloseFill className="h-6 w-6" />
-              ) : (
-                <RiMenu2Line className="h-6 w-6" />
-              )}
+              {/* Elegant Hamburger to X Animation */}
+              <div className="relative w-6 h-6 flex flex-col justify-center items-center">
+                {/* Top Line */}
+                <div
+                  className={`absolute w-6 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                    isMenuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
+                  }`}
+                />
+
+                {/* Middle Line */}
+                <div
+                  className={`absolute w-6 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                    isMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+                  }`}
+                />
+
+                {/* Bottom Line */}
+                <div
+                  className={`absolute w-6 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                    isMenuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
+                  }`}
+                />
+              </div>
+
+              {/* Subtle background glow */}
+              <div
+                className={`absolute inset-0 rounded-full transition-all duration-500 ${
+                  isMenuOpen
+                    ? "bg-spa-accent/10 scale-100 "
+                    : "bg-transparent scale-0"
+                }`}
+              />
             </button>
           </div>
         </div>
