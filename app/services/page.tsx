@@ -243,8 +243,7 @@ export default function ServicesPage() {
           <motion.div
             variants={sectionVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            animate="visible"
             className="text-center mb-16"
           >
             <motion.h2
@@ -265,8 +264,7 @@ export default function ServicesPage() {
           <motion.div
             variants={sectionVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            animate="visible"
             className="max-w-6xl mx-auto"
           >
             {specials.map((special) => (
@@ -381,7 +379,7 @@ export default function ServicesPage() {
                 key={service.id}
                 variants={cardVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="bg-white shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform"
+                className="bg-white shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform flex flex-col min-h-[600px]"
               >
                 <div className="relative h-72">
                   <Image
@@ -397,7 +395,7 @@ export default function ServicesPage() {
                     </div>
                   )}
                 </div>
-                <div className="p-8">
+                <div className="p-8 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-spa-secondary mb-2">
@@ -417,18 +415,18 @@ export default function ServicesPage() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-base">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-base flex-grow">
                     {service.description}
                   </p>
                   <div className="mb-6">
-                    <h4 className="font-semibold text-spa-secondary mb-4 text-lg">
-                      Benefits:
+                    <h4 className="font-bold text-spa-secondary mb-4 text-lg">
+                      What&apos;s Included:
                     </h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, index) => (
                         <li
                           key={index}
-                          className="flex items-center gap-3 text-gray-600"
+                          className="flex items-center gap-2 text-gray-600 text-sm"
                         >
                           <RiLeafLine className="h-5 w-5 text-spa-accent flex-shrink-0" />
                           <span>{feature}</span>
@@ -436,15 +434,15 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                   </div>
-                  <Link
-                    href={`/services/${service.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
-                    className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center text-lg py-4"
-                  >
-                    <span>Learn More</span>
-                    <RiArrowRightLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
-                  </Link>
+                  <div className="mt-auto">
+                    <Link
+                      href="/#contact"
+                      className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center text-lg py-4"
+                    >
+                      <span>Book Now</span>
+                      <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-secondary z-10" />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -632,11 +630,15 @@ export default function ServicesPage() {
                 variants={sectionVariants}
                 className="text-sm text-gray-700 space-y-2 text-left"
               >
-                <motion.li variants={itemVariants}>• All sessions include a free 15-minute assessment</motion.li>
+                <motion.li variants={itemVariants}>
+                  • All sessions include a free 15-minute assessment
+                </motion.li>
                 <motion.li variants={itemVariants}>
                   • Please allow additional time for your full appointment
                 </motion.li>
-                <motion.li variants={itemVariants}>• If you are pregnant, please select Pregnancy Massage</motion.li>
+                <motion.li variants={itemVariants}>
+                  • If you are pregnant, please select Pregnancy Massage
+                </motion.li>
                 <motion.li variants={itemVariants}>
                   • For pregnancy before 12 weeks, consult your healthcare
                   professional first
