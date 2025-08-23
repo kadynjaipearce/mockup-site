@@ -41,7 +41,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const acknowledgementSubject = "Thanks for contacting Fuko Spa";
+  const acknowledgementSubject =
+    "Thanks for contacting Bunbury Wellness Remedial Massage";
   const businessSubject = `New contact form submission${subject ? ": " + String(subject) : ""}`;
 
   const origin =

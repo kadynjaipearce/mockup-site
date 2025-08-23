@@ -27,7 +27,7 @@ export default function ContactAcknowledgementEmail(
 
   const darkGreen = "#091E19";
   const buttonGold = "#e8c468";
-  const resolvedLogo = logoUrl || "/logo_large.jpg";
+  const resolvedLogo = logoUrl || "https://mockup-site.vercel.app/Icon.png";
   const resolvedSite = siteUrl || "https://";
 
   return (
