@@ -19,13 +19,6 @@ const specials = [
     link: "/services",
   },
   {
-    image: "/sports.png",
-    title: "Deep Tissue Relief",
-    subtitle: "Experience our signature back massage",
-    cta: "Learn More",
-    link: "/services",
-  },
-  {
     image: "/preg.png",
     title: "Pregnancy Massage",
     subtitle: "Gentle care for mums-to-be",

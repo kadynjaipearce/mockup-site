@@ -476,6 +476,50 @@ const ContactPage = () => {
         </div>
       </section>
 
+      {/* Parking Map Section */}
+      <section className="py-20 bg-spa-neutral">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+            >
+              Parking Map
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
+              Parking map coming soon.
+            </motion.p>
+          </motion.div>
+          
+          <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-white border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
+              <div className="text-gray-400 mb-4">
+                <svg className="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium text-gray-600 mb-2">Parking Map</h3>
+              <p className="text-gray-500">Coming soon - We're working on adding a detailed parking map to help you find us easily.</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

@@ -19,6 +19,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
+import CTA from "@/components/CTA";
 
 const teamMembers = [
   {
@@ -552,44 +553,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <motion.div
-          variants={cardVariants}
-          className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20"
-        >
-          <motion.h3
-            variants={itemVariants}
-            className="text-2xl font-light mb-4"
-          >
-            Ready to Experience the Difference?
-          </motion.h3>
-          <motion.p variants={itemVariants} className="text-lg mb-8 opacity-90">
-            Book your session with our experienced team and start your wellness
-            journey today
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              onClick={openModal}
-              className="btn-spa-accent inline-flex items-center gap-2 group"
-            >
-              <span>Book Your Session</span>
-              <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-            </button>
-            <Link
-              href="mailto:info@bunburywellnessremedialmassage.com.au"
-              className="btn-spa-service inline-flex items-center gap-2 group"
-            >
-              <span>Email to Discuss</span>
-              <RiMailLine className="h-5 w-5 transition-colors duration-300 group-hover:text-spa-accent z-10" />
-            </Link>
-          </div>
-        </motion.div>
-      </motion.section>
+      <CTA />
 
       <Footer />
     </div>
