@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
 
 export default function BookingPolicy() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

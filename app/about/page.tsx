@@ -91,7 +91,6 @@ const milestones = [
 ];
 
 export default function AboutPage() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
