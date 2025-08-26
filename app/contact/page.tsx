@@ -507,7 +507,7 @@ const ContactPage = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-white border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
+            <div className="bg-white border-2 border-dashed border-gray-300 rounded-lg p-12 text-center py-40">
               <div className="text-gray-400 mb-4">
                 <svg
                   className="w-16 h-16 mx-auto"
