@@ -5,16 +5,12 @@ import {
   RiUserLine,
   RiTimeLine,
   RiInformationLine,
-  RiCalendar2Line,
-  RiMailLine,
 } from "@remixicon/react";
-import { useBookingModal } from "@/components/BookingProvider";
-import Link from "next/link";
+
 import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
 
 export default function BookingPolicy() {
-  const { openModal } = useBookingModal();
 
   const containerVariants = {
     hidden: { opacity: 0 },

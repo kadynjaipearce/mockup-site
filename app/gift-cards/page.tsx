@@ -1,105 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {
-  RiGiftLine,
-  RiBankCardLine,
-  RiStarLine,
-  RiMoneyDollarCircleLine,
-  RiCalendar2Line,
-  RiMailLine,
-  RiTimeLine,
-  RiShieldCheckLine,
-} from "@remixicon/react";
-import Link from "next/link";
-import { useBookingModal } from "@/components/BookingProvider";
+import { RiGiftLine, RiTimeLine, RiShieldCheckLine } from "@remixicon/react";
 import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
 
-const giftCardOptions = [
-  {
-    id: "50",
-    amount: 50,
-    title: "Wellness Starter",
-    description: "Perfect for a relaxing massage session",
-    popular: false,
-  },
-  {
-    id: "100",
-    amount: 100,
-    title: "Wellness Plus",
-    description: "Great value for multiple sessions",
-    popular: true,
-  },
-  {
-    id: "150",
-    amount: 150,
-    title: "Wellness Premium",
-    description: "Premium package for ultimate relaxation",
-    popular: false,
-  },
-  {
-    id: "200",
-    amount: 200,
-    title: "Wellness Ultimate",
-    description: "Complete wellness experience",
-    popular: false,
-  },
-];
-
 export default function GiftCardsPage() {
-  const [selectedAmount, setSelectedAmount] = useState<string>("100");
-  const [customAmount, setCustomAmount] = useState<string>("");
-  const [isCustomAmount, setIsCustomAmount] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const { openModal } = useBookingModal();
-  const handleAmountSelect = (amount: string) => {
-    setSelectedAmount(amount);
-    setIsCustomAmount(false);
-    setCustomAmount("");
-  };
-
-  const handleCustomAmountChange = (value: string) => {
-    setCustomAmount(value);
-    setIsCustomAmount(true);
-    setSelectedAmount(value);
-  };
-
-  const handlePurchase = async () => {
-    setIsLoading(true);
-
-    try {
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: selectedAmount,
-        }),
-      });
-
-      const { url } = await response.json();
-
-      if (url) {
-        window.location.href = url;
-      } else {
-        throw new Error("No checkout URL received");
-      }
-    } catch (error) {
-      console.error("Error creating checkout session:", error);
-      alert("There was an error processing your payment. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const getDisplayAmount = () => {
-    return isCustomAmount ? customAmount : selectedAmount;
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

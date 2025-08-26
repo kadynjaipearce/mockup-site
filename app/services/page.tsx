@@ -1,7 +1,6 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import Image from "next/image";
 import {
   RiCalendar2Line,
@@ -31,7 +30,7 @@ const services = [
     title: "Remedial Massage",
     subtitle: "Therapeutic Treatment",
     description:
-      "Targeted assessment and treatment to relieve pain, reduce tightness, and improve function.",
+      "Targeted consultation and treatment to relieve pain, reduce tightness, and improve function.",
     image: "/remedial.png",
     duration: "60-90 minutes",
     price: "From $125",
@@ -40,7 +39,7 @@ const services = [
       "Injury rehabilitation",
       "Pain relief",
       "Posture correction",
-      "Free 15-minute assessment",
+      "Free 15-minute consultation",
     ],
     techniques: [
       {
@@ -76,7 +75,7 @@ const services = [
       "Side-lying position",
       "Stress relief",
       "Comfort focus",
-      "Free 15-minute assessment",
+      "Free 15-minute consultation",
     ],
     popular: false,
     bookable: true,
@@ -153,8 +152,8 @@ export default function ServicesPage() {
     if (featureLower.includes("wellness focus")) return RiHealthBookLine;
     if (featureLower.includes("gentle pressure")) return RiHandHeartLine;
 
-    // Assessment features
-    if (featureLower.includes("assessment")) return RiCheckLine;
+    // Consultation features
+    if (featureLower.includes("consultation")) return RiCheckLine;
 
     // Default fallback
     return RiLeafLine;
@@ -196,14 +195,6 @@ export default function ServicesPage() {
         staggerChildren: 0.1,
         delayChildren: 0.2,
       },
-    },
-  };
-
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
     },
   };
 

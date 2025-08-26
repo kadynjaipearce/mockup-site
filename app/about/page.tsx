@@ -6,8 +6,6 @@ import {
   RiShieldCheckLine,
   RiUserLine,
   RiAwardLine,
-  RiCalendar2Line,
-  RiMailLine,
   RiWomenLine,
   RiFileList3Line,
   RiToolsLine,
@@ -15,9 +13,7 @@ import {
   RiMapPinLine,
   RiTimeLine,
 } from "@remixicon/react";
-import Link from "next/link";
 import Image from "next/image";
-import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
 
@@ -95,7 +91,6 @@ const milestones = [
 ];
 
 export default function AboutPage() {
-  const { openModal } = useBookingModal();
 
   const containerVariants = {
     hidden: { opacity: 0 },

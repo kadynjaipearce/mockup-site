@@ -525,8 +525,8 @@ const ContactPage = () => {
                 Parking Map
               </h3>
               <p className="text-gray-500">
-                Coming soon - We're working on adding a detailed parking map to
-                help you find us easily.
+                Coming soon - We&apos;re working on adding a detailed parking
+                map to help you find us easily.
               </p>
             </div>
           </motion.div>
