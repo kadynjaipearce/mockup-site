@@ -46,7 +46,7 @@ const teamMembers = [
       "Rehab-focused Massage",
       "Progressive Exercise",
     ],
-    image: "/placeholder.svg",
+    image: "/tan.png",
     description:
       "Tan is a qualified Remedial Massage Therapist with over 10 years of hands-on experience helping people relieve pain, recover from injury, and move better. Trained in dry needling, joint mobilisations, and rehab-focused massage, Tan has worked alongside physiotherapists since 2019. Each treatment is tailored to individual needs—combining effective hands-on therapy with simple, practical exercises to support long-term results.",
   },

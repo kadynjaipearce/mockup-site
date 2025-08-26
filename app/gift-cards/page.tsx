@@ -10,6 +10,8 @@ import {
   RiMoneyDollarCircleLine,
   RiCalendar2Line,
   RiMailLine,
+  RiTimeLine,
+  RiShieldCheckLine,
 } from "@remixicon/react";
 import Link from "next/link";
 import { useBookingModal } from "@/components/BookingProvider";
@@ -223,79 +225,6 @@ export default function GiftCardsPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={sectionVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center mb-16"
-          >
-            <motion.h2
-              variants={fadeInUpVariants}
-              className="text-3xl md:text-4xl font-light text-spa-secondary mb-8"
-            >
-              Why Choose Our Gift Cards?
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            variants={sectionVariants}
-            initial="hidden"
-            animate="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
-                <RiGiftLine className="h-8 w-8 text-spa-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-spa-secondary mb-3">
-                Perfect Gift
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Give the gift of relaxation and wellness to friends and family
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
-                <RiBankCardLine className="h-8 w-8 text-spa-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-spa-secondary mb-3">
-                Flexible Value
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Choose from multiple denominations or enter a custom amount
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-spa-primary/10 flex items-center justify-center mx-auto mb-4">
-                <RiStarLine className="h-8 w-8 text-spa-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-spa-secondary mb-3">
-                Premium Experience
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Professional massage therapy in a relaxing environment
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Gift Card Selection */}
       <section className="py-20 bg-spa-neutral">
@@ -311,142 +240,143 @@ export default function GiftCardsPage() {
               variants={fadeInUpVariants}
               className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
             >
-              Choose Your Gift Card
+              Gift Cards
             </motion.h2>
             <motion.p
               variants={fadeInUpVariants}
               className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Select a preset amount or enter your own custom value
+              Give the gift of wellness and relaxation. Perfect for birthdays,
+              anniversaries, or just because.
             </motion.p>
           </motion.div>
 
-          {/* Most Popular Tag */}
-          <motion.div
-            variants={fadeInUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="w-full flex justify-center mb-4"
-          >
-            <span className="bg-spa-accent text-white px-4 py-1 text-sm font-medium flex items-center gap-1 rounded-full shadow">
-              <RiStarLine className="h-3 w-3" /> Most Popular
-            </span>
-          </motion.div>
+          {/* Gift Card Benefits */}
           <motion.div
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="flex flex-col lg:flex-row gap-8 mb-12"
+            className="grid md:grid-cols-3 gap-8 mb-16"
           >
-            {/* Preset Amounts Grid */}
-            <div className="flex-1">
-              <motion.div
-                variants={sectionVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6"
-              >
-                {giftCardOptions.map((option) => (
-                  <motion.div
-                    key={option.id}
-                    variants={cardVariants}
-                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                    className={`relative bg-white p-6 shadow-sm border-2 transition-all duration-300 cursor-pointer hover:shadow-md ${
-                      selectedAmount === option.id && !isCustomAmount
-                        ? "border-spa-primary bg-spa-primary/5"
-                        : "border-gray-200 hover:border-spa-primary/50"
-                    }`}
-                    onClick={() => handleAmountSelect(option.id)}
-                  >
-                    <div className="text-center">
-                      <div className="text-3xl font-light text-spa-secondary mb-2">
-                        ${option.amount}
-                      </div>
-                      <h3 className="text-lg font-semibold text-spa-secondary mb-2">
-                        {option.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {option.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-            {/* Custom Amount and Purchase Button */}
-            <motion.div
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="w-full lg:w-[340px] flex flex-col gap-6"
-            >
-              <motion.div
-                variants={cardVariants}
-                className="bg-white p-6 shadow-sm border-2 border-gray-200"
-              >
-                <div className="text-center mb-4">
-                  <h3 className="text-xl font-semibold text-spa-secondary mb-2">
-                    Custom Amount
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Enter any amount between $25 - $500
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex-1">
-                    <div className="relative">
-                      <RiMoneyDollarCircleLine className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                      <input
-                        type="text"
-                        inputMode="numeric"
-                        pattern="[0-9]*"
-                        placeholder="Enter amount"
-                        value={customAmount}
-                        onChange={(e) =>
-                          handleCustomAmountChange(e.target.value)
-                        }
-                        className={`w-full pl-10 pr-4 py-3 border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-spa-primary/20 ${
-                          isCustomAmount
-                            ? "border-spa-primary bg-spa-primary/5"
-                            : "border-gray-200 focus:border-spa-primary"
-                        } appearance-none`}
-                        style={{ MozAppearance: "textfield" }}
-                        onWheel={(e) => e.currentTarget.blur()}
-                        onKeyDown={(e) => {
-                          if (e.key === "ArrowUp" || e.key === "ArrowDown")
-                            e.preventDefault();
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="text-gray-500 text-sm">AUD</div>
-                </div>
-              </motion.div>
-              <motion.button
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.98 }}
-                onClick={handlePurchase}
-                disabled={isLoading || !getDisplayAmount()}
-                className="btn-spa-accent inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isLoading ? (
-                  <>
-                    <span>Processing...</span>
-                    <div className="w-5 h-5 ml-2 rounded-full border-2 border-black border-t-transparent animate-spin"></div>
-                  </>
-                ) : (
-                  <>
-                    <span>Purchase ${getDisplayAmount()} Gift Card</span>
-                    <RiBankCardLine className="h-5 w-5 z-10" />
-                  </>
-                )}
-              </motion.button>
+            <motion.div variants={cardVariants} className="text-center p-6">
+              <div className="w-16 h-16 bg-spa-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <RiGiftLine className="h-8 w-8 text-spa-accent" />
+              </div>
+              <h3 className="text-xl font-semibold text-spa-secondary mb-2">
+                Perfect Gift
+              </h3>
+              <p className="text-gray-600">
+                Ideal for any occasion - birthdays, anniversaries, or just to
+                show someone you care
+              </p>
             </motion.div>
+
+            <motion.div variants={cardVariants} className="text-center p-6">
+              <div className="w-16 h-16 bg-spa-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <RiTimeLine className="h-8 w-8 text-spa-accent" />
+              </div>
+              <h3 className="text-xl font-semibold text-spa-secondary mb-2">
+                No Expiry
+              </h3>
+              <p className="text-gray-600">
+                Gift cards never expire, giving your loved ones the flexibility
+                to use them when convenient
+              </p>
+            </motion.div>
+
+            <motion.div variants={cardVariants} className="text-center p-6">
+              <div className="w-16 h-16 bg-spa-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <RiShieldCheckLine className="h-8 w-8 text-spa-accent" />
+              </div>
+              <h3 className="text-xl font-semibold text-spa-secondary mb-2">
+                Secure & Easy
+              </h3>
+              <p className="text-gray-600">
+                Safe, secure payment processing with instant digital delivery
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* GiftUp Integration */}
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="bg-white rounded-lg overflow-hidden"
+          >
+            <div className="bg-gradient-to-r from-spa-primary to-spa-accent p-6 text-white text-center">
+              <h3 className="text-2xl font-semibold mb-2">
+                Purchase Your Gift Card
+              </h3>
+              <p className="text-white/90">
+                Choose your amount and complete your purchase securely
+              </p>
+            </div>
+
+            <div className="relative">
+              {/* Loading State */}
+              <div
+                className="absolute inset-0 bg-white flex items-center justify-center z-10"
+                id="giftup-loading"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 border-4 border-spa-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-gray-600">Loading gift card options...</p>
+                </div>
+              </div>
+
+              {/* GiftUp iframe */}
+              <iframe
+                src="https://giftup.app/place-order/e5b1237b-5bc8-4a99-920d-08ddce54f8ab"
+                className="w-full h-[800px] border-0"
+                title="Gift Card Purchase"
+                onLoad={() => {
+                  const loadingElement =
+                    document.getElementById("giftup-loading");
+                  if (loadingElement) {
+                    loadingElement.style.display = "none";
+                  }
+                }}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+              />
+            </div>
+          </motion.div>
+
+          {/* Additional Info */}
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className=" text-center"
+          >
+            <div className="bg-white p-8 ">
+              <h4 className="text-xl font-semibold text-spa-secondary mb-4">
+                How It Works
+              </h4>
+              <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-600">
+                <div>
+                  <div className="w-8 h-8 bg-spa-accent text-white rounded-full flex items-center justify-center mx-auto mb-2 font-semibold">
+                    1
+                  </div>
+                  <p>Choose your gift card amount and complete purchase</p>
+                </div>
+                <div>
+                  <div className="w-8 h-8 bg-spa-accent text-white rounded-full flex items-center justify-center mx-auto mb-2 font-semibold">
+                    2
+                  </div>
+                  <p>Receive your digital gift card instantly via email</p>
+                </div>
+                <div>
+                  <div className="w-8 h-8 bg-spa-accent text-white rounded-full flex items-center justify-center mx-auto mb-2 font-semibold">
+                    3
+                  </div>
+                  <p>Recipient can book their massage session anytime</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -270,6 +270,7 @@ export default function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${inter.variable} ${crimsonText.variable} antialiased bg-white text-gray-800 font-sans`}
       >
         <BookingProvider>

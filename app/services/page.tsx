@@ -4,17 +4,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  RiHeartLine,
-  RiStarLine,
   RiCalendar2Line,
   RiLeafLine,
   RiTimeLine,
-  RiMailLine,
   RiShieldCheckLine,
-  RiSpeedLine,
-  RiRefreshLine,
   RiUserHeartLine,
-  RiMedalLine,
   RiCheckLine,
   RiHealthBookLine,
   RiMentalHealthLine,
@@ -23,12 +17,13 @@ import {
   RiBodyScanLine,
   RiRunLine,
   RiCandleLine,
-  RiHeartsLine,
-  RiMessage3Line,
+  RiArrowDownSLine,
+  RiArrowUpSLine,
 } from "@remixicon/react";
 import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
+import { useState } from "react";
 
 const services = [
   {
@@ -50,13 +45,18 @@ const services = [
     techniques: [
       {
         name: "Sports Massage",
-        description: "Performance-focused soft tissue work used within remedial sessions.",
+        description:
+          "Performance-focused soft tissue work used within remedial sessions.",
         icon: RiRunLine,
+        details:
+          "Sports massage is a specialized form of massage therapy designed for athletes and active individuals. It focuses on preventing and treating injuries, improving performance, and aiding recovery. This technique combines deep tissue work with stretching and movement to address muscle imbalances, reduce tension, and enhance flexibility. Perfect for pre-event preparation, post-event recovery, or ongoing maintenance for active lifestyles.",
       },
       {
         name: "Dry Needling",
         description: "Trigger-point technique used within remedial sessions.",
         icon: RiCandleLine,
+        details:
+          "Dry needling is an advanced therapeutic technique that uses fine, sterile needles to target trigger points in muscles. These trigger points are tight, painful knots that can cause referred pain and muscle dysfunction. The treatment helps release muscle tension, reduce pain, and improve range of motion. It's particularly effective for chronic pain conditions, sports injuries, and musculoskeletal issues. The technique is safe, minimally invasive, and often provides immediate relief.",
       },
     ],
     popular: true,
@@ -80,26 +80,6 @@ const services = [
     ],
     popular: false,
     bookable: true,
-  },
-  {
-    id: 3,
-    title: "Relaxation Massage",
-    subtitle: "Stress Relief & Wellness",
-    description:
-      "Gentle, flowing massage to promote relaxation, reduce stress, and improve overall wellbeing.",
-    image: "/needling.png",
-    duration: "60-90 minutes",
-    price: "From $125",
-    features: [
-      "Stress reduction",
-      "Relaxation techniques",
-      "Wellness focus",
-      "Gentle pressure",
-      "Free 15-minute assessment",
-    ],
-    popular: false,
-    bookable: false,
-    comingSoon: true,
   },
 ];
 
@@ -126,6 +106,29 @@ const specials = [
 
 export default function ServicesPage() {
   const { openModal } = useBookingModal();
+  const [expandedTechnique, setExpandedTechnique] = useState<number | null>(
+    null
+  );
+  const [selectedDurations, setSelectedDurations] = useState<{
+    [key: number]: string;
+  }>({
+    1: "60 mins",
+    2: "60 mins",
+  });
+
+  // Toggle to show/hide specials section
+  const showSpecials = true; // Set to true to show specials, false to hide
+
+  const toggleTechnique = (index: number) => {
+    setExpandedTechnique(expandedTechnique === index ? null : index);
+  };
+
+  const handleDurationChange = (serviceId: number, duration: string) => {
+    setSelectedDurations((prev) => ({
+      ...prev,
+      [serviceId]: duration,
+    }));
+  };
 
   // Function to get appropriate icon for each feature
   const getFeatureIcon = (feature: string) => {
@@ -206,6 +209,14 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen pt-20 overflow-hidden">
+      <style jsx>{`
+        select option:hover {
+          background-color: #4ade80 !important;
+        }
+        select option:checked {
+          background-color: #092518 !important;
+        }
+      `}</style>
       <Header />
 
       {/* Hero Section */}
@@ -281,7 +292,8 @@ export default function ServicesPage() {
               variants={itemVariants}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              Professional therapeutic treatments tailored to your individual needs
+              Professional therapeutic treatments tailored to your individual
+              needs
             </motion.p>
           </motion.div>
 
@@ -290,13 +302,13 @@ export default function ServicesPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid lg:grid-cols-2 gap-8"
+            className="grid md:grid-cols-2 gap-8 mx-auto"
           >
             {services.map((service) => (
               <motion.article
                 key={service.id}
                 variants={cardVariants}
-                className="bg-white border-2 border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white border-2 border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full"
               >
                 {/* Service Header */}
                 <div className="relative">
@@ -312,26 +324,15 @@ export default function ServicesPage() {
                         Most Popular
                       </div>
                     )}
-                    {service.comingSoon && (
-                      <div className="absolute top-4 left-4 bg-gray-500 text-white px-3 py-1 text-sm font-medium">
-                        Coming Soon
-                      </div>
-                    )}
                   </div>
                 </div>
 
                 {/* Service Content */}
-                <div className="p-8">
+                <div className="p-8 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-spa-secondary">
                       {service.title}
                     </h3>
-                    {service.comingSoon && (
-                      <div className="flex items-center gap-2 text-gray-500">
-                        <RiLeafLine className="h-5 w-5" />
-                        <span className="text-sm font-medium">Coming Soon</span>
-                      </div>
-                    )}
                   </div>
 
                   <p className="text-gray-600 mb-6 leading-relaxed">
@@ -347,21 +348,56 @@ export default function ServicesPage() {
                       <div className="space-y-3">
                         {service.techniques.map((technique, index) => {
                           const IconComponent = technique.icon;
+                          const isExpanded = expandedTechnique === index;
                           return (
-                            <div
+                            <motion.div
                               key={index}
-                              className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
+                              className="bg-gray-50 rounded-lg overflow-hidden"
+                              initial={false}
                             >
-                              <IconComponent className="h-5 w-5 text-spa-primary mt-0.5 flex-shrink-0" />
-                              <div>
-                                <div className="font-medium text-spa-secondary text-sm">
-                                  {technique.name}
+                              <button
+                                onClick={() => toggleTechnique(index)}
+                                className="w-full flex items-start gap-3 p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
+                              >
+                                <IconComponent className="h-5 w-5 text-spa-primary mt-0.5 flex-shrink-0" />
+                                <div className="flex-1 text-left">
+                                  <div className="font-medium text-spa-secondary text-sm">
+                                    {technique.name}
+                                  </div>
+                                  <div className="text-gray-600 text-sm">
+                                    {technique.description}
+                                  </div>
                                 </div>
-                                <div className="text-gray-600 text-sm">
-                                  {technique.description}
+                                <motion.div
+                                  animate={{ rotate: isExpanded ? 180 : 0 }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  {isExpanded ? (
+                                    <RiArrowUpSLine className="h-4 w-4 text-spa-primary" />
+                                  ) : (
+                                    <RiArrowDownSLine className="h-4 w-4 text-spa-primary" />
+                                  )}
+                                </motion.div>
+                              </button>
+                              <motion.div
+                                initial={false}
+                                animate={{
+                                  height: isExpanded ? "auto" : 0,
+                                  opacity: isExpanded ? 1 : 0,
+                                }}
+                                transition={{
+                                  duration: 0.3,
+                                  ease: "easeInOut",
+                                }}
+                                className="overflow-hidden"
+                              >
+                                <div className="px-3 pb-3">
+                                  <div className="text-gray-700 text-sm leading-relaxed border-t border-gray-200 pt-3">
+                                    {technique.details}
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
+                              </motion.div>
+                            </motion.div>
                           );
                         })}
                       </div>
@@ -398,13 +434,33 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Action Button */}
-                  {service.bookable && !service.comingSoon && (
-                    <div className="text-center">
+                  {service.bookable && (
+                    <div className="flex gap-3 mt-auto">
+                      <div className="flex-1">
+                        <select
+                          value={selectedDurations[service.id]}
+                          onChange={(e) =>
+                            handleDurationChange(service.id, e.target.value)
+                          }
+                          className="w-full px-4 py-3 bg-[#092518] text-white border border-[#092518] focus:outline-none cursor-pointer hover:bg-spa-accent transition-colors duration-300 appearance-none"
+                          style={{
+                            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                            backgroundPosition: "right 0.75rem center",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "1.5em 1.5em",
+                            paddingRight: "2.5rem",
+                          }}
+                        >
+                          <option value="60 mins">60 mins</option>
+                          <option value="75 mins">75 mins</option>
+                          <option value="90 mins">90 mins</option>
+                        </select>
+                      </div>
                       <button
                         onClick={openModal}
-                        className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center"
+                        className="btn-spa-accent inline-flex items-center gap-2 group px-6 py-3 justify-center"
                       >
-                        <span>Book Your Session</span>
+                        <span>Book</span>
                         <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
                       </button>
                     </div>
@@ -417,112 +473,117 @@ export default function ServicesPage() {
       </section>
 
       {/* Specials Section */}
-      <section className="py-20 bg-spa-neutral">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center mb-16"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
+      {showSpecials && (
+        <section className="py-20 bg-spa-neutral">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-center mb-16"
             >
-              Special Packages
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-gray-600 max-w-2xl mx-auto"
-            >
-              Exclusive wellness experiences designed for ultimate relaxation and
-              rejuvenation
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid lg:grid-cols-1 gap-8"
-          >
-            {specials.map((special) => (
-              <motion.div
-                key={special.id}
-                variants={cardVariants}
-                className="bg-white border-2 border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+              <motion.h2
+                variants={itemVariants}
+                className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
               >
-                <div className="lg:flex">
-                  <div className="lg:w-1/2">
-                    <div className="aspect-video lg:aspect-square relative overflow-hidden">
-                      <Image
-                        src={special.image}
-                        alt={special.title}
-                        fill
-                        className="object-cover"
-                      />
-                      {special.popular && (
-                        <div className="absolute top-4 left-4 bg-spa-accent text-white px-3 py-1 text-sm font-medium">
-                          Most Popular
+                Special Packages
+              </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="text-lg text-gray-600 max-w-2xl mx-auto"
+              >
+                Exclusive wellness experiences designed for ultimate relaxation
+                and rejuvenation
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid lg:grid-cols-1 gap-8"
+            >
+              {specials.map((special) => (
+                <motion.div
+                  key={special.id}
+                  variants={cardVariants}
+                  className="bg-white border-2 border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="lg:flex">
+                    <div className="lg:w-1/2">
+                      <div className="aspect-video lg:aspect-square relative overflow-hidden">
+                        <Image
+                          src={special.image}
+                          alt={special.title}
+                          fill
+                          className="object-cover"
+                        />
+                        {special.popular && (
+                          <div className="absolute top-4 left-4 bg-spa-accent text-white px-3 py-1 text-sm font-medium">
+                            Most Popular
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="lg:w-1/2 p-8">
+                      <h3 className="text-2xl font-semibold text-spa-secondary mb-2">
+                        {special.title}
+                      </h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {special.description}
+                      </p>
+
+                      <div className="flex items-center justify-between mb-6 text-sm text-gray-600">
+                        <div className="flex items-center gap-2">
+                          <RiTimeLine className="h-4 w-4" />
+                          <span>{special.duration}</span>
+                        </div>
+                        <div className="font-semibold text-spa-primary">
+                          {special.price}
+                        </div>
+                      </div>
+
+                      <div className="mb-8">
+                        <div className="grid grid-cols-1 gap-3">
+                          {special.features.map((feature, index) => (
+                            <div
+                              key={index}
+                              className="flex items-center gap-3 text-sm"
+                            >
+                              <RiCheckLine className="h-4 w-4 text-spa-primary flex-shrink-0" />
+                              <span className="text-gray-700">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {special.button !== false && (
+                        <div className="text-center">
+                          <button
+                            onClick={openModal}
+                            className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center"
+                          >
+                            <span>Book Your Session</span>
+                            <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
+                          </button>
                         </div>
                       )}
                     </div>
                   </div>
-                  <div className="lg:w-1/2 p-8">
-                    <h3 className="text-2xl font-semibold text-spa-secondary mb-2">
-                      {special.title}
-                    </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {special.description}
-                    </p>
-
-                    <div className="flex items-center justify-between mb-6 text-sm text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <RiTimeLine className="h-4 w-4" />
-                        <span>{special.duration}</span>
-                      </div>
-                      <div className="font-semibold text-spa-primary">
-                        {special.price}
-                      </div>
-                    </div>
-
-                    <div className="mb-8">
-                      <div className="grid grid-cols-1 gap-3">
-                        {special.features.map((feature, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center gap-3 text-sm"
-                          >
-                            <RiCheckLine className="h-4 w-4 text-spa-primary flex-shrink-0" />
-                            <span className="text-gray-700">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {special.button !== false && (
-                      <div className="text-center">
-                        <button
-                          onClick={openModal}
-                          className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center"
-                        >
-                          <span>Book Your Session</span>
-                          <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* Call to Action */}
-      <CTA />
+      <div className="mt-20">
+        <CTA />
+      </div>
+
       <Footer />
     </div>
   );

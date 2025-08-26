@@ -19,13 +19,6 @@ const Services = () => {
       image: "/preg.png",
       link: "/services",
     },
-    {
-      title: "RELAXATION MASSAGE",
-      description: "Coming soon - Stress relief and wellness",
-      image: "/needling.png",
-      link: "/services",
-      comingSoon: true,
-    },
   ];
 
   const containerVariants = {
@@ -117,25 +110,20 @@ const Services = () => {
                   <p className="text-white/90 mb-4 text-sm leading-relaxed">
                     {service.description}
                   </p>
-                  {service.comingSoon ? (
-                    <div className="bg-gray-500 text-white px-4 py-2 rounded-full text-sm font-medium self-start">
-                      Coming Soon
-                    </div>
-                  ) : (
-                    <Link
-                      href={service.link}
-                      className="btn-spa-service self-start inline-flex items-center gap-2 group cursor-pointer"
+                  <Link
+                    href={service.link}
+                    className="btn-spa-service self-start inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    <span>Learn More</span>
+                    <motion.div
+                      className="z-10"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <span>Learn More</span>
-                      <motion.div
-                        className="z-10"
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
-                      </motion.div>
-                    </Link>
-                  )}
+                      <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
+                    </motion.div>
+                  </Link>
+                  )
                 </div>
               </div>
             </motion.div>

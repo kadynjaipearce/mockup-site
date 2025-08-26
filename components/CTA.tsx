@@ -46,16 +46,10 @@ const CTA = () => {
         variants={cardVariants}
         className="max-w-6xl mx-auto text-center bg-spa-primary text-white p-12 mb-20"
       >
-        <motion.h3
-          variants={itemVariants}
-          className="text-2xl font-light mb-4"
-        >
+        <motion.h3 variants={itemVariants} className="text-2xl font-light mb-4">
           Ready to Experience the Difference?
         </motion.h3>
-        <motion.p
-          variants={itemVariants}
-          className="text-lg mb-8 opacity-90"
-        >
+        <motion.p variants={itemVariants} className="text-lg mb-8 opacity-90">
           Book your session with our experienced team and start your wellness
           journey today
         </motion.p>
@@ -65,7 +59,10 @@ const CTA = () => {
           className="btn-spa-accent inline-flex items-center gap-2 group"
           aria-label="Chat on Messenger"
         >
-          <RiMessage3Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" aria-hidden="true" />
+          <RiMessage3Line
+            className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10"
+            aria-hidden="true"
+          />
           <span>Chat on Messenger</span>
         </motion.button>
       </motion.div>
@@ -74,3 +71,5 @@ const CTA = () => {
 };
 
 export default CTA;
+
+
