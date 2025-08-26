@@ -123,7 +123,6 @@ const Services = () => {
                       <RiArrowRightLine className="w-5 h-5 z-10 transition-colors duration-300 group-hover:text-spa-accent" />
                     </motion.div>
                   </Link>
-                  )
                 </div>
               </div>
             </motion.div>
