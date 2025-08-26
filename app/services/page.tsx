@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import {
   RiCalendar2Line,
-  RiLeafLine,
   RiTimeLine,
   RiShieldCheckLine,
   RiUserHeartLine,
@@ -19,6 +18,7 @@ import {
   RiArrowDownSLine,
   RiArrowUpSLine,
 } from "@remixicon/react";
+import { GiMonsteraLeaf } from "react-icons/gi";
 import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
@@ -156,7 +156,7 @@ export default function ServicesPage() {
     if (featureLower.includes("consultation")) return RiCheckLine;
 
     // Default fallback
-    return RiLeafLine;
+    return GiMonsteraLeaf;
   };
 
   const containerVariants = {
