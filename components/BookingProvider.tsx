@@ -5,7 +5,7 @@ import BookingModal from "./BookingModal";
 
 interface BookingContextType {
   isOpen: boolean;
-  openModal: () => void;
+  openModal: (url?: string) => void;
   closeModal: () => void;
 }
 
@@ -25,14 +25,25 @@ interface BookingProviderProps {
 
 export function BookingProvider({ children }: BookingProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [bookingUrl, setBookingUrl] = useState<string | null>(null);
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const openModal = (url?: string) => {
+    if (url) {
+      setBookingUrl(url);
+    } else {
+      setBookingUrl(null);
+    }
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+    setBookingUrl(null);
+  };
 
   return (
     <BookingContext.Provider value={{ isOpen, openModal, closeModal }}>
       {children}
-      <BookingModal isOpen={isOpen} onClose={closeModal} />
+      <BookingModal isOpen={isOpen} onClose={closeModal} bookingUrl={bookingUrl ?? undefined} />
     </BookingContext.Provider>
   );
 }

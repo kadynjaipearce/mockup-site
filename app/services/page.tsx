@@ -129,6 +129,39 @@ export default function ServicesPage() {
     }));
   };
 
+  // Map selected service and duration to specific Cliniko booking URLs
+  const getClinikoUrl = (serviceTitle: string, duration: string) => {
+    const title = serviceTitle.toLowerCase();
+    const dur = duration.toLowerCase();
+
+    if (title.includes("pregnancy")) {
+      if (dur.includes("60")) {
+        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234";
+      }
+      if (dur.includes("75")) {
+        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251554322818628";
+      }
+      if (dur.includes("90")) {
+        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1476758841742861697";
+      }
+    }
+
+    if (title.includes("remedial")) {
+      if (dur.includes("60")) {
+        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1447792675414616001";
+      }
+      if (dur.includes("75")) {
+        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251934351926853";
+      }
+      if (dur.includes("90")) {
+        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1549866073770174299";
+      }
+    }
+
+    // Fallback to default booking page in modal
+    return undefined;
+  };
+
   // Function to get appropriate icon for each feature
   const getFeatureIcon = (feature: string) => {
     const featureLower = feature.toLowerCase();
@@ -460,7 +493,14 @@ export default function ServicesPage() {
                         </select>
                       </div>
                       <button
-                        onClick={openModal}
+                        onClick={() =>
+                          openModal(
+                            getClinikoUrl(
+                              service.title,
+                              selectedDurations[service.id]
+                            )
+                          )
+                        }
                         className="btn-spa-accent inline-flex items-center gap-2 group px-6 py-3 justify-center"
                       >
                         <span>Book</span>
@@ -565,7 +605,7 @@ export default function ServicesPage() {
                       {special.button !== false && (
                         <div className="text-center">
                           <button
-                            onClick={openModal}
+                            onClick={() => openModal()}
                             className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center"
                           >
                             <span>Book Your Session</span>

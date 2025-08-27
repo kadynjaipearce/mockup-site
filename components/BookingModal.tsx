@@ -6,9 +6,10 @@ import { RiCloseLine } from "@remixicon/react";
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  bookingUrl?: string;
 }
 
-export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
+export default function BookingModal({ isOpen, onClose, bookingUrl }: BookingModalProps) {
   // Prevent scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -58,7 +59,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         {/* Iframe */}
         <div className="flex-1 h-full">
           <iframe
-            src="https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?fbclid=IwY2xjawL8AT1leHRuA2FlbQIxMABicmlkETE5TFFLZ0o4SW94U2Frc1VSAR5_jo5Ff46JJXhJhURlATi3bQRUWJeejPs_I8De8YF0iqA6QXWv6JI9elTj_w_aem_ozuoA8uRxRSlmvyl9PRrNA#service"
+            src={
+              bookingUrl ??
+              "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?fbclid=IwY2xjawL8AT1leHRuA2FlbQIxMABicmlkETE5TFFLZ0o4SW94U2Frc1VSAR5_jo5Ff46JJXhJhURlATi3bQRUWJeejPs_I8De8YF0iqA6QXWv6JI9elTj_w_aem_ozuoA8uRxRSlmvyl9PRrNA#service"
+            }
             className="w-full h-full border-0"
             title="Book your appointment"
             allow="fullscreen"
