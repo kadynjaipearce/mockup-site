@@ -97,7 +97,7 @@ const Header = () => {
               )
             )}
             <button
-              onClick={openModal}
+              onClick={() => openModal()}
               className="btn-spa-accent ml-8 inline-flex items-center gap-2 group"
             >
               <span>Book Now</span>
@@ -182,7 +182,7 @@ const Header = () => {
               )}
               <div className="px-4 pt-4">
                 <button
-                  onClick={openModal}
+                  onClick={() => openModal()}
                   className="btn-spa-accent w-full justify-center inline-flex items-center gap-2 group"
                 >
                   <span>Book Now</span>

@@ -55,7 +55,7 @@ const CTA = () => {
         </motion.p>
         <motion.button
           variants={itemVariants}
-          onClick={openModal}
+          onClick={() => openModal()}
           className="btn-spa-accent inline-flex items-center gap-2 group"
           aria-label="Chat on Messenger"
         >

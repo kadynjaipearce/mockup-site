@@ -102,7 +102,7 @@ const Hero = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={openModal}
+          onClick={() => openModal()}
           className="btn-spa-accent inline-flex items-center gap-2 group"
         >
           <span>Book Your Session</span>
