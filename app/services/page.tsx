@@ -19,6 +19,7 @@ import {
   RiArrowUpSLine,
 } from "@remixicon/react";
 import { GiMonsteraLeaf } from "react-icons/gi";
+import { PiNeedleBold } from "react-icons/pi";
 import { useBookingModal } from "@/components/BookingProvider";
 import { motion } from "framer-motion";
 import CTA from "@/components/CTA";
@@ -48,14 +49,14 @@ const services = [
           "Performance-focused soft tissue work used within remedial sessions.",
         icon: RiRunLine,
         details:
-          "Sports massage is a specialized form of massage therapy designed for athletes and active individuals. It focuses on preventing and treating injuries, improving performance, and aiding recovery. This technique combines deep tissue work with stretching and movement to address muscle imbalances, reduce tension, and enhance flexibility. Perfect for pre-event preparation, post-event recovery, or ongoing maintenance for active lifestyles.",
+          "Enhance performance, speed up recovery, and prevent injuries with targeted remedial techniques tailored for active bodies. Perfect for runners and athletes wanting to stay strong, mobile, and pain-free.",
       },
       {
         name: "Dry Needling",
         description: "Trigger-point technique used within remedial sessions.",
-        icon: RiCandleLine,
+        icon: PiNeedleBold,
         details:
-          "Dry needling is an advanced therapeutic technique that uses fine, sterile needles to target trigger points in muscles. These trigger points are tight, painful knots that can cause referred pain and muscle dysfunction. The treatment helps release muscle tension, reduce pain, and improve range of motion. It's particularly effective for chronic pain conditions, sports injuries, and musculoskeletal issues. The technique is safe, minimally invasive, and often provides immediate relief.",
+          "A precise technique that releases tight muscles and trigger points, reduces pain, and restores movement. When combined with remedial massage, it offers fast, effective relief for sports injuries, tension, and everyday discomfort.",
       },
     ],
     popular: true,
@@ -178,6 +179,14 @@ export default function ServicesPage() {
     },
   };
 
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -180 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+    },
+  };
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
@@ -239,6 +248,10 @@ export default function ServicesPage() {
           animate="visible"
           className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
         >
+          <motion.div variants={iconVariants} className="mb-6">
+            <GiMonsteraLeaf className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 text-spa-accent mx-auto" />
+          </motion.div>
+
           <motion.h1
             variants={itemVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight"
