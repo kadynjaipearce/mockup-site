@@ -14,7 +14,6 @@ import {
   RiHandHeartLine,
   RiBodyScanLine,
   RiRunLine,
-  RiCandleLine,
   RiArrowDownSLine,
   RiArrowUpSLine,
 } from "@remixicon/react";
