@@ -496,7 +496,7 @@ const ContactPage = () => {
               variants={itemVariants}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              Parking map coming soon.
+              Nearby parking options around our clinic. Refer to the legend for zones.
             </motion.p>
           </motion.div>
 
@@ -507,27 +507,33 @@ const ContactPage = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-white border-2 border-dashed border-gray-300 rounded-lg p-12 text-center py-40">
-              <div className="text-gray-400 mb-4">
-                <svg
-                  className="w-16 h-16 mx-auto"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+            <div className="relative rounded-lg overflow-hidden border-2 border-gray-200">
+              {/* Legend */}
+              <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-sm shadow-sm border border-gray-200 p-4 min-w-[220px]">
+                <div className="text-sm font-medium text-spa-secondary mb-3">Legend</div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: "#69918C" }}></span>
+                    <span className="text-gray-700">Zone A</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: "#091E19" }}></span>
+                    <span className="text-gray-700">Zone B</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: "#e8c468" }}></span>
+                    <span className="text-gray-700">Zone C</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-medium text-gray-600 mb-2">
-                Parking Map
-              </h3>
-              <p className="text-gray-500">
-                Coming soon - We&apos;re working on adding a detailed parking
-                map to help you find us easily.
-              </p>
+
+              {/* Map */}
+              <div
+                className="w-full h-[600px] bg-cover bg-center"
+                style={{ backgroundImage: "url('/map.jpg')" }}
+                aria-label="Parking map"
+                role="img"
+              />
             </div>
           </motion.div>
         </div>
