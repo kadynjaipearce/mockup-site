@@ -1,12 +1,8 @@
-"use client";
-
-import { RiMessage3Line } from "@remixicon/react";
-import { useBookingModal } from "@/components/BookingProvider";
+import { RiMessage3Line, RiMailLine } from "@remixicon/react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const CTA = () => {
-  const { openModal } = useBookingModal();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -53,24 +49,39 @@ const CTA = () => {
           Book your session with our experienced team and start your wellness
           journey today
         </motion.p>
-        <motion.button
-          variants={itemVariants}
-          onClick={() => openModal()}
-          className="btn-spa-accent inline-flex items-center gap-2 group"
-          aria-label="Chat on Messenger"
-        >
-          <RiMessage3Line
-            className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10"
-            aria-hidden="true"
-          />
-          <span>Chat on Messenger</span>
-        </motion.button>
+
+        <div className="flex items-center justify-center gap-4 flex-wrap">
+          <Link href="https://m.me/BunburyWellnessRemedialMassage">
+            <motion.button
+              variants={itemVariants}
+              className="btn-spa-accent inline-flex items-center gap-2 group"
+              aria-label="Chat on Messenger"
+            >
+              <RiMessage3Line
+                className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10"
+                aria-hidden="true"
+              />
+              <span>Chat on Messenger</span>
+            </motion.button>
+          </Link>
+
+          <Link href="/contact">
+            <motion.button
+              variants={itemVariants}
+              className="btn-spa-accent inline-flex items-center gap-2 group"
+              aria-label="Contact via Email"
+            >
+              <RiMailLine
+                className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10"
+                aria-hidden="true"
+              />
+              <span>Contact via Email</span>
+            </motion.button>
+          </Link>
+        </div>
       </motion.div>
     </motion.section>
   );
 };
 
 export default CTA;
-
-
-
