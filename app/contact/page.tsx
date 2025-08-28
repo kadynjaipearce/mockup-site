@@ -541,7 +541,9 @@ const ContactPage = () => {
                       className="inline-block w-4 h-4 rounded-full"
                       style={{ backgroundColor: "#3B82F6" }}
                     ></span>
-                    <span className="text-gray-700">Business Location (Blue Pin)</span>
+                    <span className="text-gray-700">
+                      Business Location (Blue Pin)
+                    </span>
                   </div>
                 </div>
               </div>
