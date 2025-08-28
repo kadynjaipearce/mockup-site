@@ -496,7 +496,8 @@ const ContactPage = () => {
               variants={itemVariants}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              Nearby parking options around our clinic. Refer to the legend for zones.
+              Nearby parking options around our clinic. Refer to the legend for
+              zones.
             </motion.p>
           </motion.div>
 
@@ -510,19 +511,37 @@ const ContactPage = () => {
             <div className="relative rounded-lg overflow-hidden border-2 border-gray-200">
               {/* Legend */}
               <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-sm shadow-sm border border-gray-200 p-4 min-w-[220px]">
-                <div className="text-sm font-medium text-spa-secondary mb-3">Legend</div>
+                <div className="text-sm font-medium text-spa-secondary mb-3">
+                  Legend
+                </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
-                    <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: "#69918C" }}></span>
-                    <span className="text-gray-700">Zone A</span>
+                    <span
+                      className="inline-block w-4 h-4 rounded-sm"
+                      style={{ backgroundColor: "#69918C" }}
+                    ></span>
+                    <span className="text-gray-700">Zone A (Free)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: "#091E19" }}></span>
-                    <span className="text-gray-700">Zone B</span>
+                    <span
+                      className="inline-block w-4 h-4 rounded-sm"
+                      style={{ backgroundColor: "#091E19" }}
+                    ></span>
+                    <span className="text-gray-700">Zone B (Free)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: "#e8c468" }}></span>
-                    <span className="text-gray-700">Zone C</span>
+                    <span
+                      className="inline-block w-4 h-4 rounded-sm"
+                      style={{ backgroundColor: "#e8c468" }}
+                    ></span>
+                    <span className="text-gray-700">Zone C (Paid)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-block w-4 h-4 rounded-full"
+                      style={{ backgroundColor: "#3B82F6" }}
+                    ></span>
+                    <span className="text-gray-700">Business Location (Blue Pin)</span>
                   </div>
                 </div>
               </div>
