@@ -54,6 +54,12 @@ const About = () => {
         >
           Our Story
         </motion.h2>
+        <motion.div
+          variants={itemVariants}
+          className="font-serif text-xl md:text-2xl italic text-spa-accent mb-6"
+        >
+          Feel better, move better, live better – Naturally.
+        </motion.div>
         <motion.p
           variants={itemVariants}
           className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto"
