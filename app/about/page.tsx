@@ -196,6 +196,34 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
+      {/* Main About Content */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-center"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6"
+            >
+              <p>
+                At Bunbury Wellness Remedial Massage, we believe that taking time to care for your body and mind is one of the most valuable things you can do for yourself. Whether you're dealing with tension, recovering from injury, or simply needing a moment to unwind, we're here to support you.
+              </p>
+              <p>
+                Our approach is grounded in experience, empathy, and a genuine desire to help people feel better in their everyday lives. Every treatment is thoughtfully tailored to your individual needs, with the goal of helping you move more freely, feel more balanced, and reconnect with your wellbeing.
+              </p>
+              <p>
+                We're proud to offer a space where you can feel safe, supported, and cared for.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Our Values */}
       <section className="py-20 bg-spa-neutral">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
