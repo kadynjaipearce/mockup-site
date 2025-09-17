@@ -417,7 +417,7 @@ export default function AboutPage() {
               variants={itemVariants}
               className="text-3xl md:text-4xl font-light text-spa-secondary mb-4"
             >
-              Why Choose Bunbury Wellness?
+              Why Choose Bunbury Wellness Remedial Massage?
             </motion.h2>
             <motion.p
               variants={itemVariants}
