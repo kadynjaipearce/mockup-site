@@ -52,7 +52,7 @@ const services = [
       },
       {
         name: "Dry Needling",
-        description: "Trigger-point technique used within remedial sessions.",
+        description: "Trigger-point technique used within remedial sessions. (Available with Tan only)",
         icon: PiNeedleBold,
         details:
           "A precise technique that releases tight muscles and trigger points, reduces pain, and restores movement. When combined with remedial massage, it offers fast, effective relief for sports injuries, tension, and everyday discomfort.",
@@ -116,7 +116,7 @@ export default function ServicesPage() {
   });
 
   // Toggle to show/hide specials section
-  const showSpecials = true; // Set to true to show specials, false to hide
+  const showSpecials = false; // Set to true to show specials, false to hide
 
   const toggleTechnique = (index: number) => {
     setExpandedTechnique(expandedTechnique === index ? null : index);
