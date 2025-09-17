@@ -135,7 +135,6 @@ export default function LocalBusinessSchema({
     hasViolencePolicy: true,
     hasBullyingPolicy: true,
     hasDiscriminationPolicy: true,
-    hasHarassmentPolicy: true,
     hasSexualHarassmentPolicy: true,
     hasWorkplaceHarassmentPolicy: true,
     hasCustomerHarassmentPolicy: true,
