@@ -11,6 +11,7 @@ import {
   RiMailSendLine,
 } from "@remixicon/react";
 import { motion } from "framer-motion";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -115,8 +116,74 @@ const ContactPage = () => {
     },
   };
 
+  const businessData = {
+    businessName: "Bunbury Wellness Remedial Massage",
+    description: "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy services in Bunbury, WA. Female massage therapists available for women who prefer female therapists.",
+    url: "https://bunburywellness.com.au",
+    telephone: "+61897210000",
+    email: "hello@bunburywellness.com.au",
+    address: {
+      streetAddress: "123 Wellness Street",
+      addressLocality: "Bunbury",
+      addressRegion: "WA",
+      postalCode: "6230",
+      addressCountry: "AU",
+    },
+    geo: {
+      latitude: -33.3271,
+      longitude: 115.6414,
+    },
+    openingHours: [
+      {
+        dayOfWeek: ["Monday", "Thursday", "Friday"],
+        opens: "10:30",
+        closes: "17:00",
+      },
+      {
+        dayOfWeek: "Tuesday",
+        opens: "10:30",
+        closes: "14:00",
+      },
+      {
+        dayOfWeek: "Wednesday",
+        opens: "12:30",
+        closes: "17:00",
+      },
+    ],
+    priceRange: "$$",
+    paymentAccepted: ["Cash", "Credit Card", "EFTPOS"],
+    currenciesAccepted: "AUD",
+    areaServed: [
+      "Bunbury",
+      "Dalyellup",
+      "Eaton",
+      "Australind",
+      "Bunbury East",
+      "Bunbury West",
+      "Glen Iris",
+      "Withers",
+      "Carey Park",
+      "College Grove",
+      "Usher",
+      "Pelican Point",
+      "Bunbury Port",
+      "South Bunbury",
+      "Busselton",
+      "Dunsborough",
+      "Margaret River",
+      "Donnybrook",
+      "Harvey",
+      "Collie",
+    ],
+    sameAs: [
+      "https://www.facebook.com/bunburywellness",
+      "https://www.instagram.com/bunburywellness",
+    ],
+  };
+
   return (
     <div className="min-h-screen pt-20 overflow-hidden">
+      <LocalBusinessSchema {...businessData} />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
         {/* Background Image */}

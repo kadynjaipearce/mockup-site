@@ -110,28 +110,34 @@ const specials = [
 const faqData = [
   {
     question: "What is remedial massage therapy?",
-    answer: "Remedial massage is a therapeutic treatment that targets specific muscle problems, injuries, and chronic pain. It uses various techniques to assess and treat soft tissue dysfunction, improve circulation, and restore normal function to muscles and joints."
+    answer:
+      "Remedial massage is a therapeutic treatment that targets specific muscle problems, injuries, and chronic pain. It uses various techniques to assess and treat soft tissue dysfunction, improve circulation, and restore normal function to muscles and joints.",
   },
   {
     question: "How long does a massage session take?",
-    answer: "We offer 60, 75, and 90-minute massage sessions. The duration depends on your needs and the type of treatment required. New clients often benefit from longer sessions for a thorough assessment and treatment."
+    answer:
+      "We offer 60, 75, and 90-minute massage sessions. The duration depends on your needs and the type of treatment required. New clients often benefit from longer sessions for a thorough assessment and treatment.",
   },
   {
     question: "Is pregnancy massage safe?",
-    answer: "Yes, pregnancy massage is safe and beneficial when performed by a qualified therapist. We use specialized techniques and positioning to ensure comfort and safety for both mother and baby throughout all stages of pregnancy."
+    answer:
+      "Yes, pregnancy massage is safe and beneficial when performed by a qualified therapist. We use specialized techniques and positioning to ensure comfort and safety for both mother and baby throughout all stages of pregnancy.",
   },
   {
     question: "What is dry needling and how does it work?",
-    answer: "Dry needling is a technique that uses fine needles to target trigger points in muscles. It helps release muscle tension, reduce pain, and improve range of motion. It's particularly effective when combined with remedial massage therapy."
+    answer:
+      "Dry needling is a technique that uses fine needles to target trigger points in muscles. It helps release muscle tension, reduce pain, and improve range of motion. It's particularly effective when combined with remedial massage therapy.",
   },
   {
     question: "Do you accept health insurance?",
-    answer: "We accept various health insurance plans and can provide receipts for reimbursement. Please check with your insurance provider about coverage for remedial massage therapy services."
+    answer:
+      "We accept various health insurance plans and can provide receipts for reimbursement. Please check with your insurance provider about coverage for remedial massage therapy services.",
   },
   {
     question: "How often should I get a massage?",
-    answer: "The frequency depends on your individual needs and goals. For chronic pain or injury recovery, weekly sessions may be beneficial initially. For general wellness and maintenance, monthly sessions are often sufficient."
-  }
+    answer:
+      "The frequency depends on your individual needs and goals. For chronic pain or injury recovery, weekly sessions may be beneficial initially. For general wellness and maintenance, monthly sessions are often sufficient.",
+  },
 ];
 
 export default function ServicesPage() {
