@@ -11,7 +11,6 @@ import {
   RiToolsLine,
   RiUserHeartLine,
   RiMapPinLine,
-  RiTimeLine,
 } from "@remixicon/react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -215,9 +214,9 @@ export default function AboutPage() {
               <p>
                 At Bunbury Wellness Remedial Massage, we believe that taking
                 time to care for your body and mind is one of the most valuable
-                things you can do for yourself. Whether you're dealing with
+                things you can do for yourself. Whether you&apos;re dealing with
                 tension, recovering from injury, or simply needing a moment to
-                unwind, we're here to support you.
+                unwind, we&apos;re here to support you.
               </p>
               <p>
                 Our approach is grounded in experience, empathy, and a genuine
@@ -227,7 +226,7 @@ export default function AboutPage() {
                 balanced, and reconnect with your wellbeing.
               </p>
               <p>
-                We're proud to offer a space where you can feel safe, supported,
+                We&apos;re proud to offer a space where you can feel safe, supported,
                 and cared for.
               </p>
             </motion.div>
