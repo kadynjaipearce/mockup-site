@@ -184,7 +184,7 @@ export default function AboutPage() {
             variants={itemVariants}
             className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent"
           >
-            Discover the Story Behind Bunbury Wellness
+            Discover the Story Behind Bunbury Wellness Remedial Massage
           </motion.div>
 
           <motion.p
