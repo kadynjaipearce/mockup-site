@@ -52,10 +52,11 @@ const services = [
       },
       {
         name: "Dry Needling",
-        description: "Trigger-point technique used within remedial sessions. (Available with Tan only)",
+        description: "Trigger-point technique used within remedial sessions.",
         icon: PiNeedleBold,
         details:
           "A precise technique that releases tight muscles and trigger points, reduces pain, and restores movement. When combined with remedial massage, it offers fast, effective relief for sports injuries, tension, and everyday discomfort.",
+        note: "Available with Tan only",
       },
     ],
     popular: true,
@@ -403,6 +404,11 @@ export default function ServicesPage() {
                                   <div className="text-gray-600 text-sm">
                                     {technique.description}
                                   </div>
+                                  {technique.note && (
+                                    <div className="text-xs font-semibold text-spa-accent mt-1 bg-spa-accent/10 px-2 py-1 rounded inline-block">
+                                      {technique.note}
+                                    </div>
+                                  )}
                                 </div>
                                 <motion.div
                                   animate={{ rotate: isExpanded ? 180 : 0 }}
