@@ -20,17 +20,19 @@ import CTA from "@/components/CTA";
 const teamMembers = [
   {
     name: "Fuko Kodama",
-    role: "Senior Remedial Massage Therapist",
-    experience: "8+ years",
+    role: "Remedial Massage Therapist",
+    experience: "10+ years",
     specialties: [
-      "Pregnancy Massage",
-      "Remedial Therapy",
-      "Cupping",
-      "Heated Tools",
+      "Trigger point therapy",
+      "Deep tissue massage",
+      "Myofascial release",
+      "Pregnancy massage",
+      "Manual lymphatic drainage",
+      "Myofascial cupping",
     ],
     image: "/fuko.jpg",
     description:
-      "Fuko holds a Diploma in Remedial Massage and has been practicing massage since 2016. She has always been passionate about helping her clients achieve the best results while ensuring they feel relaxed throughout the process. She integrates cupping and heated tools to support these goals.",
+      "Fuko completed her Diploma of Remedial Massage in 2017 and brings over a decade of hands-on experience in massage therapy. She specialises in a wide range of techniques and tailors each treatment to suit the unique needs of every client—whether you're seeking relief from chronic pain, support during injury recovery, or simply a moment of deep relaxation. As a mother of two young children and living far from her family in Japan, Fuko understands how busy and overwhelming life can be. These personal experiences have shaped her compassionate, intuitive approach to care. She is deeply passionate about the healing power of therapeutic touch and is dedicated to helping others restore their health, find balance, and feel at ease in their own bodies. Fuko looks forward to welcoming you and supporting you on your wellness journey.",
   },
   {
     name: "Tan Hsin-Wen",
@@ -211,13 +213,22 @@ export default function AboutPage() {
               className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6"
             >
               <p>
-                At Bunbury Wellness Remedial Massage, we believe that taking time to care for your body and mind is one of the most valuable things you can do for yourself. Whether you're dealing with tension, recovering from injury, or simply needing a moment to unwind, we're here to support you.
+                At Bunbury Wellness Remedial Massage, we believe that taking
+                time to care for your body and mind is one of the most valuable
+                things you can do for yourself. Whether you're dealing with
+                tension, recovering from injury, or simply needing a moment to
+                unwind, we're here to support you.
               </p>
               <p>
-                Our approach is grounded in experience, empathy, and a genuine desire to help people feel better in their everyday lives. Every treatment is thoughtfully tailored to your individual needs, with the goal of helping you move more freely, feel more balanced, and reconnect with your wellbeing.
+                Our approach is grounded in experience, empathy, and a genuine
+                desire to help people feel better in their everyday lives. Every
+                treatment is thoughtfully tailored to your individual needs,
+                with the goal of helping you move more freely, feel more
+                balanced, and reconnect with your wellbeing.
               </p>
               <p>
-                We're proud to offer a space where you can feel safe, supported, and cared for.
+                We're proud to offer a space where you can feel safe, supported,
+                and cared for.
               </p>
             </motion.div>
           </motion.div>
@@ -549,23 +560,6 @@ export default function AboutPage() {
                   <p className="text-gray-600 text-sm">
                     Located in the heart of Bunbury, we&apos;re easily
                     accessible for residents throughout the region.
-                  </p>
-                </div>
-              </motion.div>
-              <motion.div
-                variants={itemVariants}
-                className="flex items-start gap-4"
-              >
-                <div className="w-8 h-8 bg-spa-primary flex items-center justify-center flex-shrink-0 mt-1">
-                  <RiTimeLine className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-spa-secondary mb-2">
-                    Flexible Scheduling
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    We offer flexible appointment times to fit your busy
-                    schedule, including early morning and evening sessions.
                   </p>
                 </div>
               </motion.div>
