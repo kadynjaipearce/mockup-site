@@ -51,7 +51,11 @@ const CTA = () => {
         </motion.p>
 
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link href="https://m.me/BunburyWellnessRemedialMassage" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://m.me/BunburyWellnessRemedialMassage"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <motion.button
               variants={itemVariants}
               className="btn-spa-accent inline-flex items-center gap-2 group"

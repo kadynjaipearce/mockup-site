@@ -157,13 +157,20 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Bunbury Wellness",
+              "@type": [
+                "LocalBusiness",
+                "HealthAndBeautyBusiness",
+                "MedicalBusiness",
+              ],
+              name: "Bunbury Wellness Remedial Massage",
+              alternateName: "Bunbury Wellness",
               description:
                 "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy services in Bunbury, WA. Female massage therapists available for women who prefer female therapists.",
               url: "https://bunburywellness.com.au",
               telephone: "+61897210000",
               email: "hello@bunburywellness.com.au",
+              logo: "https://bunburywellness.com.au/logo.png",
+              image: "https://bunburywellness.com.au/og-image.jpg",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "123 Wellness Street",
@@ -180,36 +187,48 @@ export default function RootLayout({
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                  ],
-                  opens: "09:00",
-                  closes: "19:00",
-                },
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: "Saturday",
-                  opens: "09:00",
+                  dayOfWeek: ["Monday", "Thursday", "Friday"],
+                  opens: "10:30",
                   closes: "17:00",
                 },
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: "Sunday",
-                  opens: "10:00",
-                  closes: "16:00",
+                  dayOfWeek: "Tuesday",
+                  opens: "10:30",
+                  closes: "14:00",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: "Wednesday",
+                  opens: "12:30",
+                  closes: "17:00",
                 },
               ],
               priceRange: "$$",
               paymentAccepted: ["Cash", "Credit Card", "EFTPOS"],
               currenciesAccepted: "AUD",
-              areaServed: {
-                "@type": "City",
-                name: "Bunbury",
-              },
+              areaServed: [
+                {
+                  "@type": "City",
+                  name: "Bunbury",
+                  containedInPlace: {
+                    "@type": "State",
+                    name: "Western Australia",
+                  },
+                },
+                {
+                  "@type": "City",
+                  name: "Dalyellup",
+                },
+                {
+                  "@type": "City",
+                  name: "Eaton",
+                },
+                {
+                  "@type": "City",
+                  name: "Australind",
+                },
+              ],
               serviceArea: {
                 "@type": "GeoCircle",
                 geoMidpoint: {
@@ -221,7 +240,7 @@ export default function RootLayout({
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Massage Services",
+                name: "Massage Therapy Services",
                 itemListElement: [
                   {
                     "@type": "Offer",
@@ -230,7 +249,18 @@ export default function RootLayout({
                       name: "Remedial Massage",
                       description:
                         "Targeted therapy for pain relief and mobility improvement. Professional remedial massage therapy in Bunbury, WA.",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "Bunbury Wellness Remedial Massage",
+                      },
+                      areaServed: "Bunbury, WA",
+                      availableChannel: {
+                        "@type": "ServiceChannel",
+                        serviceUrl: "https://bunburywellness.com.au/services",
+                      },
                     },
+                    priceRange: "$80-$120",
+                    availability: "InStock",
                   },
                   {
                     "@type": "Offer",
@@ -239,7 +269,14 @@ export default function RootLayout({
                       name: "Sports Massage",
                       description:
                         "Specialized massage for athletes and sports injuries. Sports massage therapy in Bunbury, WA.",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "Bunbury Wellness Remedial Massage",
+                      },
+                      areaServed: "Bunbury, WA",
                     },
+                    priceRange: "$80-$120",
+                    availability: "InStock",
                   },
                   {
                     "@type": "Offer",
@@ -248,7 +285,14 @@ export default function RootLayout({
                       name: "Pregnancy Massage",
                       description:
                         "Safe and gentle massage therapy for expectant mothers. Prenatal massage therapy in Bunbury, WA.",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "Bunbury Wellness Remedial Massage",
+                      },
+                      areaServed: "Bunbury, WA",
                     },
+                    priceRange: "$80-$120",
+                    availability: "InStock",
                   },
                   {
                     "@type": "Offer",
@@ -257,14 +301,60 @@ export default function RootLayout({
                       name: "Dry Needling",
                       description:
                         "Advanced therapy using fine needles to treat muscle pain and tension. Dry needling therapy in Bunbury, WA.",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "Bunbury Wellness Remedial Massage",
+                      },
+                      areaServed: "Bunbury, WA",
                     },
+                    priceRange: "$80-$120",
+                    availability: "InStock",
                   },
                 ],
               },
+              employee: {
+                "@type": "Person",
+                name: "Fuko Kodama",
+                jobTitle: "Remedial Massage Therapist",
+                description:
+                  "Diploma qualified remedial massage therapist with 10+ years experience",
+                worksFor: {
+                  "@type": "LocalBusiness",
+                  name: "Bunbury Wellness Remedial Massage",
+                },
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "47",
+                bestRating: "5",
+                worstRating: "1",
+              },
+              review: [
+                {
+                  "@type": "Review",
+                  author: {
+                    "@type": "Person",
+                    name: "Sarah M.",
+                  },
+                  reviewRating: {
+                    "@type": "Rating",
+                    ratingValue: "5",
+                    bestRating: "5",
+                  },
+                  reviewBody:
+                    "Excellent remedial massage therapy. Fuko is professional and really knows how to target problem areas.",
+                  datePublished: "2024-01-15",
+                },
+              ],
               sameAs: [
                 "https://www.facebook.com/bunburywellness",
                 "https://www.instagram.com/bunburywellness",
               ],
+              keywords:
+                "remedial massage Bunbury, sports massage Bunbury, pregnancy massage Bunbury, dry needling Bunbury, female massage therapist Bunbury",
+              serviceType: "Massage Therapy",
+              medicalSpecialty: "Physical Therapy",
             }),
           }}
         />

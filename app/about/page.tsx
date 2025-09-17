@@ -226,8 +226,8 @@ export default function AboutPage() {
                 balanced, and reconnect with your wellbeing.
               </p>
               <p>
-                We&apos;re proud to offer a space where you can feel safe, supported,
-                and cared for.
+                We&apos;re proud to offer a space where you can feel safe,
+                supported, and cared for.
               </p>
             </motion.div>
           </motion.div>
