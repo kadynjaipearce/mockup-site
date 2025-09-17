@@ -116,6 +116,13 @@ export default function ServicesPage() {
     2: "60 mins",
   });
 
+  const [selectedClientTypes, setSelectedClientTypes] = useState<{
+    [key: number]: string;
+  }>({
+    1: "new",
+    2: "new",
+  });
+
   // Toggle to show/hide specials section
   const showSpecials = false; // Set to true to show specials, false to hide
 
@@ -130,11 +137,21 @@ export default function ServicesPage() {
     }));
   };
 
-  // Map selected service and duration to specific Cliniko booking URLs
-  const getClinikoUrl = (serviceTitle: string, duration: string) => {
+  const handleClientTypeChange = (serviceId: number, clientType: string) => {
+    setSelectedClientTypes((prev) => ({
+      ...prev,
+      [serviceId]: clientType,
+    }));
+  };
+
+  // Map selected service, duration, and client type to specific Cliniko booking URLs
+  const getClinikoUrl = (serviceTitle: string, duration: string, clientType: string) => {
     const title = serviceTitle.toLowerCase();
     const dur = duration.toLowerCase();
+    const client = clientType.toLowerCase();
 
+    // For now, using the same URLs regardless of client type
+    // You can add different URLs for new vs existing clients if needed
     if (title.includes("pregnancy")) {
       if (dur.includes("60")) {
         return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234";
@@ -477,37 +494,65 @@ export default function ServicesPage() {
 
                   {/* Action Button */}
                   {service.bookable && (
-                    <div className="flex gap-3 mt-auto">
-                      <div className="flex-1">
-                        <select
-                          value={selectedDurations[service.id]}
-                          onChange={(e) =>
-                            handleDurationChange(service.id, e.target.value)
-                          }
-                          className="w-full px-4 py-3 bg-[#092518] text-white border border-[#092518] focus:outline-none cursor-pointer hover:bg-spa-accent transition-colors duration-300 appearance-none"
-                          style={{
-                            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
-                            backgroundPosition: "right 0.75rem center",
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: "1.5em 1.5em",
-                            paddingRight: "2.5rem",
-                          }}
-                        >
-                          <option value="60 mins">60 mins</option>
-                          <option value="75 mins">75 mins</option>
-                          <option value="90 mins">90 mins</option>
-                        </select>
+                    <div className="space-y-3 mt-auto">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-medium text-spa-secondary mb-1">
+                            Duration
+                          </label>
+                          <select
+                            value={selectedDurations[service.id]}
+                            onChange={(e) =>
+                              handleDurationChange(service.id, e.target.value)
+                            }
+                            className="w-full px-3 py-2 bg-[#092518] text-white border border-[#092518] focus:outline-none cursor-pointer hover:bg-spa-accent transition-colors duration-300 appearance-none text-sm"
+                            style={{
+                              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                              backgroundPosition: "right 0.5rem center",
+                              backgroundRepeat: "no-repeat",
+                              backgroundSize: "1em 1em",
+                              paddingRight: "2rem",
+                            }}
+                          >
+                            <option value="60 mins">60 mins</option>
+                            <option value="75 mins">75 mins</option>
+                            <option value="90 mins">90 mins</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-medium text-spa-secondary mb-1">
+                            Client Type
+                          </label>
+                          <select
+                            value={selectedClientTypes[service.id]}
+                            onChange={(e) =>
+                              handleClientTypeChange(service.id, e.target.value)
+                            }
+                            className="w-full px-3 py-2 bg-[#092518] text-white border border-[#092518] focus:outline-none cursor-pointer hover:bg-spa-accent transition-colors duration-300 appearance-none text-sm"
+                            style={{
+                              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                              backgroundPosition: "right 0.5rem center",
+                              backgroundRepeat: "no-repeat",
+                              backgroundSize: "1em 1em",
+                              paddingRight: "2rem",
+                            }}
+                          >
+                            <option value="new">New Client</option>
+                            <option value="existing">Existing Client</option>
+                          </select>
+                        </div>
                       </div>
                       <button
                         onClick={() =>
                           openModal(
                             getClinikoUrl(
                               service.title,
-                              selectedDurations[service.id]
+                              selectedDurations[service.id],
+                              selectedClientTypes[service.id]
                             )
                           )
                         }
-                        className="btn-spa-accent inline-flex items-center gap-2 group px-6 py-3 justify-center"
+                        className="btn-spa-accent inline-flex items-center gap-2 group w-full justify-center"
                       >
                         <span>Book</span>
                         <RiCalendar2Line className="h-5 w-5 transition-colors duration-300 group-hover:text-[#092518] z-10" />
