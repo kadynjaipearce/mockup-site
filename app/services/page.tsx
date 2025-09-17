@@ -144,36 +144,60 @@ export default function ServicesPage() {
     }));
   };
 
+  // URL mapping object for easy management
+  const bookingUrls = {
+    pregnancy: {
+      "60": {
+        new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234",
+        existing:
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234",
+      },
+      "75": {
+        new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251554322818628",
+        existing:
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251554322818628",
+      },
+      "90": {
+        new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1476758841742861697",
+        existing:
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1476758841742861697",
+      },
+    },
+    remedial: {
+      "60": {
+        new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1447792675414616001",
+        existing:
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1447792675414616001",
+      },
+      "75": {
+        new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251934351926853",
+        existing:
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251934351926853",
+      },
+      "90": {
+        new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1549866073770174299",
+        existing:
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1549866073770174299",
+      },
+    },
+  };
+
   // Map selected service, duration, and client type to specific Cliniko booking URLs
-  const getClinikoUrl = (serviceTitle: string, duration: string, clientType: string) => {
+  const getClinikoUrl = (
+    serviceTitle: string,
+    duration: string,
+    clientType: string
+  ) => {
     const title = serviceTitle.toLowerCase();
-    const dur = duration.toLowerCase();
+    const dur = duration.toLowerCase().replace(" mins", "");
     const client = clientType.toLowerCase();
 
-    // For now, using the same URLs regardless of client type
-    // You can add different URLs for new vs existing clients if needed
     if (title.includes("pregnancy")) {
-      if (dur.includes("60")) {
-        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234";
-      }
-      if (dur.includes("75")) {
-        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251554322818628";
-      }
-      if (dur.includes("90")) {
-        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1476758841742861697";
-      }
+      return bookingUrls.pregnancy[dur]?.[client];
     }
 
     if (title.includes("remedial")) {
-      if (dur.includes("60")) {
-        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1447792675414616001";
-      }
-      if (dur.includes("75")) {
-        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251934351926853";
-      }
-      if (dur.includes("90")) {
-        return "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1549866073770174299";
-      }
+      return bookingUrls.remedial[dur]?.[client];
     }
 
     // Fallback to default booking page in modal
@@ -495,7 +519,7 @@ export default function ServicesPage() {
                   {/* Action Button */}
                   {service.bookable && (
                     <div className="space-y-3 mt-auto">
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                           <label className="block text-xs font-medium text-spa-secondary mb-1">
                             Duration
