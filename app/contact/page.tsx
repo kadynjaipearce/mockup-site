@@ -466,21 +466,21 @@ const ContactPage = () => {
                       Opening Hours
                     </div>
                     <div className="text-gray-600 space-y-2">
-                      <div className="flex justify-between">
+                      <div className="flex justify-between items-center">
                         <span className="font-medium">Mon, Thu, Fri</span>
-                        <span>10:30 AM - 5:00 PM</span>
+                        <span className="ml-4">10:30 AM - 5:00 PM</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex justify-between items-center">
                         <span className="font-medium">Tuesday</span>
-                        <span>10:30 AM - 2:00 PM</span>
+                        <span className="ml-4">10:30 AM - 2:00 PM</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex justify-between items-center">
                         <span className="font-medium">Wednesday</span>
-                        <span>12:30 PM - 5:00 PM</span>
+                        <span className="ml-4">12:30 PM - 5:00 PM</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex justify-between items-center">
                         <span className="font-medium">Sat, Sun</span>
-                        <span className="text-gray-500">Closed</span>
+                        <span className="ml-4 text-gray-500">Closed</span>
                       </div>
                     </div>
                   </div>
