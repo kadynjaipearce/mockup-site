@@ -198,9 +198,10 @@ export default function Specials() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10"
+            className="grid grid-cols-1 md:grid-cols-1 gap-10"
           >
             {/* Spa Date Night Card */}
+            {/*
             <motion.div
               variants={cardVariants}
               whileHover={{ y: -10 }}
@@ -235,12 +236,12 @@ export default function Specials() {
                   </motion.div>
                 </Link>
               </div>
-            </motion.div>
+            </motion.div>}
             {/* Gift Vouchers Card */}
             <motion.div
               variants={cardVariants}
               whileHover={{ y: -10 }}
-              className="relative overflow-hidden shadow-lg flex flex-col h-96 md:h-[28rem] w-full md:w-[30rem] mx-auto"
+              className="relative overflow-hidden shadow-lg flex flex-col h-96 md:h-[28rem] w-full md:w-[50rem] mx-auto"
             >
               <Image
                 src="/giftcard.png"

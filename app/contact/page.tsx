@@ -118,7 +118,8 @@ const ContactPage = () => {
 
   const businessData = {
     businessName: "Bunbury Wellness Remedial Massage",
-    description: "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy services in Bunbury, WA. Female massage therapists available for women who prefer female therapists.",
+    description:
+      "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy services in Bunbury, WA. Female massage therapists available for women who prefer female therapists.",
     url: "https://bunburywellness.com.au",
     telephone: "+61897210000",
     email: "hello@bunburywellness.com.au",
