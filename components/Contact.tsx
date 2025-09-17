@@ -80,7 +80,10 @@ const Contact = () => {
                     Opening Hours
                   </div>
                   <div className="text-gray-600 space-y-1">
-                    <div>Monday - Friday: 10:00 AM - 4:00 PM</div>
+                    <div>Monday, Thursday, Friday: 10:30 AM - 5:00 PM</div>
+                    <div>Tuesday: 10:30 AM - 2:00 PM</div>
+                    <div>Wednesday: 12:30 PM - 5:00 PM</div>
+                    <div>Saturday, Sunday: Closed</div>
                   </div>
                 </div>
               </div>
