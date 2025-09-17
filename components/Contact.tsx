@@ -79,11 +79,23 @@ const Contact = () => {
                   <div className="font-medium text-spa-secondary">
                     Opening Hours
                   </div>
-                  <div className="text-gray-600 space-y-1">
-                    <div>Monday, Thursday, Friday: 10:30 AM - 5:00 PM</div>
-                    <div>Tuesday: 10:30 AM - 2:00 PM</div>
-                    <div>Wednesday: 12:30 PM - 5:00 PM</div>
-                    <div>Saturday, Sunday: Closed</div>
+                  <div className="text-gray-600 space-y-2">
+                    <div className="flex justify-between">
+                      <span className="font-medium">Mon, Thu, Fri</span>
+                      <span>10:30 AM - 5:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium">Tuesday</span>
+                      <span>10:30 AM - 2:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium">Wednesday</span>
+                      <span>12:30 PM - 5:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium">Sat, Sun</span>
+                      <span className="text-gray-500">Closed</span>
+                    </div>
                   </div>
                 </div>
               </div>
