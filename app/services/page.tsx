@@ -186,34 +186,34 @@ export default function ServicesPage() {
       "60": {
         new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234",
         existing:
-          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1450037995120895234",
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1454212903627400510",
       },
       "75": {
         new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251554322818628",
         existing:
-          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251554322818628",
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465227153011385922",
       },
       "90": {
         new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1476758841742861697",
         existing:
-          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1476758841742861697",
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1454213289545311551",
       },
     },
     remedial: {
       "60": {
         new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1447792675414616001",
         existing:
-          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1447792675414616001",
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1454208307014149436",
       },
       "75": {
         new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251934351926853",
         existing:
-          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465251934351926853",
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1465227896116225603",
       },
       "90": {
         new: "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1549866073770174299",
         existing:
-          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1549866073770174299",
+          "https://bunbury-wellness-remedial-massage.au4.cliniko.com/bookings?business_id=1674414840665352031&appointment_type_id=1454212351002682685",
       },
     },
   };

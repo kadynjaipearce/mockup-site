@@ -184,11 +184,11 @@ export default function GiftCardsPage() {
                 <RiTimeLine className="h-8 w-8 text-spa-accent" />
               </div>
               <h3 className="text-xl font-semibold text-spa-secondary mb-2">
-                No Expiry
+                Valid for 3 Years
               </h3>
               <p className="text-gray-600">
-                Gift cards never expire, giving your loved ones the flexibility
-                to use them when convenient
+                Gift cards are valid for 3 years from date of purchase, giving
+                your loved ones flexibility.
               </p>
             </motion.div>
 

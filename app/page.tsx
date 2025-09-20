@@ -7,6 +7,7 @@ import Testimonials from "@/components/Testimonials";
 import BookingPolicy from "@/components/BookingPolicy";
 import Footer from "@/components/Footer";
 import TestimonialsSchema from "@/components/TestimonialsSchema";
+import FacebookSection from "@/components/FacebookSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -72,6 +73,7 @@ const Index = () => {
       <Services />
       <Testimonials />
       <Specials />
+      <FacebookSection />
       <BookingPolicy />
       <Footer />
     </div>
