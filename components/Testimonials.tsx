@@ -23,12 +23,23 @@ const Testimonials = () => {
         setLoading(true);
         const apiUrl = process.env.NEXT_PUBLIC_REVIEWS_API_URL || "";
         const res = await fetch(apiUrl, { cache: "no-store" });
-        const data = await res.json();
+        type ApiReview = {
+          authorName: string;
+          rating: number;
+          text: string;
+          time: string;
+        };
+        type ApiResponse = {
+          reviews?: ApiReview[];
+          fiveStarCount?: number;
+          error?: string;
+        };
+        const data: ApiResponse = await res.json();
         if (!res.ok) throw new Error(data?.error || "Failed to load reviews");
 
         const filtered = (data.reviews || [])
-          .filter((r: any) => Number(r.rating) > 4)
-          .map((r: any) => ({
+          .filter((r) => Number(r.rating) > 4)
+          .map((r) => ({
             quote: r.text,
             name: r.authorName,
             rating: r.rating,
@@ -53,8 +64,10 @@ const Testimonials = () => {
           typeof data.fiveStarCount === "number" ? data.fiveStarCount : null
         );
         setError(null);
-      } catch (e: any) {
-        setError(e?.message || "Unable to load reviews");
+      } catch (e) {
+        const message =
+          e instanceof Error ? e.message : "Unable to load reviews";
+        setError(message);
       } finally {
         setLoading(false);
       }
