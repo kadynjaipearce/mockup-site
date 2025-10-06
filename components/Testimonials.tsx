@@ -12,7 +12,7 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState<
     Array<{ quote: string; name: string; rating: number; date: string }>
   >([]);
-  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(null);
+  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(143);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -140,7 +140,7 @@ const Testimonials = () => {
         {/* 5-Star Count */}
         <div className="text-center mb-6">
           <div className="text-white/80 text-sm">Total 5-Star Reviews</div>
-          <div className="text-4xl md:text-5xl font-light text-spa-accent">
+          <div className="text-4xl md:text-5xl font-light text-spa-accent font-serif italic ">
             {fiveStarTotal ?? "—"}
           </div>
         </div>
