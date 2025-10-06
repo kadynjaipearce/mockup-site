@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  let attachments: Array<{ filename: string; content: string }> = [];
+  const attachments: Array<{ filename: string; content: string }> = [];
   if (resume && typeof resume === "object" && "arrayBuffer" in resume) {
     const bytes = await resume.arrayBuffer();
     const buffer = Buffer.from(bytes);

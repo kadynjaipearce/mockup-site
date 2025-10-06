@@ -8,7 +8,7 @@ let cachedResponse: {
 
 const CACHE_MS = 5 * 60 * 1000; // 5 minutes
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACE_ID;
 
@@ -41,7 +41,23 @@ export async function GET(_req: NextRequest) {
       );
     }
 
-    const json = (await res.json()) as any;
+    type GoogleReview = {
+      author_name: string;
+      rating: number;
+      text: string;
+      relative_time_description: string;
+    };
+    type GoogleResult = {
+      status: string;
+      result?: {
+        rating?: number;
+        user_ratings_total?: number;
+        reviews?: GoogleReview[];
+      };
+      error_message?: string;
+    };
+
+    const json = (await res.json()) as GoogleResult;
     if (json.status !== "OK" || !json.result) {
       return NextResponse.json(
         { error: json.error_message || "Invalid Google response" },
@@ -49,11 +65,11 @@ export async function GET(_req: NextRequest) {
       );
     }
 
-    const result = json.result;
+    const result = json.result || {};
     const reviews = Array.isArray(result.reviews) ? result.reviews : [];
 
     // Normalize reviews to a lean shape for the client
-    const normalized = reviews.map((r: any) => ({
+    const normalized = reviews.map((r) => ({
       authorName: r.author_name,
       rating: r.rating,
       text: r.text,
@@ -62,7 +78,7 @@ export async function GET(_req: NextRequest) {
 
     // Count 5-star reviews from the available set (Google API does not expose global 5-star histogram in v2)
     const fiveStarCountFromSample = normalized.filter(
-      (r: any) => r.rating === 5
+      (r) => r.rating === 5
     ).length;
 
     const payload = {
@@ -74,10 +90,9 @@ export async function GET(_req: NextRequest) {
 
     cachedResponse = { data: payload, timestamp: Date.now() };
     return NextResponse.json(payload, { status: 200 });
-  } catch (err: any) {
-    return NextResponse.json(
-      { error: err?.message || "Failed to fetch Google reviews" },
-      { status: 500 }
-    );
+  } catch (err) {
+    const message =
+      err instanceof Error ? err.message : "Failed to fetch Google reviews";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

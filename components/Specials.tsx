@@ -6,7 +6,6 @@ import {
   RiArrowRightSLine,
   RiArrowRightLine,
   RiGiftLine,
-  RiFacebookFill,
 } from "@remixicon/react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
