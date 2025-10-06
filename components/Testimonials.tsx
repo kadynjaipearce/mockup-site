@@ -9,58 +9,88 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [reviews, setReviews] = useState<
+    Array<{ quote: string; name: string; rating: number; date: string }>
+  >([]);
+  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const testimonials = [
-    {
-      quote:
-        "I totally recommend the services of Bunbury Wellness Remedial Massage, knowledgeable, professional and muscle aches are relieved. Fabulous premises in the town centre as well.",
-      name: "Suzette Mowday",
-      rating: 5,
-      date: "4 weeks ago",
-    },
-    {
-      quote:
-        "Fuko provided an really great massage experience. Her knowledge of muscles and their functions really helped with getting to the right spots for my pain.",
-      name: "Azima Patel",
-      rating: 5,
-      date: "3 months ago",
-    },
-    {
-      quote:
-        "I highly recommend Bunbury Wellness Remedial Massage, Fuko is incredible - very welcoming and professional, and she shows genuine care for you. She tailors the massage to your specific concerns and needs, and is very skilled. The treatment room is well set up and is a lovely relaxing atmosphere. I look forward to my massages so much because I always end up feeling so good!",
-      name: "Felicity J",
-      rating: 5,
-      date: "3 months ago",
-    },
-    {
-      quote:
-        "Fuko is absolutely incredible! Not only is she so kind and caring but she's extremely thorough and takes great pride in her work with helping customers! She checked constantly that I was okay and the pressure is okay, I am 17 weeks pregnant also and she was very accommodating! I walked in with a lot of neck problems and she worked so hard to help soothe them! I will be back for sure! 10/10! 🩷🩷🩷🩷",
-      name: "Tahlia Ferbrache",
-      rating: 5,
-      date: "5 months ago",
-    },
-  ];
+  // Hydrate from Google Reviews API, filter >4 stars
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true);
+        const apiUrl = process.env.NEXT_PUBLIC_REVIEWS_API_URL || "";
+        const res = await fetch(apiUrl, { cache: "no-store" });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data?.error || "Failed to load reviews");
+
+        const filtered = (data.reviews || [])
+          .filter((r: any) => Number(r.rating) > 4)
+          .map((r: any) => ({
+            quote: r.text,
+            name: r.authorName,
+            rating: r.rating,
+            date: r.time,
+          }));
+
+        setReviews(
+          filtered.length > 0
+            ? filtered
+            : [
+                // fallback to at least one rendered item
+                {
+                  quote:
+                    "Our clients love us. Check back soon for the latest reviews!",
+                  name: "Google Reviews",
+                  rating: 5,
+                  date: "recent",
+                },
+              ]
+        );
+        setFiveStarTotal(
+          typeof data.fiveStarCount === "number" ? data.fiveStarCount : null
+        );
+        setError(null);
+      } catch (e: any) {
+        setError(e?.message || "Unable to load reviews");
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      reviews.length === 0
+        ? 0
+        : prevIndex === reviews.length - 1
+          ? 0
+          : prevIndex + 1
     );
   };
 
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+      reviews.length === 0
+        ? 0
+        : prevIndex === 0
+          ? reviews.length - 1
+          : prevIndex - 1
     );
   };
 
   useEffect(() => {
+    if (reviews.length === 0) return;
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [reviews.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,6 +137,13 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-spa-secondary">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 5-Star Count */}
+        <div className="text-center mb-6">
+          <div className="text-white/80 text-sm">Total 5-Star Reviews</div>
+          <div className="text-4xl md:text-5xl font-light text-spa-accent">
+            {fiveStarTotal ?? "—"}
+          </div>
+        </div>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -129,7 +166,7 @@ const Testimonials = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 md:p-12 text-center min-h-[280px] md:min-h-[320px] h-[320px] md:h-[360px] flex flex-col justify-center overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentIndex}
+                key={loading ? "loading" : error ? "error" : currentIndex}
                 variants={testimonialVariants}
                 initial="enter"
                 animate="center"
@@ -143,29 +180,40 @@ const Testimonials = () => {
                   animate="visible"
                   className="flex justify-center mb-6"
                 >
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      variants={starVariants}
-                      initial="hidden"
-                      animate="visible"
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      <RiStarFill className="h-6 w-6 text-spa-accent" />
-                    </motion.div>
-                  ))}
+                  {loading || error
+                    ? null
+                    : [...Array(reviews[currentIndex]?.rating || 0)].map(
+                        (_, i) => (
+                          <motion.div
+                            key={i}
+                            variants={starVariants}
+                            initial="hidden"
+                            animate="visible"
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            <RiStarFill className="h-6 w-6 text-spa-accent" />
+                          </motion.div>
+                        )
+                      )}
                 </motion.div>
 
-                <blockquote className="text-base text-sm md:text-lg text-white font-light mb-6 leading-relaxed">
-                  &quot;{testimonials[currentIndex].quote}&quot;
-                </blockquote>
-
-                <cite className="text-spa-accent font-medium text-lg">
-                  — {testimonials[currentIndex].name}
-                </cite>
-                <div className="text-white/70 text-sm mt-1">
-                  {testimonials[currentIndex].date}
-                </div>
+                {loading ? (
+                  <div className="text-white/80">Loading reviews…</div>
+                ) : error ? (
+                  <div className="text-red-200">{error}</div>
+                ) : (
+                  <>
+                    <blockquote className="text-base text-sm md:text-lg text-white font-light mb-6 leading-relaxed">
+                      &quot;{reviews[currentIndex]?.quote}&quot;
+                    </blockquote>
+                    <cite className="text-spa-accent font-medium text-lg">
+                      — {reviews[currentIndex]?.name}
+                    </cite>
+                    <div className="text-white/70 text-sm mt-1">
+                      {reviews[currentIndex]?.date}
+                    </div>
+                  </>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -200,7 +248,7 @@ const Testimonials = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="flex justify-center mt-8 space-x-2"
         >
-          {testimonials.map((_, index) => (
+          {reviews.map((_, index) => (
             <motion.button
               key={index}
               variants={itemVariants}

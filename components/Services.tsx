@@ -19,6 +19,13 @@ const Services = () => {
       image: "/preg.png",
       link: "/services",
     },
+    {
+      title: "SPORTS MASSAGE",
+      description:
+        "Performance-focused treatment for active bodies and recovery",
+      image: "/remedial.png",
+      link: "/services",
+    },
   ];
 
   const containerVariants = {
