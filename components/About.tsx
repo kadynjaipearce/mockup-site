@@ -52,23 +52,57 @@ const About = () => {
           variants={itemVariants}
           className="text-3xl md:text-4xl font-light text-spa-secondary mb-8"
         >
-          Our Story
+          Our Journey
         </motion.h2>
-        <motion.div
-          variants={itemVariants}
-          className="font-serif text-xl md:text-2xl italic text-spa-accent mb-6"
-        >
-          Feel better, move better, live better – Naturally.
-        </motion.div>
         <motion.p
           variants={itemVariants}
           className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto"
         >
-          Started in July 2024 as a home clinic, and in June 2025 we moved into
-          a dedicated clinic in Bunbury, WA. Experience the difference of care,
-          expertise, and a passion for healing that has transformed countless
-          lives through the power of therapeutic touch.
+          Every step of our journey has been guided by a simple goal — to help
+          people feel better, move better, and live better through genuine,
+          caring massage therapy in Bunbury.
         </motion.p>
+        <motion.div
+          variants={containerVariants}
+          className="space-y-8 mb-12 max-w-3xl mx-auto"
+        >
+          <motion.div variants={itemVariants} className="text-left">
+            <div className="flex items-start gap-4">
+              <div className="text-2xl font-light text-spa-primary flex-shrink-0">
+                2024
+              </div>
+              <div>
+                <h3 className="text-lg font-medium text-spa-secondary mb-2">
+                  Our Home Clinic Began
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  In July 2024, we opened our doors as a small home-based
+                  clinic, built on a passion for providing personalised and
+                  evidence-based care to our local community.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div variants={itemVariants} className="text-left">
+            <div className="flex items-start gap-4">
+              <div className="text-2xl font-light text-spa-primary flex-shrink-0">
+                2025
+              </div>
+              <div>
+                <h3 className="text-lg font-medium text-spa-secondary mb-2">
+                  Growing Together
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  By June 2025, our little dream had grown — Tan joined the
+                  team, and we moved into our very own clinic space. This
+                  expansion allowed us to welcome more clients and continue
+                  offering the same warm, supportive care in a more comfortable
+                  setting.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
         <motion.div
           variants={containerVariants}
           className="grid md:grid-cols-3 gap-8 mb-12"

@@ -9,21 +9,16 @@ const Services = () => {
   const services = [
     {
       title: "REMEDIAL MASSAGE",
+      subtitle: "Sports Massage",
       description: "Targeted therapy for pain relief and mobility",
       image: "/remedial.png",
       link: "/services",
     },
     {
       title: "PREGNANCY MASSAGE",
+      subtitle: "",
       description: "Gentle, safe, and nurturing for mums-to-be",
       image: "/preg.png",
-      link: "/services",
-    },
-    {
-      title: "SPORTS MASSAGE",
-      description:
-        "Performance-focused treatment for active bodies and recovery",
-      image: "/remedial.png",
       link: "/services",
     },
   ];
@@ -114,6 +109,9 @@ const Services = () => {
                   <h3 className="text-white text-xl font-semibold mb-2 tracking-wide">
                     {service.title}
                   </h3>
+                  <h4 className="text-white text-sm font-semibold mb-2 tracking-wide text-[#]">
+                    {service.subtitle}
+                  </h4>
                   <p className="text-white/90 mb-4 text-sm leading-relaxed">
                     {service.description}
                   </p>

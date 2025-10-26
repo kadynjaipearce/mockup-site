@@ -43,7 +43,7 @@ const teamMembers = [
       "Rehab-focused Massage",
       "Progressive Exercise",
     ],
-    image: "/tan.png",
+    image: "/tan.jpg",
     description:
       "Tan is a qualified Remedial Massage Therapist with over 10 years of hands-on experience helping people relieve pain, recover from injury, and move better. Trained in dry needling, joint mobilisations, and rehab-focused massage, Tan has worked alongside physiotherapists since 2019. Each treatment is tailored to individual needs—combining effective hands-on therapy with simple, practical exercises to support long-term results.",
   },
@@ -79,15 +79,15 @@ const values = [
 const milestones = [
   {
     year: "2024",
-    title: "Home Clinic Opened",
+    title: "Our Home Clinic Began",
     description:
-      "Began in July 2024 as a home clinic focused on personalised, evidence-based care.",
+      "In July 2024, we opened our doors as a small home-based clinic, built on a passion for providing personalised and evidence-based care to our local community.",
   },
   {
     year: "2025",
-    title: "Clinic Expansion & Tan Joined",
+    title: "Growing Together",
     description:
-      "In June 2025, Tan joined the team and the practice moved into a dedicated clinic space.",
+      "By June 2025, our little dream had grown — Tan joined the team, and we moved into our very own clinic space. This expansion allowed us to welcome more clients and continue offering the same warm, supportive care in a more comfortable setting.",
   },
 ];
 
@@ -393,8 +393,9 @@ export default function AboutPage() {
               variants={itemVariants}
               className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Key milestones in our mission to provide exceptional massage
-              therapy in Bunbury
+              Every step of our journey has been guided by a simple goal — to
+              help people feel better, move better, and live better through
+              genuine, caring massage therapy in Bunbury.
             </motion.p>
           </motion.div>
 
