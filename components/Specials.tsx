@@ -19,7 +19,7 @@ const specials = [
     link: "/services",
   },
   {
-    image: "/preg.png",
+    image: "/preg2.png",
     title: "Pregnancy Massage",
     subtitle: "Gentle care for mums-to-be",
     cta: "Learn More",

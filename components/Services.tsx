@@ -18,7 +18,7 @@ const Services = () => {
       title: "PREGNANCY MASSAGE",
       subtitle: "",
       description: "Gentle, safe, and nurturing for mums-to-be",
-      image: "/preg.png",
+      image: "/preg2.png",
       link: "/services",
     },
   ];
