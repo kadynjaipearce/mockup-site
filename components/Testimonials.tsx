@@ -12,7 +12,7 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState<
     Array<{ quote: string; name: string; rating: number; date: string }>
   >([]);
-  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(143);
+  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +21,7 @@ const Testimonials = () => {
     const load = async () => {
       try {
         setLoading(true);
-        const apiUrl = process.env.NEXT_PUBLIC_REVIEWS_API_URL || "";
+        const apiUrl = "/api/google-reviews";
         const res = await fetch(apiUrl, { cache: "no-store" });
         type ApiReview = {
           authorName: string;
@@ -34,10 +34,19 @@ const Testimonials = () => {
           fiveStarCount?: number;
           error?: string;
         };
-        const data: ApiResponse = await res.json();
-        if (!res.ok) throw new Error(data?.error || "Failed to load reviews");
+        const data: ApiResponse | { error?: string; authUrl?: string } =
+          await res.json();
+        // If unauthorized (no refresh token on server), do not redirect users; show fallback
+        if (res.status === 401) {
+          throw new Error((data as any)?.error || "Reviews unavailable");
+        }
+        if (!res.ok)
+          throw new Error((data as any)?.error || "Failed to load reviews");
 
-        const filtered = (data.reviews || [])
+        const isApi = (d: any): d is ApiResponse =>
+          Array.isArray((d as any)?.reviews) ||
+          typeof (d as any)?.fiveStarCount !== "undefined";
+        const filtered = (isApi(data) ? data.reviews : [])
           .filter((r) => Number(r.rating) > 4)
           .map((r) => ({
             quote: r.text,
@@ -61,7 +70,9 @@ const Testimonials = () => {
               ]
         );
         setFiveStarTotal(
-          typeof data.fiveStarCount === "number" ? data.fiveStarCount : null
+          isApi(data) && typeof data.fiveStarCount === "number"
+            ? data.fiveStarCount
+            : null
         );
         setError(null);
       } catch (e) {

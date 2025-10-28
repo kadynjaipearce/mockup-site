@@ -68,6 +68,12 @@ export default function GiftCardsPage() {
     },
   };
 
+  if (!process.env.NEXT_PUBLIC_GIFTUP_URL) {
+    throw new Error("GIFTUP_URL is not set");
+  }
+
+  const giftUpUrl = process.env.NEXT_PUBLIC_GIFTUP_URL;
+
   return (
     <div className="min-h-screen pt-20">
       <Header />
@@ -236,7 +242,7 @@ export default function GiftCardsPage() {
 
               {/* GiftUp iframe */}
               <iframe
-                src="https://giftup.app/place-order/e5b1237b-5bc8-4a99-920d-08ddce54f8ab"
+                src={giftUpUrl}
                 className="w-full h-[800px] border-0"
                 title="Gift Card Purchase"
                 onLoad={() => {

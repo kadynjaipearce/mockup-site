@@ -490,7 +490,9 @@ export const metadata: Metadata = {
     title: "Massage Services Bunbury - Remedial, Sports & Pregnancy Massage",
     description:
       "Professional massage services in Bunbury, WA. Remedial massage, sports massage, pregnancy massage, and dry needling therapy. Female massage therapists available.",
-    url: "https://bunburywellness.com.au/services",
+    url: process.env.NEXT_PUBLIC_BASE_URL
+      ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/services`
+      : undefined,
     siteName: "Bunbury Wellness",
     images: [
       {

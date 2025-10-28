@@ -24,7 +24,9 @@ export const metadata: Metadata = {
     title: "Contact Bunbury Wellness - Book Your Massage Session",
     description:
       "Contact us to book your remedial, sports, or pregnancy massage session in Bunbury, WA.",
-    url: "https://bunburywellness.com.au/contact",
+    url: process.env.NEXT_PUBLIC_BASE_URL
+      ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/contact`
+      : undefined,
     siteName: "Bunbury Wellness",
     images: [
       {
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Bunbury Wellness - Book Your Massage Session",
+    title: "Contact Bunbury Wellness - Book Your Session",
     description:
       "Contact us to book your remedial, sports, or pregnancy massage session in Bunbury, WA.",
     images: ["/og-image.jpg"],

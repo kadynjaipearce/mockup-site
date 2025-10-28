@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // Simple in-memory cache for serverless/runtime
 let cachedResponse: {
@@ -92,17 +92,23 @@ async function getAccessToken(): Promise<string> {
   return data.access_token;
 }
 
-export async function GET() {
-  const accountId = process.env.GOOGLE_ACCOUNT_ID;
-  const locationId = process.env.GOOGLE_LOCATION_ID;
-
-  if (!accountId || !locationId) {
+export async function GET(request: NextRequest) {
+  // If no refresh token yet, instruct client to start OAuth (avoid cross-origin redirect from XHR)
+  if (!process.env.GOOGLE_REFRESH_TOKEN) {
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    const redirectUri = `${request.nextUrl.origin}/api/google-reviews/callback`;
+    const scope = "https://www.googleapis.com/auth/business.manage";
+    const authUrl =
+      `https://accounts.google.com/o/oauth2/v2/auth?` +
+      `client_id=${encodeURIComponent(clientId || "")}&` +
+      `redirect_uri=${encodeURIComponent(redirectUri)}&` +
+      `scope=${encodeURIComponent(scope)}&` +
+      `response_type=code&access_type=offline&prompt=consent`;
     return NextResponse.json(
-      { error: "Missing GOOGLE_ACCOUNT_ID or GOOGLE_LOCATION_ID" },
-      { status: 500 }
+      { error: "OAuth setup required", authUrl },
+      { status: 401 }
     );
   }
-
   // Serve from cache if fresh
   if (cachedResponse && Date.now() - cachedResponse.timestamp < CACHE_MS) {
     return NextResponse.json(cachedResponse.data, { status: 200 });
@@ -111,6 +117,58 @@ export async function GET() {
   try {
     // Get OAuth2 access token
     const accessToken = await getAccessToken();
+
+    // Resolve accountId and locationId when missing via Google Business Profile APIs
+    let accountId = process.env.GOOGLE_ACCOUNT_ID;
+    let locationId = process.env.GOOGLE_LOCATION_ID;
+
+    // Helper: fetch first account id if not provided
+    async function resolveAccountId(): Promise<string> {
+      const res = await fetch(
+        "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+          cache: "no-store",
+        }
+      );
+      if (!res.ok) throw new Error(`Accounts API error: ${res.status}`);
+      const data: { accounts?: Array<{ name?: string }> } = await res.json();
+      const fullName = data.accounts?.[0]?.name; // e.g. "accounts/123"
+      const id = fullName?.split("/")[1];
+      if (!id) throw new Error("No Google Business accounts found");
+      return id;
+    }
+
+    // Helper: fetch first location id for account if not provided
+    async function resolveLocationId(accId: string): Promise<string> {
+      const url = `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/${accId}/locations?readMask=name,title,storeCode`;
+      const res = await fetch(url, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        cache: "no-store",
+      });
+      if (!res.ok) throw new Error(`Locations API error: ${res.status}`);
+      const data: { locations?: Array<{ name?: string; title?: string }> } =
+        await res.json();
+      const fullName = data.locations?.[0]?.name; // e.g. "locations/987..."
+      const id = fullName?.split("/")[1];
+      if (!id)
+        throw new Error("No Google Business locations found for account");
+      return id;
+    }
+
+    if (!accountId) {
+      accountId = await resolveAccountId();
+    }
+    if (!locationId && accountId) {
+      locationId = await resolveLocationId(accountId);
+    }
+
+    if (!accountId || !locationId) {
+      return NextResponse.json(
+        { error: "Unable to resolve Google account or location id" },
+        { status: 500 }
+      );
+    }
 
     // Google My Business API endpoint
     const url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;

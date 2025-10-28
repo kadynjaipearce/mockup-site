@@ -3,15 +3,19 @@ import { Resend } from "resend";
 import ContactAcknowledgementEmail from "@/emails/ContactAcknowledgementEmail";
 import ContactNotificationEmail from "@/emails/ContactNotificationEmail";
 
-const resend = new Resend(
-  process.env.RESEND_API_KEY ?? "dont put this in production lol"
-);
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("Missing RESEND_API_KEY");
+}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL || "kadynjaipearce@gmail.com";
-const FROM_EMAIL =
-  process.env.RESEND_FROM ||
-  "Bunbury Wellness Remedial Massage <kadynpearce@kadynpearce.dev>";
-
+if (!process.env.BUSINESS_EMAIL) {
+  throw new Error("Missing BUSINESS_EMAIL");
+}
+if (!process.env.RESEND_FROM) {
+  throw new Error("Missing RESEND_FROM");
+}
+const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL;
+const FROM_EMAIL = process.env.RESEND_FROM;
 export async function POST(req: NextRequest) {
   if (!resend) {
     return NextResponse.json(
@@ -46,9 +50,10 @@ export async function POST(req: NextRequest) {
   const businessSubject = `New contact form submission${subject ? ": " + String(subject) : ""}`;
 
   const origin =
-    req.headers.get("origin") || process.env.NEXT_PUBLIC_SITE_URL || "";
-  const absoluteLogo = origin
-    ? `${origin.replace(/\/$/, "")}/logo_large.jpg`
+    req.headers.get("origin") || process.env.NEXT_PUBLIC_BASE_URL || "";
+  const websiteBase = process.env.NEXT_PUBLIC_BASE_URL || origin || "";
+  const absoluteLogo = websiteBase
+    ? `${websiteBase.replace(/\/$/, "")}/icon.png`
     : undefined;
 
   const { data: ackData, error: ackError } = await resend.emails.send({

@@ -1,12 +1,12 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
+      userAgent: "*",
+      allow: "/",
       crawlDelay: 1,
     },
-    sitemap: 'https://bunburywellness.com.au/sitemap.xml',
-  }
+    sitemap: `${(process.env.NEXT_PUBLIC_BASE_URL || "https://example.com").replace(/\/$/, "")}/sitemap.xml`,
+  };
 }

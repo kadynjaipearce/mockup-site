@@ -96,14 +96,16 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://bunburywellness.com.au"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "https://example.com"
+  ),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://bunburywellness.com.au",
+    url: process.env.NEXT_PUBLIC_BASE_URL || undefined,
     siteName: "Bunbury Wellness",
     title:
       "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage",
@@ -139,9 +141,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 };
 
@@ -167,11 +167,14 @@ export default function RootLayout({
               alternateName: "Bunbury Wellness",
               description:
                 "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy services in Bunbury, WA. Female massage therapists available for women who prefer female therapists.",
-              url: "https://bunburywellness.com.au",
-              telephone: "+61897210000",
-              email: "hello@bunburywellness.com.au",
-              logo: "https://bunburywellness.com.au/logo.png",
-              image: "https://bunburywellness.com.au/og-image.jpg",
+              url: process.env.NEXT_PUBLIC_BASE_URL || undefined,
+              email: "info@bunburywellnessremedialmassage.com.au",
+              logo: process.env.NEXT_PUBLIC_BASE_URL
+                ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/logo.png`
+                : undefined,
+              image: process.env.NEXT_PUBLIC_BASE_URL
+                ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/og-image.jpg`
+                : undefined,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "123 Wellness Street",
@@ -321,7 +324,9 @@ export default function RootLayout({
                       areaServed: "Bunbury, WA",
                       availableChannel: {
                         "@type": "ServiceChannel",
-                        serviceUrl: "https://bunburywellness.com.au/services",
+                        serviceUrl: process.env.NEXT_PUBLIC_BASE_URL
+                          ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/services`
+                          : undefined,
                       },
                     },
                     priceRange: "$80-$120",

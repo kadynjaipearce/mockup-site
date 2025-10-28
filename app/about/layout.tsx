@@ -23,7 +23,9 @@ export const metadata: Metadata = {
     title: "About Bunbury Wellness - Expert Massage Therapists",
     description:
       "Learn about our expert massage therapists and commitment to professional therapy in Bunbury, WA.",
-    url: "https://bunburywellness.com.au/about",
+    url: process.env.NEXT_PUBLIC_BASE_URL
+      ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/about`
+      : undefined,
     siteName: "Bunbury Wellness",
     images: [
       {

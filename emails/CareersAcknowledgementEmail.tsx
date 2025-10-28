@@ -10,20 +10,18 @@ import {
   Text,
   Img,
   Button,
-  Hr,
 } from "@react-email/components";
 
-type ContactAcknowledgementEmailProps = {
+type CareersAcknowledgementEmailProps = {
   name?: string;
-  message: string;
   logoUrl?: string;
   siteUrl?: string;
 };
 
-export default function ContactAcknowledgementEmail(
-  props: ContactAcknowledgementEmailProps
+export default function CareersAcknowledgementEmail(
+  props: CareersAcknowledgementEmailProps
 ) {
-  const { name, message, logoUrl, siteUrl } = props;
+  const { name, logoUrl, siteUrl } = props;
 
   const darkGreen = "#091E19";
   const buttonGold = "#e8c468";
@@ -39,8 +37,7 @@ export default function ContactAcknowledgementEmail(
     <Html>
       <Head />
       <Preview>
-        Thanks for contacting Bunbury Wellness Remedial Massage — we've received
-        your message.
+        Thank you for your application — we've received it and will be in touch.
       </Preview>
       <Body style={{ backgroundColor: "#f6f8f7", margin: 0 }}>
         <Container style={{ padding: "24px 16px" }}>
@@ -48,14 +45,12 @@ export default function ContactAcknowledgementEmail(
             style={{
               backgroundColor: "#ffffff",
               border: `2px solid ${darkGreen}`,
-
               overflow: "hidden",
               maxWidth: 560,
               margin: "0 auto",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
             }}
           >
-            {/* Header with dark green background */}
             <Section
               style={{
                 backgroundColor: darkGreen,
@@ -68,10 +63,7 @@ export default function ContactAcknowledgementEmail(
                 alt="Bunbury Wellness Remedial Massage Logo"
                 width={100}
                 height={100}
-                style={{
-                  display: "inline-block",
-                  borderRadius: 8,
-                }}
+                style={{ display: "inline-block", borderRadius: 8 }}
               />
               <Heading
                 as="h1"
@@ -97,7 +89,6 @@ export default function ContactAcknowledgementEmail(
               </Text>
             </Section>
 
-            {/* Main content */}
             <Section style={{ padding: 32 }}>
               <Heading
                 as="h2"
@@ -109,7 +100,7 @@ export default function ContactAcknowledgementEmail(
                   textAlign: "center",
                 }}
               >
-                {`Thank you${name ? ", " + name : ""}!`}
+                {`Thank you${name ? ", " + name : ""} for your application!`}
               </Heading>
 
               <Text
@@ -121,11 +112,10 @@ export default function ContactAcknowledgementEmail(
                   textAlign: "center",
                 }}
               >
-                We've received your message and will get back to you as soon as
-                possible.
+                We've received your job application and our team will review it
+                shortly. We'll get back to you as soon as possible.
               </Text>
 
-              {/* CTA Button */}
               <Section style={{ textAlign: "center", marginTop: 24 }}>
                 <Button
                   href={resolvedSite}
@@ -149,7 +139,6 @@ export default function ContactAcknowledgementEmail(
                   style={{
                     marginTop: 24,
                     color: darkGreen,
-
                     fontWeight: 600,
                     fontSize: "16px",
                   }}
@@ -166,13 +155,7 @@ export default function ContactAcknowledgementEmail(
                 >
                   Bunbury Wellness Remedial Massage
                 </Text>
-                <Text
-                  style={{
-                    color: "#6b7280",
-                    margin: "0",
-                    fontSize: "14px",
-                  }}
-                >
+                <Text style={{ color: "#6b7280", margin: 0, fontSize: "14px" }}>
                   Fuko & Tan
                 </Text>
               </Section>

@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import CareersAcknowledgementEmail from "@/emails/CareersAcknowledgementEmail";
 
-const resend = new Resend(
-  process.env.RESEND_API_KEY ?? "dont put this in production lol"
-);
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("Missing RESEND_API_KEY");
+}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL || "kadynjaipearce@gmail.com";
-const FROM_EMAIL =
-  process.env.RESEND_FROM ||
-  "Bunbury Wellness Remedial Massage <kadynpearce@kadynpearce.dev>";
+if (!process.env.BUSINESS_EMAIL) {
+  throw new Error("Missing BUSINESS_EMAIL");
+}
+if (!process.env.RESEND_FROM) {
+  throw new Error("Missing RESEND_FROM");
+}
+const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL;
+const FROM_EMAIL = process.env.RESEND_FROM;
 
 export async function POST(req: NextRequest) {
   if (!resend) {
@@ -48,6 +54,14 @@ export async function POST(req: NextRequest) {
   }
 
   const subject = `New job application: ${name}`;
+  const acknowledgementSubject = `Thanks for your application${name ? ", " + name : ""}`;
+
+  const origin =
+    req.headers.get("origin") || process.env.NEXT_PUBLIC_BASE_URL || "";
+  const websiteBase = process.env.NEXT_PUBLIC_BASE_URL || origin || "";
+  const absoluteLogo = websiteBase
+    ? `${websiteBase.replace(/\/$/, "")}/icon.png`
+    : undefined;
 
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
@@ -60,6 +74,23 @@ export async function POST(req: NextRequest) {
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  // Send acknowledgement to applicant
+  const { error: ackError } = await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: acknowledgementSubject,
+    react: CareersAcknowledgementEmail({
+      name,
+      logoUrl: absoluteLogo,
+      siteUrl: websiteBase || undefined,
+    }),
+    replyTo: BUSINESS_EMAIL,
+  });
+
+  if (ackError) {
+    return NextResponse.json({ error: ackError.message }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });

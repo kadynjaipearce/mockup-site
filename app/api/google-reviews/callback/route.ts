@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-  const redirectUri = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/google-reviews/callback`;
+  const redirectUri = `${new URL(request.url).origin}/api/google-reviews/callback`;
 
   if (!clientId || !clientSecret) {
     return NextResponse.json(

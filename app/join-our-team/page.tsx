@@ -284,7 +284,7 @@ const JoinTeamPage = () => {
                 </label>
                 <div className="flex items-center gap-4">
                   <label className="btn-spa-accent inline-flex items-center gap-2 cursor-pointer">
-                    <RiUpload2Line className="h-5 w-5" />
+                    <RiUpload2Line className="h-5 w-5 z-10" />
                     <span>Upload File</span>
                     <input
                       type="file"

@@ -1,52 +1,73 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { RiStarFill } from "@remixicon/react";
 
-const testimonials = [
-  {
-    name: "Sarah M.",
-    text: "Absolutely the best massage I've ever had. The team is so professional and caring!",
-  },
-  {
-    name: "James T.",
-    text: "Helped me recover from a sports injury. Highly recommend their remedial massage!",
-  },
-  {
-    name: "Emily R.",
-    text: "The pregnancy massage was gentle and so relaxing. I felt truly cared for.",
-  },
-  {
-    name: "Michael B.",
-    text: "Great atmosphere and skilled therapists. I always leave feeling refreshed.",
-  },
-  {
-    name: "Lisa K.",
-    text: "Professional, friendly, and effective. My go-to place for wellness!",
-  },
-];
+type ReviewItem = { text: string; name: string };
 
 export default function TestimonialMarquee() {
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const [items, setItems] = useState<ReviewItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch("/api/google-reviews", { cache: "no-store" });
+        type ApiReview = {
+          authorName: string;
+          rating: number;
+          text: string;
+        };
+        type ApiResponse = { reviews?: ApiReview[] };
+        const data: ApiResponse | { error?: string; authUrl?: string } =
+          await res.json();
+        // If unauthorized (no refresh token on server), do not redirect users; show fallback
+        if (res.status === 401) {
+          throw new Error((data as any)?.error || "Reviews unavailable");
+        }
+        const isApi = (d: any): d is ApiResponse =>
+          Array.isArray((d as any)?.reviews);
+        const filtered = (isApi(data) ? data.reviews : [])
+          .filter((r) => Number(r.rating) > 4)
+          .map<ReviewItem>((r) => ({ text: r.text, name: r.authorName }));
+        setItems(
+          filtered.length > 0
+            ? filtered
+            : [
+                {
+                  text: "Our clients love us. Check back soon for the latest reviews!",
+                  name: "Google Reviews",
+                },
+              ]
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
 
   useEffect(() => {
     const marquee = marqueeRef.current;
     if (!marquee) return;
     let animationId: number;
     let start: number | null = null;
-    const scrollWidth = marquee.scrollWidth / 2;
     const speed = 40; // px per second
-
     function step(timestamp: number) {
       if (!start) start = timestamp;
       const elapsed = timestamp - start;
       const offset = (elapsed / 1000) * speed;
-      marquee.scrollLeft = offset % scrollWidth;
+      const scrollWidth = marquee.scrollWidth / 2;
+      marquee.scrollLeft = scrollWidth ? offset % scrollWidth : 0;
       animationId = requestAnimationFrame(step);
     }
     animationId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [items.length]);
+
+  const renderItems = loading ? [] : [...items, ...items];
 
   return (
     <div className="w-full overflow-x-hidden bg-spa-neutral py-6">
@@ -55,7 +76,7 @@ export default function TestimonialMarquee() {
         className="flex whitespace-nowrap gap-8 px-4"
         style={{ width: "200%" }}
       >
-        {[...testimonials, ...testimonials].map((t, i) => (
+        {renderItems.map((t, i) => (
           <div
             key={i}
             className="inline-flex flex-col items-center bg-white rounded-lg shadow px-6 py-4 min-w-[280px] max-w-xs"

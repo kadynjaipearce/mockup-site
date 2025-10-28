@@ -23,7 +23,9 @@ export const metadata: Metadata = {
     title: "Gift Cards Bunbury - Massage Gift Vouchers",
     description:
       "Purchase massage gift cards in Bunbury, WA. Perfect gifts for all massage services.",
-    url: "https://bunburywellness.com.au/gift-cards",
+    url: process.env.NEXT_PUBLIC_BASE_URL
+      ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/gift-cards`
+      : undefined,
     siteName: "Bunbury Wellness",
     images: [
       {
