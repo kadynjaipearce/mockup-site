@@ -109,7 +109,7 @@ const Services = () => {
                   <h3 className="text-white text-xl font-semibold mb-2 tracking-wide">
                     {service.title}
                   </h3>
-                  <h4 className="text-white text-sm font-semibold mb-2 tracking-wide text-spa-secondary italic font-serif">
+                  <h4 className="text-white text-sm font-semibold mb-2 tracking-wide">
                     {service.subtitle}
                   </h4>
                   <p className="text-white/90 mb-4 text-sm leading-relaxed">

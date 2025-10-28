@@ -93,6 +93,9 @@ async function getAccessToken(): Promise<string> {
 }
 
 export async function GET(request: NextRequest) {
+  const debug = request.nextUrl.searchParams.get("debug") === "1";
+  const resolveOnly = request.nextUrl.searchParams.get("resolve") === "1";
+  let tokenInfo: unknown = null;
   // If no refresh token yet, instruct client to start OAuth (avoid cross-origin redirect from XHR)
   if (!process.env.GOOGLE_REFRESH_TOKEN) {
     const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -117,59 +120,29 @@ export async function GET(request: NextRequest) {
   try {
     // Get OAuth2 access token
     const accessToken = await getAccessToken();
+    if (debug) {
+      try {
+        const infoRes = await fetch(
+          `https://oauth2.googleapis.com/tokeninfo?access_token=${encodeURIComponent(
+            accessToken
+          )}`,
+          { cache: "no-store" }
+        );
+        tokenInfo = await infoRes.json();
+      } catch {
+        tokenInfo = { error: "tokeninfo fetch failed" };
+      }
+    }
 
     // Resolve accountId and locationId when missing via Google Business Profile APIs
     let accountId = process.env.GOOGLE_ACCOUNT_ID;
     let locationId = process.env.GOOGLE_LOCATION_ID;
-
-    // Helper: fetch first account id if not provided
-    async function resolveAccountId(): Promise<string> {
-      const res = await fetch(
-        "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-          cache: "no-store",
-        }
-      );
-      if (!res.ok) throw new Error(`Accounts API error: ${res.status}`);
-      const data: { accounts?: Array<{ name?: string }> } = await res.json();
-      const fullName = data.accounts?.[0]?.name; // e.g. "accounts/123"
-      const id = fullName?.split("/")[1];
-      if (!id) throw new Error("No Google Business accounts found");
-      return id;
-    }
-
-    // Helper: fetch first location id for account if not provided
-    async function resolveLocationId(accId: string): Promise<string> {
-      const url = `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/${accId}/locations?readMask=name,title,storeCode`;
-      const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-        cache: "no-store",
-      });
-      if (!res.ok) throw new Error(`Locations API error: ${res.status}`);
-      const data: { locations?: Array<{ name?: string; title?: string }> } =
-        await res.json();
-      const fullName = data.locations?.[0]?.name; // e.g. "locations/987..."
-      const id = fullName?.split("/")[1];
-      if (!id)
-        throw new Error("No Google Business locations found for account");
-      return id;
-    }
-
-    if (!accountId) {
-      accountId = await resolveAccountId();
-    }
-    if (!locationId && accountId) {
-      locationId = await resolveLocationId(accountId);
-    }
-
     if (!accountId || !locationId) {
       return NextResponse.json(
-        { error: "Unable to resolve Google account or location id" },
+        { error: "Missing GOOGLE_ACCOUNT_ID or GOOGLE_LOCATION_ID" },
         { status: 500 }
       );
     }
-
     // Google My Business API endpoint
     const url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
 
@@ -183,7 +156,9 @@ export async function GET(request: NextRequest) {
 
     if (!res.ok) {
       return NextResponse.json(
-        { error: `Google My Business API error: ${res.status}` },
+        {
+          error: `Google My Business API error: ${res.status} ${res.statusText}`,
+        },
         { status: 502 }
       );
     }
@@ -230,6 +205,9 @@ export async function GET(request: NextRequest) {
   } catch (err) {
     const message =
       err instanceof Error ? err.message : "Failed to fetch Google reviews";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json(
+      { error: message, tokenInfo: debug ? tokenInfo : undefined },
+      { status: 500 }
+    );
   }
 }
