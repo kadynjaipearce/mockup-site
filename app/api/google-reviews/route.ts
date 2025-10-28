@@ -93,8 +93,6 @@ async function getAccessToken(): Promise<string> {
 }
 
 export async function GET(request: NextRequest) {
-  const debug = request.nextUrl.searchParams.get("debug") === "1";
-  const resolveOnly = request.nextUrl.searchParams.get("resolve") === "1";
   let tokenInfo: unknown = null;
   // If no refresh token yet, instruct client to start OAuth (avoid cross-origin redirect from XHR)
   if (!process.env.GOOGLE_REFRESH_TOKEN) {
@@ -120,23 +118,10 @@ export async function GET(request: NextRequest) {
   try {
     // Get OAuth2 access token
     const accessToken = await getAccessToken();
-    if (debug) {
-      try {
-        const infoRes = await fetch(
-          `https://oauth2.googleapis.com/tokeninfo?access_token=${encodeURIComponent(
-            accessToken
-          )}`,
-          { cache: "no-store" }
-        );
-        tokenInfo = await infoRes.json();
-      } catch {
-        tokenInfo = { error: "tokeninfo fetch failed" };
-      }
-    }
 
     // Resolve accountId and locationId when missing via Google Business Profile APIs
-    let accountId = process.env.GOOGLE_ACCOUNT_ID;
-    let locationId = process.env.GOOGLE_LOCATION_ID;
+    const accountId = process.env.GOOGLE_ACCOUNT_ID;
+    const locationId = process.env.GOOGLE_LOCATION_ID;
     if (!accountId || !locationId) {
       return NextResponse.json(
         { error: "Missing GOOGLE_ACCOUNT_ID or GOOGLE_LOCATION_ID" },
