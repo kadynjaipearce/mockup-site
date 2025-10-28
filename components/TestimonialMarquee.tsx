@@ -21,15 +21,19 @@ export default function TestimonialMarquee() {
           text: string;
         };
         type ApiResponse = { reviews?: ApiReview[] };
-        const data: ApiResponse | { error?: string; authUrl?: string } =
-          await res.json();
+        const dataUnknown: unknown = await res.json();
         // If unauthorized (no refresh token on server), do not redirect users; show fallback
         if (res.status === 401) {
-          throw new Error((data as any)?.error || "Reviews unavailable");
+          throw new Error("Reviews unavailable");
         }
-        const isApi = (d: any): d is ApiResponse =>
-          Array.isArray((d as any)?.reviews);
-        const filtered = (isApi(data) ? data.reviews : [])
+        if (!res.ok) {
+          throw new Error("Failed to load reviews");
+        }
+        const maybeReviews = (dataUnknown as { reviews?: unknown }).reviews;
+        const reviewsArr: ApiReview[] = Array.isArray(maybeReviews)
+          ? (maybeReviews as ApiReview[])
+          : [];
+        const filtered = reviewsArr
           .filter((r) => Number(r.rating) > 4)
           .map<ReviewItem>((r) => ({ text: r.text, name: r.authorName }));
         setItems(

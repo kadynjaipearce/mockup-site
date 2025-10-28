@@ -34,19 +34,22 @@ const Testimonials = () => {
           fiveStarCount?: number;
           error?: string;
         };
-        const data: ApiResponse | { error?: string; authUrl?: string } =
-          await res.json();
+        const dataUnknown: unknown = await res.json();
         // If unauthorized (no refresh token on server), do not redirect users; show fallback
         if (res.status === 401) {
-          throw new Error((data as any)?.error || "Reviews unavailable");
+          throw new Error("Reviews unavailable");
         }
-        if (!res.ok)
-          throw new Error((data as any)?.error || "Failed to load reviews");
+        if (!res.ok) throw new Error("Failed to load reviews");
 
-        const isApi = (d: any): d is ApiResponse =>
-          Array.isArray((d as any)?.reviews) ||
-          typeof (d as any)?.fiveStarCount !== "undefined";
-        const filtered = (isApi(data) ? data.reviews : [])
+        const maybe = dataUnknown as
+          | Partial<ApiResponse>
+          | Record<string, unknown>;
+        const reviewsArr: ApiReview[] = Array.isArray(
+          (maybe as Partial<ApiResponse>)?.reviews
+        )
+          ? ((maybe as Partial<ApiResponse>).reviews as ApiReview[])
+          : [];
+        const filtered = reviewsArr
           .filter((r) => Number(r.rating) > 4)
           .map((r) => ({
             quote: r.text,
@@ -69,11 +72,8 @@ const Testimonials = () => {
                 },
               ]
         );
-        setFiveStarTotal(
-          isApi(data) && typeof data.fiveStarCount === "number"
-            ? data.fiveStarCount
-            : null
-        );
+        const fiveStar = (maybe as Partial<ApiResponse>)?.fiveStarCount;
+        setFiveStarTotal(typeof fiveStar === "number" ? fiveStar : null);
         setError(null);
       } catch (e) {
         const message =
