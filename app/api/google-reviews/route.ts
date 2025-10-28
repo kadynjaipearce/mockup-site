@@ -93,7 +93,6 @@ async function getAccessToken(): Promise<string> {
 }
 
 export async function GET(request: NextRequest) {
-  let tokenInfo: unknown = null;
   // If no refresh token yet, instruct client to start OAuth (avoid cross-origin redirect from XHR)
   if (!process.env.GOOGLE_REFRESH_TOKEN) {
     const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -190,9 +189,6 @@ export async function GET(request: NextRequest) {
   } catch (err) {
     const message =
       err instanceof Error ? err.message : "Failed to fetch Google reviews";
-    return NextResponse.json(
-      { error: message, tokenInfo: debug ? tokenInfo : undefined },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
