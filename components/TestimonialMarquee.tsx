@@ -20,7 +20,6 @@ export default function TestimonialMarquee() {
           rating: number;
           text: string;
         };
-        type ApiResponse = { reviews?: ApiReview[] };
         const dataUnknown: unknown = await res.json();
         // If unauthorized (no refresh token on server), do not redirect users; show fallback
         if (res.status === 401) {
