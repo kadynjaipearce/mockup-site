@@ -29,7 +29,7 @@ const teamMembers = [
       "Manual lymphatic drainage",
       "Myofascial cupping",
     ],
-    image: "/fuko.jpg",
+    image: "/fukoimage.jpg",
     description:
       "Fuko completed her Diploma of Remedial Massage in 2017 and brings over a decade of hands-on experience in massage therapy. She specialises in a wide range of techniques and tailors each treatment to suit the unique needs of every client—whether you're seeking relief from chronic pain, support during injury recovery, or simply a moment of deep relaxation. As a mother of two young children and living far from her family in Japan, Fuko understands how busy and overwhelming life can be. These personal experiences have shaped her compassionate, intuitive approach to care. She is deeply passionate about the healing power of therapeutic touch and is dedicated to helping others restore their health, find balance, and feel at ease in their own bodies. Fuko looks forward to welcoming you and supporting you on your wellness journey.",
   },
@@ -43,7 +43,7 @@ const teamMembers = [
       "Rehab-focused Massage",
       "Progressive Exercise",
     ],
-    image: "/tan.jpg",
+    image: "/tantwo.jpg",
     description:
       "Tan is a qualified Remedial Massage Therapist with over 10 years of hands-on experience helping people relieve pain, recover from injury, and move better. Trained in dry needling, joint mobilisations, and rehab-focused massage, Tan has worked alongside physiotherapists since 2019. Each treatment is tailored to individual needs—combining effective hands-on therapy with simple, practical exercises to support long-term results.",
   },
@@ -183,9 +183,9 @@ export default function AboutPage() {
 
           <motion.div
             variants={itemVariants}
-            className="font-serif text-xl md:text-2xl lg:text-3xl mb-8 italic text-spa-accent"
+            className="font-serif text-xl md:text-2xl italic text-spa-accent mb-6"
           >
-            Discover the Story Behind Bunbury Wellness Remedial Massage
+            Feel better, move better, live better – Naturally.
           </motion.div>
 
           <motion.p

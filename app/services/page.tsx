@@ -70,7 +70,7 @@ const services = [
     subtitle: "Gentle Care for Mums-to-Be",
     description:
       "Safe and comfortable massage therapy designed specifically for expectant mothers. Performed in side-lying position for optimal comfort and safety.",
-    image: "/preg2.png",
+    image: "/preg3.png",
     duration: "60-90 minutes",
     price: "From $135",
     features: [

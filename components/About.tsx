@@ -54,6 +54,12 @@ const About = () => {
         >
           Our Journey
         </motion.h2>
+        <motion.div
+          variants={itemVariants}
+          className="font-serif text-xl md:text-2xl italic text-spa-accent mb-6"
+        >
+          Feel better, move better, live better – Naturally.
+        </motion.div>
         <motion.p
           variants={itemVariants}
           className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto"
@@ -68,10 +74,10 @@ const About = () => {
         >
           <motion.div variants={itemVariants} className="text-left">
             <div className="flex items-start gap-4">
-              <div className="text-2xl font-light text-spa-primary flex-shrink-0">
-                2024
+              <div className="w-16 h-16 bg-spa-primary flex items-center justify-center">
+                <span className="text-white font-bold text-lg">2024</span>
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-lg font-medium text-spa-secondary mb-2">
                   Our Home Clinic Began
                 </h3>
@@ -85,10 +91,10 @@ const About = () => {
           </motion.div>
           <motion.div variants={itemVariants} className="text-left">
             <div className="flex items-start gap-4">
-              <div className="text-2xl font-light text-spa-primary flex-shrink-0">
-                2025
+              <div className="w-16 h-16 bg-spa-primary flex items-center justify-center">
+                <span className="text-white font-bold text-lg">2025</span>
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-lg font-medium text-spa-secondary mb-2">
                   Growing Together
                 </h3>

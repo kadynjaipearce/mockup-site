@@ -19,7 +19,7 @@ const specials = [
     link: "/services",
   },
   {
-    image: "/preg2.png",
+    image: "/preg3.png",
     title: "Pregnancy Massage",
     subtitle: "Gentle care for mums-to-be",
     cta: "Learn More",
@@ -124,7 +124,7 @@ export default function Specials() {
                     </motion.h3>
                     <motion.h2
                       variants={itemVariants}
-                      className="text-white text-3xl md:text-5xl font-light mb-8 drop-shadow-lg"
+                      className="text-white text-3xl md:text-5xl font-light mb-8 drop-shadow-lg italic font-serif text-spa-accent"
                     >
                       {special.subtitle}
                     </motion.h2>

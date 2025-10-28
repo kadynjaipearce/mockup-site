@@ -18,7 +18,7 @@ const Services = () => {
       title: "PREGNANCY MASSAGE",
       subtitle: "",
       description: "Gentle, safe, and nurturing for mums-to-be",
-      image: "/preg2.png",
+      image: "/preg3.png",
       link: "/services",
     },
   ];
@@ -109,7 +109,7 @@ const Services = () => {
                   <h3 className="text-white text-xl font-semibold mb-2 tracking-wide">
                     {service.title}
                   </h3>
-                  <h4 className="text-white text-sm font-semibold mb-2 tracking-wide text-[#]">
+                  <h4 className="text-white text-sm font-semibold mb-2 tracking-wide text-spa-secondary italic font-serif">
                     {service.subtitle}
                   </h4>
                   <p className="text-white/90 mb-4 text-sm leading-relaxed">
