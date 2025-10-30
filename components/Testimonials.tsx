@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [reviews, setReviews] = useState<
+  const [reviews] = useState<
     Array<{ quote: string; name: string; rating: number; date: string }>
   >([
     {
@@ -83,7 +83,7 @@ const Testimonials = () => {
       date: new Date().toLocaleDateString(),
     },
   ]);
-  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(22);
+  const [fiveStarTotal] = useState<number | null>(22);
   const [loading] = useState(false);
   const [error] = useState<string | null>(null);
 
