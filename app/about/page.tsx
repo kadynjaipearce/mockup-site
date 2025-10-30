@@ -203,7 +203,7 @@ export default function AboutPage() {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             className="text-center"
           >

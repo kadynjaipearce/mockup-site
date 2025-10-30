@@ -11,80 +11,81 @@ const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviews, setReviews] = useState<
     Array<{ quote: string; name: string; rating: number; date: string }>
-  >([]);
-  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Hydrate from Google Reviews API, filter >4 stars
-  useEffect(() => {
-    const load = async () => {
-      try {
-        setLoading(true);
-        const apiUrl = "/api/google-reviews";
-        const res = await fetch(apiUrl, { cache: "no-store" });
-        type ApiReview = {
-          authorName: string;
-          rating: number;
-          text: string;
-          time: string;
-        };
-        type ApiResponse = {
-          reviews?: ApiReview[];
-          fiveStarCount?: number;
-          error?: string;
-        };
-        const dataUnknown: unknown = await res.json();
-        // If unauthorized (no refresh token on server), do not redirect users; show fallback
-        if (res.status === 401) {
-          throw new Error("Reviews unavailable");
-        }
-        if (!res.ok) throw new Error("Failed to load reviews");
-
-        const maybe = dataUnknown as
-          | Partial<ApiResponse>
-          | Record<string, unknown>;
-        const reviewsArr: ApiReview[] = Array.isArray(
-          (maybe as Partial<ApiResponse>)?.reviews
-        )
-          ? ((maybe as Partial<ApiResponse>).reviews as ApiReview[])
-          : [];
-        const filtered = reviewsArr
-          .filter((r) => Number(r.rating) > 4)
-          .map((r) => ({
-            quote: r.text,
-            name: r.authorName,
-            rating: r.rating,
-            date: r.time,
-          }));
-
-        setReviews(
-          filtered.length > 0
-            ? filtered
-            : [
-                // fallback to at least one rendered item
-                {
-                  quote:
-                    "Our clients love us. Check back soon for the latest reviews!",
-                  name: "Google Reviews",
-                  rating: 5,
-                  date: "recent",
-                },
-              ]
-        );
-        const fiveStar = (maybe as Partial<ApiResponse>)?.fiveStarCount;
-        setFiveStarTotal(typeof fiveStar === "number" ? fiveStar : null);
-        setError(null);
-      } catch (e) {
-        const message =
-          e instanceof Error ? e.message : "Unable to load reviews";
-        setError(message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    load();
-  }, []);
+  >([
+    {
+      quote:
+        "I highly recommend Bunbury Wellness Remedial Massage, Fuko is incredible - very welcoming and professional, and she shows genuine care for you. She tailors the massage to your specific concerns and needs, and is very skilled. The treatment room is well set up and is a lovely relaxing atmosphere. I look forward to my massages so much because I always end up feeling so good!",
+      name: "Felicity J",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Fuko and Tan are such a great team together! Fuko first massaged me 3.5 years ago and there has been no one better since! I decided on a massage yesterday and could only book in to see Tan, but no fear, he is just as good! You won't be disappointed, these two are perfect! Thank you both so much 🥰",
+      name: "Ally Westwood",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "The absolute best massage! I started seeing Fuko around 30 weeks pregnant and the massages are so much better then I expected. Other places I went to left me feeling like I didn't have a massage and I was still so sore. Fuko works with my muscles so well, since going to her my pregnancy back, hip and shoulder pain has improved. She is also a beautiful lady with a peaceful aura.",
+      name: "Chalise Lange",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Fuko provided an really great massage experience. Her knowledge of muscles and their functions really helped with getting to the right spots for my pain. Her home space is well set up and tranquil.",
+      name: "Azima Patel",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Fuko is absolutely incredible! Not only is she so kind and caring but she’s extremely thorough and takes great pride in her work with helping customers! She checked constantly that I was okay and the pressure is okay, I am 17 weeks pregnant also and she was very accommodating! I walked in with a lot of neck problems and she worked so hard to help soothe them! I will be back for sure! 10/10! 🩷🩷🩷🩷",
+      name: "Tahlia Ferbrache",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "I had the most amazing remedial massage last week. Fuko is warm and friendly and takes time to listen and understand your needs. She communicates well during the massage to make sure the pressure is comfortable and is extremely professional. She has a lovely clinic setting with relaxing music to help you unwind. She worked on specific areas that needed extra attention to relieve my sore muscles. Fuko even gave me suggestions of exercises to loosen tight muscles. She genuinely cares. I will be a regular from now on. 👍🩷",
+      name: "Christine Williams",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Had a fantastic remedial massage with Fuko today. I arrived in quite a bit of discomfort, she assessed me and was able to leave me feeling 💯 I walked out feeling so much better! She has a very welcoming vibe, her room is so comfortable and relaxing. I highly recommend ☺️",
+      name: "Tanya Gosztyla",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Fuko's 90 minute remedial massage is the best! She pays close attention to your needs and works very competently and professionally throughout to treat the body's problem areas. I have no hesitation in recommending her services.",
+      name: "Leonie Popp",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "I have always found Fuko an excellent Massage Therapist, she has a lovely personality & has setup a very pleasant & calming place to work her magic. Would highly recommend to any female friends & family.",
+      name: "Julie Gornall",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "I had an excellent massage from Fuko who is very skilled. She is warm and friendly and the clinic setting is peaceful and relaxing. I will definitely return and recommend!",
+      name: "Tina Kaye",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+  ]);
+  const [fiveStarTotal, setFiveStarTotal] = useState<number | null>(22);
+  const [loading] = useState(false);
+  const [error] = useState<string | null>(null);
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) =>
@@ -286,6 +287,18 @@ const Testimonials = () => {
             />
           ))}
         </motion.div>
+
+        <div className="text-center mt-8">
+          <motion.a
+            variants={itemVariants}
+            href="https://share.google/G69XBVJvT1gSY0pWQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-5 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition-colors"
+          >
+            See all reviews
+          </motion.a>
+        </div>
       </div>
     </section>
   );

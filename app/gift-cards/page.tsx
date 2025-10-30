@@ -145,7 +145,7 @@ export default function GiftCardsPage() {
           <motion.div
             variants={sectionVariants}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             className="text-center mb-16"
           >
