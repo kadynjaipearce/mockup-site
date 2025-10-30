@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Bunbury Wellness",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bunbury Wellness - Gift Cards",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Gift Cards Bunbury - Massage Gift Vouchers",
     description:
       "Purchase massage gift cards in Bunbury, WA. Perfect gifts for all massage services.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "/gift-cards",

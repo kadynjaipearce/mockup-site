@@ -18,7 +18,7 @@ export default function PerformanceOptimization() {
       // Preload critical images
       const imageLink = document.createElement("link");
       imageLink.rel = "preload";
-      imageLink.href = "/og-image.jpg";
+      imageLink.href = "/og-image.png";
       imageLink.as = "image";
       document.head.appendChild(imageLink);
     };

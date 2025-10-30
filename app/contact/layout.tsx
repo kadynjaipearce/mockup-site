@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Bunbury Wellness",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bunbury Wellness - Contact Us",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Contact Bunbury Wellness - Book Your Session",
     description:
       "Contact us to book your remedial, sports, or pregnancy massage session in Bunbury, WA.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "/contact",

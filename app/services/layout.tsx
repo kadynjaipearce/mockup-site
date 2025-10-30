@@ -496,7 +496,7 @@ export const metadata: Metadata = {
     siteName: "Bunbury Wellness",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bunbury Wellness - Massage Services",
@@ -510,7 +510,7 @@ export const metadata: Metadata = {
     title: "Massage Services Bunbury - Remedial, Sports & Pregnancy Massage",
     description:
       "Professional massage services in Bunbury, WA. Remedial massage, sports massage, pregnancy massage, and dry needling therapy.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "/services",

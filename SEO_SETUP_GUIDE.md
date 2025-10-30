@@ -63,13 +63,11 @@
 ### 1. Google Business Profile Setup
 
 1. **Create/Claim Business Profile**:
-
    - Go to [Google Business Profile](https://business.google.com)
    - Add business details matching schema markup
    - Verify business location
 
 2. **Complete Profile**:
-
    - Add high-quality photos
    - Include service descriptions
    - Add business hours
@@ -82,7 +80,6 @@
 ### 2. Local SEO Optimization
 
 1. **Directory Listings**:
-
    - Google My Business
    - Bing Places for Business
    - Yelp Business
@@ -96,7 +93,6 @@
 ### 3. Content Optimization
 
 1. **Service Pages**:
-
    - Create dedicated pages for each service
    - Include detailed descriptions
    - Add FAQ sections
@@ -111,7 +107,6 @@
 ### 4. Technical SEO
 
 1. **Performance Optimization**:
-
    - Optimize images (WebP format)
    - Implement lazy loading
    - Minimize CSS/JS
@@ -125,7 +120,6 @@
 ### 5. Analytics & Monitoring
 
 1. **Google Analytics**:
-
    - Set up Google Analytics 4
    - Track conversions (bookings)
    - Monitor organic traffic
@@ -188,19 +182,16 @@
 ## 📝 Important Notes
 
 1. **Replace Placeholder Values**:
-
    - Update `your-google-verification-code` in layout.tsx
    - Replace placeholder phone numbers and addresses
    - Update social media URLs
 
 2. **Image Optimization**:
-
-   - Create and optimize og-image.jpg (1200x630px)
+   - Create and optimize og-image.png (1200x630px)
    - Create app icons for manifest
    - Optimize all images for web
 
 3. **Domain Setup**:
-
    - Replace `bunburywellness.com.au` with actual domain
    - Set up SSL certificate
    - Configure DNS properly

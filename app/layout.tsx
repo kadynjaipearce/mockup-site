@@ -113,7 +113,7 @@ export const metadata: Metadata = {
       "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Book your therapeutic session with our skilled massage therapists.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bunbury Wellness - Professional Massage Therapy",
@@ -126,7 +126,7 @@ export const metadata: Metadata = {
       "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage",
     description:
       "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Book your therapeutic session today.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
     creator: "@bunburywellness",
   },
   robots: {
@@ -173,7 +173,7 @@ export default function RootLayout({
                 ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/logo.png`
                 : undefined,
               image: process.env.NEXT_PUBLIC_BASE_URL
-                ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/og-image.jpg`
+                ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/og-image.png`
                 : undefined,
               address: {
                 "@type": "PostalAddress",
