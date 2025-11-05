@@ -334,6 +334,7 @@ export default function AboutPage() {
                       src={member.image}
                       alt={member.name}
                       fill
+                      priority
                       className="object-cover"
                     />
                   </div>

@@ -132,15 +132,6 @@ export default function PrivacyPage() {
                       on secure servers with SSL encryption to protect any
                       information transmitted.
                     </p>
-                    <p>
-                      <strong>Physical Security:</strong> Any paper records from
-                      in-person sessions are stored in locked, secure cabinets
-                      accessible only to authorized staff.
-                    </p>
-                    <p>
-                      <strong>No Digital Storage:</strong> We do not store any
-                      personal information in digital format on our systems.
-                    </p>
                   </div>
                 </div>
 

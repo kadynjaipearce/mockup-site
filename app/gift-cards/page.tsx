@@ -194,7 +194,7 @@ export default function GiftCardsPage() {
               </h3>
               <p className="text-gray-600">
                 Gift cards are valid for 3 years from date of purchase, giving
-                your loved ones flexibility.
+                your loved ones flexibility
               </p>
             </motion.div>
 

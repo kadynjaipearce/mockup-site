@@ -164,8 +164,9 @@ const JoinTeamPage = () => {
               variants={itemVariants}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              Fill out the form and upload your CV/Resume. We&apos;ll be in
-              touch if there&apos;s a match.
+              Complete the form and upload your CV/Resume. Our team will review
+              your application and reach out if your profile aligns with our
+              current opportunities.
             </motion.p>
           </motion.div>
 

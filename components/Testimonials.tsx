@@ -234,9 +234,6 @@ const Testimonials = () => {
                     <cite className="text-spa-accent font-medium text-lg">
                       — {reviews[currentIndex]?.name}
                     </cite>
-                    <div className="text-white/70 text-sm mt-1">
-                      {reviews[currentIndex]?.date}
-                    </div>
                   </>
                 )}
               </motion.div>
@@ -291,7 +288,7 @@ const Testimonials = () => {
         <div className="text-center mt-8">
           <motion.a
             variants={itemVariants}
-            href="https://share.google/G69XBVJvT1gSY0pWQ"
+            href="https://www.google.com/search?sca_esv=f1b1fe1a0ad9e49d&cs=0&sxsrf=AE3TifNrmlq346eyEHGYj1NtYq1QteCAYA:1762327938201&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-xPk4dMLERzfwEBxM2Ad3EwXBoPymLL8SukweN3HNILVsotybJ00pgj3dwtJDnjRZx2QMMHiofROHxRVtlJKPMGh5Wz6gukNMliXEeDRIy04gqIrFpbFqdTcER4PnA7_XcBVvo%3D&q=Bunbury+Wellness+Remedial+Massage+Reviews&sa=X&ved=2ahUKEwjxzu-Vv9qQAxXOiq8BHYbgJuYQ0bkNegQIIhAE&biw=1278&bih=1270&dpr=1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 px-5 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition-colors"

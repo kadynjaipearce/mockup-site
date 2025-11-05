@@ -76,7 +76,7 @@ const services = [
     features: [
       "Pregnancy-safe techniques",
       "Side-lying position",
-      "Stress relief",
+      "Stress/Pain relief",
       "Comfort focus",
       "Free 15-minute consultation",
     ],

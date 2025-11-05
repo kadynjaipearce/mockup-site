@@ -106,10 +106,10 @@ const Services = () => {
                   transition={{ duration: 0.3 }}
                 />
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="text-white text-xl font-semibold mb-2 tracking-wide">
+                  <h3 className="text-white text-xl font-semibold mb-1 tracking-wide">
                     {service.title}
                   </h3>
-                  <h4 className="text-white text-sm font-semibold mb-2 tracking-wide">
+                  <h4 className="text-white text-[16px] font-semibold mb-2 tracking-wide">
                     {service.subtitle}
                   </h4>
                   <p className="text-white/90 mb-4 text-sm leading-relaxed">

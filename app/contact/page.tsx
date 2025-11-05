@@ -194,8 +194,8 @@ const ContactPage = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/contact.jpg')`,
-            filter: "blur(5px)",
+            backgroundImage: `url('/contact_two.jpg')`,
+            filter: "blur(2px)",
           }}
         />
 
@@ -482,7 +482,7 @@ const ContactPage = () => {
                 </h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   We&apos;re here to help you on your wellness journey. Contact
-                  us today to discuss your needs and book your personalized
+                  us today to discuss your needs and book your personalised
                   treatment.
                 </p>
               </motion.div>
