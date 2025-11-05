@@ -88,7 +88,7 @@ export default function GiftCardsPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/giftcard.png')`,
-            filter: "blur(5px)",
+            filter: "blur(2px)",
           }}
         />
 
