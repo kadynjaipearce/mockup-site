@@ -194,8 +194,8 @@ const ContactPage = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/shop_front.jpg')`,
-            filter: "blur(2px)",
+            backgroundImage: `url('/shopfront.jpg')`,
+            filter: "blur(3px)",
           }}
         />
 
