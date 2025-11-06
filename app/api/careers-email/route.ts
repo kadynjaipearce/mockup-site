@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     req.headers.get("origin") || process.env.NEXT_PUBLIC_BASE_URL || "";
   const websiteBase = process.env.NEXT_PUBLIC_BASE_URL || origin || "";
   const absoluteLogo = websiteBase
-    ? `${websiteBase.replace(/\/$/, "")}/icon.png`
+    ? `${websiteBase.replace(/\/$/, "")}/Icon.png`
     : undefined;
 
   const { error } = await resend.emails.send({

@@ -30,7 +30,7 @@ export default function ContactAcknowledgementEmail(
   const resolvedLogo =
     logoUrl ||
     (process.env.NEXT_PUBLIC_BASE_URL
-      ? `${process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, "")}/icon.png`
+      ? `${process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, "")}/Icon.png`
       : "");
   const resolvedSite =
     siteUrl || process.env.NEXT_PUBLIC_BASE_URL || "https://";
@@ -69,8 +69,9 @@ export default function ContactAcknowledgementEmail(
                 width={100}
                 height={100}
                 style={{
-                  display: "inline-block",
+                  display: "block",
                   borderRadius: 8,
+                  margin: "0 auto",
                 }}
               />
               <Heading

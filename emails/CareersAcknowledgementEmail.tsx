@@ -28,7 +28,7 @@ export default function CareersAcknowledgementEmail(
   const resolvedLogo =
     logoUrl ||
     (process.env.NEXT_PUBLIC_BASE_URL
-      ? `${process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, "")}/icon.png`
+      ? `${process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, "")}/Icon.png`
       : "");
   const resolvedSite =
     siteUrl || process.env.NEXT_PUBLIC_BASE_URL || "https://";
@@ -63,7 +63,11 @@ export default function CareersAcknowledgementEmail(
                 alt="Bunbury Wellness Remedial Massage Logo"
                 width={100}
                 height={100}
-                style={{ display: "inline-block", borderRadius: 8 }}
+                style={{
+                  display: "block",
+                  borderRadius: 8,
+                  margin: "0 auto",
+                }}
               />
               <Heading
                 as="h1"
