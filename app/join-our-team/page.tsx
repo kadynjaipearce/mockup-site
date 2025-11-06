@@ -102,7 +102,7 @@ const JoinTeamPage = () => {
   return (
     <div className="min-h-screen pt-20 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center">
         <motion.div
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
