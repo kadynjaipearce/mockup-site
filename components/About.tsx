@@ -135,7 +135,7 @@ const About = () => {
               variants={numberVariants}
               className="text-3xl font-light text-spa-primary mb-2"
             >
-              27+
+              29+
             </motion.div>
             <div className="text-gray-600">Happy Clients</div>
           </motion.div>

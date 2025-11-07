@@ -14,6 +14,20 @@ const Testimonials = () => {
   >([
     {
       quote:
+        "Tan is a highly experienced remedial massagist. Every time I leave, I feel refreshed, and my muscles are more relaxed. He is a magician that knows what muscles are in need of extra attention.",
+      name: "Susanna T",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Tan is such a great massage therapist, he is so knowledgeable and manages to find all the problem points without even needing to be told where to look!",
+      name: "Leyna P",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
         "I highly recommend Bunbury Wellness Remedial Massage, Fuko is incredible - very welcoming and professional, and she shows genuine care for you. She tailors the massage to your specific concerns and needs, and is very skilled. The treatment room is well set up and is a lovely relaxing atmosphere. I look forward to my massages so much because I always end up feeling so good!",
       name: "Felicity J",
       rating: 5,
@@ -83,7 +97,7 @@ const Testimonials = () => {
       date: new Date().toLocaleDateString(),
     },
   ]);
-  const [fiveStarTotal] = useState<number | null>(22);
+  const [fiveStarTotal] = useState<number | null>(24);
   const [loading] = useState(false);
   const [error] = useState<string | null>(null);
 
