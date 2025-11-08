@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Bunbury Wellness - Book Your Massage Session | Bunbury, WA",
+  title:
+    "Contact Bunbury Wellness Remedial Massage - Book Your Massage Session | Bunbury, WA",
   description:
-    "Contact Bunbury Wellness to book your remedial, sports, or pregnancy massage session in Bunbury, WA. Call, email, or book online today. Located in Bunbury, Western Australia.",
+    "Contact Bunbury Wellness Remedial Massage to book your remedial, sports, or pregnancy massage session in Bunbury, WA. Call, email, or book online today. Located in Bunbury, Western Australia.",
   keywords: [
-    "contact Bunbury Wellness",
+    "contact Bunbury Wellness Remedial Massage",
     "book massage Bunbury",
     "massage appointment Bunbury",
     "massage booking Bunbury",
@@ -21,19 +22,19 @@ export const metadata: Metadata = {
     "massage clinic hours Bunbury",
   ],
   openGraph: {
-    title: "Contact Bunbury Wellness - Book Your Massage Session",
+    title: "Contact Us",
     description:
       "Contact us to book your remedial, sports, or pregnancy massage session in Bunbury, WA.",
     url: process.env.NEXT_PUBLIC_BASE_URL
       ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/contact`
       : undefined,
-    siteName: "Bunbury Wellness",
+    siteName: "Bunbury Wellness Remedial Massage",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bunbury Wellness - Contact Us",
+        alt: "Bunbury Wellness Remedial Massage - Contact Us",
       },
     ],
     locale: "en_AU",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Bunbury Wellness - Book Your Session",
+    title: "Contact Bunbury Wellness Remedial Massage - Book Your Session",
     description:
       "Contact us to book your remedial, sports, or pregnancy massage session in Bunbury, WA.",
     images: ["/og-image.png"],

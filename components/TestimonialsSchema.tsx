@@ -8,7 +8,7 @@ export default function TestimonialsSchema() {
     const schema = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "Bunbury Wellness",
+      name: "Bunbury Wellness Remedial Massage",
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",

@@ -1,4 +1,4 @@
-# SEO Setup Guide for Bunbury Wellness
+# SEO Setup Guide for Bunbury Wellness Remedial Massage
 
 ## ✅ Implemented SEO Features
 

@@ -78,7 +78,7 @@ export default function CareersAcknowledgementEmail(
                   fontSize: "24px",
                 }}
               >
-                Bunbury Wellness
+                Bunbury Wellness Remedial Massage
               </Heading>
               <Text
                 style={{

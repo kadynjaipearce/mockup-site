@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gift Cards Bunbury - Massage Gift Vouchers | Bunbury Wellness",
+  title:
+    "Gift Cards Bunbury - Massage Gift Vouchers | Bunbury Wellness Remedial Massage",
   description:
     "Purchase massage gift cards in Bunbury, WA. Perfect gifts for remedial, sports, and pregnancy massage. Available in various amounts. Give the gift of wellness today.",
   keywords: [
@@ -26,13 +27,13 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_BASE_URL
       ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/gift-cards`
       : undefined,
-    siteName: "Bunbury Wellness",
+    siteName: "Bunbury Wellness Remedial Massage",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bunbury Wellness - Gift Cards",
+        alt: "Bunbury Wellness Remedial Massage - Gift Cards",
       },
     ],
     locale: "en_AU",

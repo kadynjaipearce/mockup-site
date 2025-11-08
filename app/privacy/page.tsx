@@ -21,7 +21,7 @@ export default function PrivacyPage() {
                     1. Introduction
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
-                    At Bunbury Wellness, we respect your privacy and are
+                    At Bunbury Wellness Remedial Massage, we respect your privacy and are
                     committed to protecting your personal information. This
                     Privacy Policy explains how we handle information when you
                     visit our website or use our services.
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
                   </p>
                   <div className="p-4 bg-spa-neutral rounded-lg">
                     <p className="text-gray-700">
-                      <strong>Bunbury Wellness</strong>
+                      <strong>Bunbury Wellness Remedial Massage</strong>
                       <br />
                       Address: Unit 4 3 Victoria Street
                       <br />

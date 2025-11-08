@@ -18,8 +18,7 @@ const Footer = () => {
                 className="h-15 w-15"
               />
               <div>
-                <div className="font-semibold text-xl">Bunbury Wellness</div>
-                <div className="text-sm opacity-80">Remedial Massage</div>
+                <div className="font-semibold text-xl">Bunbury Wellness Remedial Massage</div>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">

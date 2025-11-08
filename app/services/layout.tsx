@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Massage Services Bunbury - Remedial, Sports & Pregnancy Massage | Bunbury Wellness",
+  title: "Our Services",
   description:
     "Professional massage services in Bunbury, WA. Remedial massage, sports massage, pregnancy massage, and dry needling therapy. Female massage therapists available. Book your session today.",
   keywords: [
@@ -493,13 +492,13 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_BASE_URL
       ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/services`
       : undefined,
-    siteName: "Bunbury Wellness",
+    siteName: "Bunbury Wellness Remedial Massage",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bunbury Wellness - Massage Services",
+        alt: "Bunbury Wellness Remedial Massage - Massage Services",
       },
     ],
     locale: "en_AU",

@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Bunbury Wellness - Remedial Massage & Deep Tissue Therapy",
-    short_name: "Bunbury Wellness",
+    name: "Bunbury Wellness Remedial Massage - Remedial Massage & Deep Tissue Therapy",
+    short_name: "Bunbury Wellness Remedial Massage",
     description:
       "Professional remedial massage, deep tissue therapy, and relaxation massage in Bunbury, WA.",
     start_url: "/",

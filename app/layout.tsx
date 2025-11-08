@@ -44,11 +44,11 @@ const crimsonText = Crimson_Text({
 export const metadata: Metadata = {
   title: {
     default:
-      "Bunbury Wellness - Remedial Massage & Deep Tissue Therapy | Bunbury, WA",
-    template: "%s | Bunbury Wellness",
+      "Bunbury Wellness Remedial Massage, Sports Massage, Pregnancy Massage & Dry Needling | Bunbury, WA",
+    template: "%s | Bunbury Wellness Remedial Massage",
   },
   description:
-    "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Expert massage therapists for pain relief and wellness. Book your session today.",
+    "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Expert massage therapists for Stess & Pain relief and wellness. Book your session today.",
   keywords: [
     "remedial massage Bunbury",
     "sports massage Bunbury",
@@ -88,9 +88,9 @@ export const metadata: Metadata = {
     "women remedial massage Bunbury",
     "female dry needling Bunbury",
   ],
-  authors: [{ name: "Bunbury Wellness" }],
-  creator: "Bunbury Wellness",
-  publisher: "Bunbury Wellness",
+  authors: [{ name: "Bunbury Wellness Remedial Massage" }],
+  creator: "Bunbury Wellness Remedial Massage",
+  publisher: "Bunbury Wellness Remedial Massage",
   formatDetection: {
     email: false,
     address: false,
@@ -106,9 +106,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AU",
     url: process.env.NEXT_PUBLIC_BASE_URL || undefined,
-    siteName: "Bunbury Wellness",
+    siteName: "Bunbury Wellness Remedial Massage",
     title:
-      "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage",
+      "Bunbury Wellness Remedial Massage - Professional Remedial, Sports & Pregnancy Massage",
     description:
       "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Book your therapeutic session with our skilled massage therapists.",
     images: [
@@ -116,14 +116,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bunbury Wellness - Professional Massage Therapy",
+        alt: "Bunbury Wellness Remedial Massage - Professional Massage Therapy",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage",
+      "Bunbury Wellness Remedial Massage - Professional Remedial, Sports & Pregnancy Massage",
     description:
       "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Book your therapeutic session today.",
     images: ["/og-image.png"],
@@ -164,7 +164,7 @@ export default function RootLayout({
                 "MedicalBusiness",
               ],
               name: "Bunbury Wellness Remedial Massage",
-              alternateName: "Bunbury Wellness",
+              alternateName: "Bunbury Wellness Remedial Massage",
               description:
                 "Professional remedial massage, sports massage, pregnancy massage, and dry needling therapy services in Bunbury, WA. Female massage therapists available for women who prefer female therapists.",
               url: process.env.NEXT_PUBLIC_BASE_URL || undefined,

@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage | Bunbury, WA",
+    "Bunbury Wellness Remedial Massage - Professional Remedial, Sports & Pregnancy Massage | Bunbury, WA",
   description:
     "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Book your therapeutic session with our skilled massage therapists.",
   keywords: [
@@ -34,17 +34,17 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage",
+      "Bunbury Wellness Remedial Massage - Professional Remedial, Sports & Pregnancy Massage",
     description:
       "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available.",
     url: process.env.NEXT_PUBLIC_BASE_URL || undefined,
-    siteName: "Bunbury Wellness",
+    siteName: "Bunbury Wellness Remedial Massage",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bunbury Wellness - Professional Massage Therapy",
+        alt: "Bunbury Wellness Remedial Massage - Professional Massage Therapy",
       },
     ],
     locale: "en_AU",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Bunbury Wellness - Professional Remedial, Sports & Pregnancy Massage",
+      "Bunbury Wellness Remedial Massage - Professional Remedial, Sports & Pregnancy Massage",
     description:
       "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available.",
     images: ["/og-image.png"],

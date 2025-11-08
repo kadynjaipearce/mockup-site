@@ -22,7 +22,7 @@ export default function TermsPage() {
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
                     These Terms of Service (&quot;Terms&quot;) govern your use
-                    of the Bunbury Wellness website and services. By accessing
+                    of the Bunbury Wellness Remedial Massage website and services. By accessing
                     or using our website, you agree to be bound by these Terms.
                     If you disagree with any part of these terms, you may not
                     access our services.
@@ -35,7 +35,7 @@ export default function TermsPage() {
                     2. Services
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Bunbury Wellness provides professional massage therapy
+                    Bunbury Wellness Remedial Massage provides professional massage therapy
                     services including:
                   </p>
                   <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
@@ -175,7 +175,7 @@ export default function TermsPage() {
                     7. Limitation of Liability
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
-                    Bunbury Wellness and its therapists are not liable for any
+                    Bunbury Wellness Remedial Massage and its therapists are not liable for any
                     injuries, damages, or losses that may occur during or after
                     your session, except where such liability cannot be excluded
                     by law.
@@ -224,7 +224,7 @@ export default function TermsPage() {
                   </p>
                   <div className="mt-4 p-4 bg-spa-neutral rounded-lg">
                     <p className="text-gray-700">
-                      <strong>Bunbury Wellness</strong>
+                      <strong>Bunbury Wellness Remedial Massage</strong>
                       <br />
                       Address: Unit 4 3 Victoria Street
                       <br />

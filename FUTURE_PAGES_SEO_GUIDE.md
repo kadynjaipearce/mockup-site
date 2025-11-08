@@ -1,4 +1,4 @@
-# Future Pages SEO Guide - Bunbury Wellness
+# Future Pages SEO Guide - Bunbury Wellness Remedial Massage
 
 ## 🎯 **Service-Specific Pages**
 
@@ -7,7 +7,7 @@
 ```javascript
 export const metadata = {
   title:
-    "Remedial Massage Bunbury - Professional Pain Relief Therapy | Bunbury Wellness",
+    "Remedial Massage Bunbury - Professional Pain Relief Therapy | Bunbury Wellness Remedial Massage",
   description:
     "Expert remedial massage therapy in Bunbury, WA. Female massage therapists available. Professional treatment for chronic pain, muscle tension, and injury recovery. Book your session today.",
   keywords: [
@@ -38,7 +38,7 @@ export const metadata = {
 ```javascript
 export const metadata = {
   title:
-    "Sports Massage Bunbury - Athletic Therapy & Injury Recovery | Bunbury Wellness",
+    "Sports Massage Bunbury - Athletic Therapy & Injury Recovery | Bunbury Wellness Remedial Massage",
   description:
     "Professional sports massage therapy in Bunbury, WA. Female massage therapists available. Specialized treatment for athletes, sports injuries, and performance enhancement. Book your session.",
   keywords: [
@@ -68,7 +68,7 @@ export const metadata = {
 
 ```javascript
 export const metadata = {
-  title: "Pregnancy Massage Bunbury - Safe Prenatal Therapy | Bunbury Wellness",
+  title: "Pregnancy Massage Bunbury - Safe Prenatal Therapy | Bunbury Wellness Remedial Massage",
   description:
     "Safe and gentle pregnancy massage therapy in Bunbury, WA. Female massage therapists available. Professional prenatal massage for expectant mothers. Book your session today.",
   keywords: [
@@ -99,7 +99,7 @@ export const metadata = {
 ```javascript
 export const metadata = {
   title:
-    "Dry Needling Bunbury - Advanced Pain Relief Therapy | Bunbury Wellness",
+    "Dry Needling Bunbury - Advanced Pain Relief Therapy | Bunbury Wellness Remedial Massage",
   description:
     "Professional dry needling therapy in Bunbury, WA. Female massage therapists available. Advanced treatment for muscle pain, tension, and trigger points. Book your session.",
   keywords: [
@@ -131,13 +131,13 @@ export const metadata = {
 
 ```javascript
 export const metadata = {
-  title: "About Bunbury Wellness - Expert Massage Therapists | Bunbury, WA",
+  title: "About Bunbury Wellness Remedial Massage - Expert Massage Therapists | Bunbury, WA",
   description:
-    "Learn about Bunbury Wellness, our expert massage therapists, and our commitment to providing professional remedial, sports, and pregnancy massage in Bunbury, WA.",
+    "Learn about Bunbury Wellness Remedial Massage, our expert massage therapists, and our commitment to providing professional remedial, sports, and pregnancy massage in Bunbury, WA.",
   keywords: [
-    "about Bunbury Wellness",
+    "about Bunbury Wellness Remedial Massage",
     "massage therapists Bunbury",
-    "Bunbury Wellness team",
+    "Bunbury Wellness Remedial Massage team",
     "professional massage Bunbury",
     "massage therapy experience Bunbury",
     "qualified massage therapists Bunbury",
@@ -145,7 +145,7 @@ export const metadata = {
     "wellness center Bunbury",
   ],
   openGraph: {
-    title: "About Bunbury Wellness - Expert Massage Therapists",
+    title: "About Bunbury Wellness Remedial Massage - Expert Massage Therapists",
     description:
       "Learn about our expert massage therapists and commitment to professional therapy in Bunbury, WA.",
   },
@@ -156,11 +156,11 @@ export const metadata = {
 
 ```javascript
 export const metadata = {
-  title: "Contact Bunbury Wellness - Book Your Massage Session | Bunbury, WA",
+  title: "Contact Bunbury Wellness Remedial Massage - Book Your Massage Session | Bunbury, WA",
   description:
-    "Contact Bunbury Wellness to book your remedial, sports, or pregnancy massage session in Bunbury, WA. Call or book online today.",
+    "Contact Bunbury Wellness Remedial Massage to book your remedial, sports, or pregnancy massage session in Bunbury, WA. Call or book online today.",
   keywords: [
-    "contact Bunbury Wellness",
+    "contact Bunbury Wellness Remedial Massage",
     "book massage Bunbury",
     "massage appointment Bunbury",
     "massage booking Bunbury",
@@ -170,7 +170,7 @@ export const metadata = {
     "book pregnancy massage Bunbury",
   ],
   openGraph: {
-    title: "Contact Bunbury Wellness - Book Your Massage Session",
+    title: "Contact Bunbury Wellness Remedial Massage - Book Your Massage Session",
     description:
       "Contact us to book your remedial, sports, or pregnancy massage session in Bunbury, WA.",
   },
@@ -182,7 +182,7 @@ export const metadata = {
 ```javascript
 export const metadata = {
   title:
-    "Massage Pricing Bunbury - Affordable Therapy Rates | Bunbury Wellness",
+    "Massage Pricing Bunbury - Affordable Therapy Rates | Bunbury Wellness Remedial Massage",
   description:
     "View our competitive massage therapy pricing in Bunbury, WA. Affordable rates for remedial, sports, pregnancy massage, and dry needling.",
   keywords: [
@@ -208,7 +208,7 @@ export const metadata = {
 
 ```javascript
 export const metadata = {
-  title: "Gift Vouchers Bunbury - Massage Gift Cards | Bunbury Wellness",
+  title: "Gift Vouchers Bunbury - Massage Gift Cards | Bunbury Wellness Remedial Massage",
   description:
     "Purchase massage gift vouchers in Bunbury, WA. Perfect gifts for remedial, sports, and pregnancy massage. Available in various amounts.",
   keywords: [
@@ -234,7 +234,7 @@ export const metadata = {
 
 ```javascript
 export const metadata = {
-  title: "FAQ - Massage Therapy Questions | Bunbury Wellness",
+  title: "FAQ - Massage Therapy Questions | Bunbury Wellness Remedial Massage",
   description:
     "Frequently asked questions about remedial, sports, and pregnancy massage therapy in Bunbury, WA. Get answers about our services.",
   keywords: [
