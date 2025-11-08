@@ -44,7 +44,7 @@ const crimsonText = Crimson_Text({
 export const metadata: Metadata = {
   title: {
     default:
-      "Bunbury Wellness Remedial Massage, Sports Massage, Pregnancy Massage & Dry Needling | Bunbury, WA",
+      "Bunbury Wellness Remedial Massage | Sports Massage, Pregnancy Massage & Dry Needling. Bunbury, WA",
     template: "%s | Bunbury Wellness Remedial Massage",
   },
   description:
@@ -120,15 +120,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "Bunbury Wellness Remedial Massage - Professional Remedial, Sports & Pregnancy Massage",
-    description:
-      "Expert remedial massage, sports massage, pregnancy massage, and dry needling therapy in Bunbury, WA. Female massage therapists available. Book your therapeutic session today.",
-    images: ["/og-image.png"],
-    creator: "@bunburywellness",
-  },
   robots: {
     index: true,
     follow: true,
@@ -153,6 +144,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.jpg" />
+        <link rel="icon" type="image/ico" sizes="32x32" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -170,23 +163,18 @@ export default function RootLayout({
               url: process.env.NEXT_PUBLIC_BASE_URL || undefined,
               email: "info@bunburywellnessremedialmassage.com.au",
               logo: process.env.NEXT_PUBLIC_BASE_URL
-                ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/logo.png`
+                ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/logo.jpg`
                 : undefined,
               image: process.env.NEXT_PUBLIC_BASE_URL
                 ? `${String(process.env.NEXT_PUBLIC_BASE_URL).replace(/\/$/, "")}/og-image.png`
                 : undefined,
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "123 Wellness Street",
+                streetAddress: "Unit 4, 3 Victoria Street",
                 addressLocality: "Bunbury",
                 addressRegion: "WA",
                 postalCode: "6230",
                 addressCountry: "AU",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: -33.3271,
-                longitude: 115.6414,
               },
               openingHoursSpecification: [
                 {
