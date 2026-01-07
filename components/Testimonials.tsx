@@ -96,6 +96,20 @@ const Testimonials = () => {
       rating: 5,
       date: new Date().toLocaleDateString(),
     },
+    {
+      quote:
+        "After many years of mediocre massages I am so pleases to have discovered the talents of both Tan and Fuko. Their understanding of anatomy and ability to be able to find the areas of pain and discomfort and provide relief is second to none. I highly recommend incorporating their massages into your health and wellbeing regularly.",
+      name: "Sarah Davidson",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
+    {
+      quote:
+        "Tan is a miracle worker! Very knowledgeable and skilful massage therapist, and a nice guy too!",
+      name: "Craig Elsom",
+      rating: 5,
+      date: new Date().toLocaleDateString(),
+    },
   ]);
   const [fiveStarTotal] = useState<number | null>(24);
   const [loading] = useState(false);
